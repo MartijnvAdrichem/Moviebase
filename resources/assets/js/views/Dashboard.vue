@@ -1,9 +1,10 @@
 <template>
-	<h1>Laravel 5 Vue SPA Authentication</h1>
+	<h1>Laravel 5 – Our Cool Dashboard</h1>
 </template>
+
 <script>
 	export default {
-		name: "home"
+		name: "dashboard"
 	}
 </script>
 
