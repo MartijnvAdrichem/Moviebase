@@ -13,5 +13,3 @@
 
 Route::get('/{any}', 'SpaController@index')->where('any', '.*');
 
-
-Route::post('auth/register', 'AuthController@register');

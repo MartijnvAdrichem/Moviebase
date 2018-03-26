@@ -13,7 +13,7 @@ import Dashboard from './views/Dashboard.vue';
 import Register from './components/Register.vue';
 import Login from './components/Login.vue';
 
-axios.defaults.baseURL = 'http://127.0.0.1:8000/';
+axios.defaults.baseURL = '/api';
 
 const router = new VueRouter({
 	mode: 'history',
