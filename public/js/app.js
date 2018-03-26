@@ -16516,81 +16516,228 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._m(0), _vm._v(" "), _c("div", [_c("router-view")], 1)])
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "offset-md-3 col-md-auto",
+        staticStyle: { "padding-top": "20px" }
+      },
+      [
+        _c(
+          "nav",
+          {
+            staticClass:
+              "navbar navbar-custom navbar-expand-lg navbar-dark bg-dark ml-3 mr-3",
+            attrs: { id: "navbarHeader" }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "collapse navbar-collapse",
+                attrs: { id: "navbarSupportedContent" }
+              },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "ul",
+                  { staticClass: "navbar-nav" },
+                  [
+                    !_vm.$auth.check()
+                      ? _c(
+                          "router-link",
+                          {
+                            staticClass: "navbar-text nav-link",
+                            attrs: { to: "/login", "active-class": "active" }
+                          },
+                          [
+                            _c("i", { staticClass: "fas fa-sign-in-alt" }),
+                            _vm._v("\n\t\t\t\t\tLogin\n\t\t\t\t")
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    !_vm.$auth.check()
+                      ? _c(
+                          "router-link",
+                          {
+                            staticClass: "navbar-text nav-link",
+                            attrs: { to: "/register", "active-class": "active" }
+                          },
+                          [_vm._v("\n\t\t\t\t\tRegister\n\t\t\t\t")]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.$auth.check()
+                      ? _c(
+                          "router-link",
+                          {
+                            staticClass: "navbar-text nav-link",
+                            attrs: {
+                              to: "/dashboard",
+                              "active-class": "active"
+                            }
+                          },
+                          [
+                            _c("i", { staticClass: "fas fa-fire" }),
+                            _vm._v("\n\t\t\t\t\tprofile\n\t\t\t\t")
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.$auth.check()
+                      ? _c("li", { staticClass: "nav-item dropdown" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "nav-link dropdown-toggle",
+                              attrs: {
+                                href: "#",
+                                id: "navbarDropdown",
+                                role: "button",
+                                "data-toggle": "dropdown",
+                                "aria-haspopup": "true",
+                                "aria-expanded": "false"
+                              }
+                            },
+                            [
+                              _c("i", { staticClass: "fas fa-user" }),
+                              _vm._v(
+                                "\n\t\t\t\t\t\t" +
+                                  _vm._s(_vm.$auth.user().firstname) +
+                                  "\n\t\t\t\t\t"
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "dropdown-menu dropdown-menu-right",
+                              attrs: { "aria-labelledby": "navbarDropdown" }
+                            },
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "dropdown-item",
+                                  attrs: { tag: "a", to: "/user/profile" }
+                                },
+                                [_vm._v("Profile")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "dropdown-item",
+                                  attrs: { tag: "a", to: "/user/account" }
+                                },
+                                [_vm._v("Account Settings")]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "dropdown-divider" }),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "dropdown-item",
+                                  attrs: { href: "#" }
+                                },
+                                [_vm._v("Something else here")]
+                              )
+                            ],
+                            1
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.$auth.check()
+                      ? _c(
+                          "li",
+                          {
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.logout($event)
+                              }
+                            }
+                          },
+                          [_vm._m(2)]
+                        )
+                      : _vm._e()
+                  ],
+                  1
+                )
+              ]
+            )
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", [_c("router-view")], 1)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("nav", { staticClass: "navbar navbar-dark bg-dark" }, [
-      _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-        _vm._v("Navbar")
+    return _c("ul", { staticClass: "navbar-nav" }, [
+      _c("li", { staticClass: "nav-item" }, [
+        _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+          _vm._v("Movies")
+        ])
       ]),
       _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "navbar-toggler",
-          attrs: {
-            type: "button",
-            "data-toggle": "collapse",
-            "data-target": "#navbarTogglerDemo02",
-            "aria-controls": "navbarTogglerDemo02",
-            "aria-expanded": "false",
-            "aria-label": "Toggle navigation"
-          }
-        },
-        [_c("span", { staticClass: "navbar-toggler-icon" })]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "collapse navbar-collapse",
-          attrs: { id: "navbarTogglerDemo02" }
-        },
-        [
-          _c("ul", { staticClass: "navbar-nav mr-auto mt-2 mt-lg-0" }, [
-            _c("li", { staticClass: "nav-item active" }, [
-              _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                _vm._v("Home "),
-                _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item" }, [
-              _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                _vm._v("Link")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item" }, [
-              _c(
-                "a",
-                { staticClass: "nav-link disabled", attrs: { href: "#" } },
-                [_vm._v("Disabled")]
-              )
-            ])
-          ]),
+      _c("li", { staticClass: "nav-item" }, [
+        _c("a", { staticClass: "nav-link disabled", attrs: { href: "#" } }, [
+          _vm._v("Actors")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticStyle: { "padding-left": "50px", "padding-right": "50px" } },
+      [
+        _c("form", { staticClass: "form-inline my-2 my-lg-0" }, [
+          _c("input", {
+            staticClass: "form-control mr-sm-2",
+            attrs: {
+              type: "search",
+              placeholder: "Search",
+              "aria-label": "Search"
+            }
+          }),
           _vm._v(" "),
-          _c("form", { staticClass: "form-inline my-2 my-lg-0" }, [
-            _c("input", {
-              staticClass: "form-control mr-sm-2",
-              attrs: { type: "search", placeholder: "Search" }
-            }),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-outline-success my-2 my-sm-0",
-                attrs: { type: "submit" }
-              },
-              [_vm._v("Search")]
-            )
-          ])
-        ]
-      )
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-success my-2 my-sm-0",
+              attrs: { type: "submit" }
+            },
+            [_vm._v("S")]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "nav-link", attrs: { href: "/" } }, [
+      _c("i", { staticClass: "fas fa-sign-out-alt" }),
+      _vm._v(" Logout")
     ])
   }
 ]
