@@ -1,5 +1,7 @@
 <template>
 	<div>
+		<h1 class="text-center">Login</h1>
+		<hr>
 		<div class="alert alert-danger" v-if="error">
 			<p>There was an error, unable to sign in with those credentials.</p>
 		</div>
@@ -13,6 +15,9 @@
 				<input type="password" id="password" class="form-control" v-model="password" required>
 			</div>
 			<button type="submit" class="btn btn-default">Sign in</button>
+			<router-link tag="a" to="/register" class="text-center" active-class="active">
+				No account yet? Click here to register!
+			</router-link>
 		</form>
 	</div>
 </template>

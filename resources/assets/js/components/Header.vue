@@ -4,7 +4,7 @@
 				<img src="images/Moviebaselogo.png" alt="">
 			</div>
 			<div>
-				<nav style="    border: 1px solid;padding: 10px; box-shadow: 2px 5px;" class="navbar navbar-custom navbar-expand-lg navbar-light bg-white  ml-3 mr-3" >
+				<nav class="navbar navbar-custom navbar-expand-lg navbar-dark bg-dark ml-3 mr-3" >
 
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav">

@@ -1,5 +1,7 @@
 <template>
 	<div>
+		<h1 class="text-center">Register</h1>
+		<hr>
 		<div class="alert alert-danger" v-if="error && !success">
 			<p>There was an error, unable to complete registration.</p>
 		</div>
@@ -23,7 +25,7 @@
 				<input type="password" id="password" class="form-control" v-model="password" required>
 				<span class="help-block" v-if="error && errors.password">{{ errors.password }}</span>
 			</div>
-			<button type="submit" class="btn btn-default">Submit</button>
+			<button type="submit" class="btn btn-dark">Submit</button>
 		</form>
 	</div>
 </template>
@@ -43,24 +45,6 @@
 			};
 		},
 		methods: {
-			register(){
-				var app = this;
-				this.$auth.register({
-					 params:{
-						name: this.name,
-						email: this.email,
-						password: this.password
-					},
-					success: function () {
-						app.success = true
-					},
-					error: function (resp) {
-						app.error = true;
-						app.errors = resp.response.data.errors;
-					},
-					redirect: null
-				});
-			},
 			register2(){
 				const params = {
 						name: this.name,
