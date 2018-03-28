@@ -26,6 +26,11 @@ Route::post('auth/register', 'AuthController@register');
 
 Route::post('auth/login', 'AuthController@login');
 
+Route::post('movie/create', 'MovieController@create');
+
+
+Route::get('genre/all', 'GenreController@getGenres');
+
 Route::group(['middleware' => 'jwt.auth'], function(){
     Route::get('auth/user', 'AuthController@user');
 });

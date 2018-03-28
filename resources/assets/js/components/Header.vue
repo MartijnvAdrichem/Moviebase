@@ -8,12 +8,13 @@
 
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav">
-							<li class="nav-item">
-								<a class="nav-link" href="#">Movies</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link disabled" href="#">Actors</a>
-							</li>
+								<router-link tag="li" to="/movie/new" class="navbar-text nav-link" active-class="active">
+									Movies
+								</router-link>
+								<router-link tag="li" to="/movie/new" class="navbar-text nav-link" active-class="active">
+									Actors
+								</router-link>
+							<
 						</ul>
 						<ul class="navbar-nav pull-right ">
 							<!--Elements that show when not logged in-->
@@ -26,7 +27,6 @@
 
 							<!--Elements that show when a user is logged in-->
 							<router-link v-if="$auth.check()" to="/dashboard" class="navbar-text nav-link" active-class="active">
-								<i class="fas fa-fire"></i>
 								profile
 							</router-link>
 							<li v-if="$auth.check()" class="nav-item dropdown">

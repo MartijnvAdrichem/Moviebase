@@ -23,6 +23,7 @@
         "@websanova/vue-auth": "^2.21.3-beta",
         "vue-axios": "^2.0.2",
         "vue-loader": "^14.2.2",
-        "vue-router": "^3.0.1"
+        "vue-router": "^3.0.1",
+        "vuelidate": "^0.6.2"
     }
 }
