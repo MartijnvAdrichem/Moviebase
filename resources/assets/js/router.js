@@ -5,7 +5,7 @@ import Home from './views/Home.vue'
 import Dashboard from './views/Dashboard.vue';
 import Register from './components/Register.vue';
 import Login from './components/Login.vue';
-
+import CreateActor from './components/actors/CreateActor.vue';
 const routes = [{
 	path: '/',
 	name: 'home',
@@ -28,6 +28,12 @@ const routes = [{
 }, {
 	path: '/movie/new',
 	component: CreateMovie,
+	meta: {
+		auth: true
+	}
+}, {
+	path: '/actor/new',
+	component: CreateActor,
 	meta: {
 		auth: true
 	}

@@ -11,7 +11,7 @@
 								<router-link tag="li" to="/movie/new" class="navbar-text nav-link" active-class="active">
 									Movies
 								</router-link>
-								<router-link tag="li" to="/movie/new" class="navbar-text nav-link" active-class="active">
+								<router-link tag="li" to="/actor/new" class="navbar-text nav-link" active-class="active">
 									Actors
 								</router-link>
 							<

@@ -27,6 +27,7 @@ Route::post('auth/register', 'AuthController@register');
 Route::post('auth/login', 'AuthController@login');
 
 Route::post('movie/create', 'MovieController@create');
+Route::post('actor/create', 'ActorController@create');
 
 
 Route::get('genre/all', 'GenreController@getGenres');

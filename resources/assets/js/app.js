@@ -11,6 +11,8 @@ axios.defaults.baseURL = '/api';
 Vue.use(Vuelidate);
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
+Vue.router = router;
+App.router = Vue.router;
 
 Vue.use(require('@websanova/vue-auth'), {
 	auth: require('@websanova/vue-auth/drivers/auth/bearer.js'),
@@ -23,3 +25,5 @@ new Vue({
 	router,
 	render: h => h(App)
 })
+
+
