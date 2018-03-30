@@ -9,8 +9,11 @@ class ActorController extends Controller {
 
     public function create(Request $request){
 
-        $movie = new Actor($request->all());
-        $movie->save();
+        $actor = new Actor($request->all());
+        $actor->save();
     }
 
+    public function getActors(){
+        return Actor::orderBy('firstname', 'ASC')->orderBy('lastname', 'ASC')->get();
+    }
 }

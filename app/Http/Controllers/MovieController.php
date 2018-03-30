@@ -8,10 +8,13 @@ use Illuminate\Http\Request;
 
 class MovieController extends Controller {
 
-    public function create(Request $request){
+    public function create(Request $request) {
 
-         $movie = new Movie($request->all());
-         $movie->save();
-         $movie->genres()->attach($request->genre);
+        //return $request;
+        $movie = new Movie($request->all());
+        $movie->save();
+        $movie->genres()->attach($request->genre);
+        $movie->actors()->attach($request->cast);
+
     }
 }

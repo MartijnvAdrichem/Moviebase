@@ -13,6 +13,7 @@ Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
 Vue.router = router;
 App.router = Vue.router;
+export const eventBus = new Vue();
 
 Vue.use(require('@websanova/vue-auth'), {
 	auth: require('@websanova/vue-auth/drivers/auth/bearer.js'),

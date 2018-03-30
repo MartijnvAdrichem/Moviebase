@@ -39,9 +39,12 @@
 			<div class="checkbox-inline" v-bind:class="{invalid: $v.genre.$error}">
 					<label v-for="genre1 in allGenres" class="checkbox-inline"><input @change="$v.genre.$touch()" type="checkbox" :value="genre1.id" v-model="genre"> {{genre1.name}}</label>
 			</div>
-
-
-
+			<hr>
+			<h2>Cast</h2>
+			<div>
+				<app-create-actor-movie-row v-for="(castrow) in cast"  :index="castrow.id" :Actors="allActors"></app-create-actor-movie-row>
+			</div>
+			<button class="btn btn-dark" @click.prevent="addActorRoleRow">Add row</button>
 			<div class="submit">
 				<button class="btn btn-dark" type="submit" :disabled="$v.$invalid">Submit</button>
 			</div>
@@ -50,9 +53,11 @@
 </template>
 
 <script>
-	import axios from 'axios';
-	import {required, email, numeric, minValue, minLength, sameAs, requiredUnless} from 'vuelidate/lib/validators';
 
+	import axios from 'axios';
+	import {eventBus} from '../../app.js'
+	import CreateActorMovieRow from './CreateActorMovieRow.vue';
+	import {required, email, numeric, minValue, minLength, sameAs, requiredUnless} from 'vuelidate/lib/validators';
 	export default {
 		data() {
 			return {
@@ -69,6 +74,8 @@
 				language: "",
 
 				allGenres: [],
+				allActors: [],
+				id: 0
 			}
 		},
 		beforeCreate(){
@@ -81,9 +88,45 @@
 				this.allGenres = resultArray;
 				console.log(this.allGenres);
 			});
+			axios.get('/actor/all').then( response => {
+				const data = response.data;
+				const resultArray = [];
+				for (let key in data) {
+					resultArray.push(data[key]);
+				}
+				this.allActors = resultArray;
+				console.log("all actors: " + this.allActors);
+			});
+
+		},
+		created() {
+			eventBus.$on('actorWasEditted', (data) => {
+				console.log(data);
+				this.cast.splice(this.cast.indexOf(this.cast.find((row) => {
+					return row.id === data.id;
+				})), 1);
+				this.cast.push({id: data.id, actor_id: data.actor, role: data.role});
+				console.log("The cast is" + JSON.stringify(this.cast))
+			})
 		},
 		methods:{
+			addActorRoleRow(){
+				this.id++;
+				const id = this.id;
+				this.cast.push({id: id, actor_id: '', role: ''});
+
+			},
 			createMovie(){
+
+				let localCast = [];
+				console.log(this.cast.length);
+				this.cast.forEach((castrow) => {
+					console.log(castrow);
+					localCast.push({actor_id: castrow.actor_id, role: castrow.role});
+				});
+
+				console.log("local" + JSON.stringify(localCast));
+
 				const params = {
 					title: this.title,
 					description: this.description,
@@ -91,8 +134,10 @@
 					releaseDate: this.releaseDate,
 					storyLine: this.storyLine,
 					language: this.language,
-					genre: this.genre
+					genre: this.genre,
+					cast: localCast
 				};
+				console.log(params);
 				axios.post('/movie/create', params)
 					.then(res => console.log(res))
 					.catch(error => console.log(error));
@@ -133,6 +178,9 @@
 			language: {
 
 			}
+		},
+		components: {
+			AppCreateActorMovieRow:CreateActorMovieRow
 		}
 	}
 </script>
