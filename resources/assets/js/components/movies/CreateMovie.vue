@@ -1,7 +1,5 @@
 <template>
 	<div>
-
-
 		<h1 class="text-center">New movie</h1>
 		<hr>
 		<form autocomplete="off" @submit.prevent="createMovie" methods="post">

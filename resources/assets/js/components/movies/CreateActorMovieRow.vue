@@ -7,9 +7,6 @@
 		<div class="col-sm-6">
 			<input style="height: 30px" @input="saveRow" @change="saveRow" @blur="$v.role.$touch()" type="text" id="role" class="form-control" v-model="role" required>
 			<p v-if="!$v.role.required">This field must not be empty</p></div>
-
-
-
 	</div>
 </template>
 
@@ -18,16 +15,18 @@
 	import {eventBus} from '../../app.js'
 	import {required, email, numeric, minValue, minLength, sameAs, requiredUnless} from 'vuelidate/lib/validators';
 	export default {
-		props: ['Actors', 'index'],
+		props: ['Actors', 'index', 'actor1', 'role1'],
 
 		data() {
 			return {
 				actor: "",
 				role: ""
-
 			}
 		},
 		created(){
+			console.log(this.actor1 + " " + this.role1);
+			this.actor = this.actor1;
+			this.role = this.role1;
 		},
 		methods: {
 			saveRow(){

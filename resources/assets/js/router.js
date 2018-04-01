@@ -6,6 +6,8 @@ import Dashboard from './views/Dashboard.vue';
 import Register from './components/Register.vue';
 import Login from './components/Login.vue';
 import CreateActor from './components/actors/CreateActor.vue';
+import EditMovie from './components/movies/EditMovie.vue';
+
 const routes = [{
 	path: '/',
 	name: 'home',
@@ -34,6 +36,13 @@ const routes = [{
 }, {
 	path: '/actor/new',
 	component: CreateActor,
+	meta: {
+		auth: true
+	}
+}, {
+	path: '/movie/edit/:id',
+	component: EditMovie,
+	props: true,
 	meta: {
 		auth: true
 	}
