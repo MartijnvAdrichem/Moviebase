@@ -21978,7 +21978,7 @@ var render = function() {
           "div",
           {
             staticClass: "form-group",
-            class: { invalid: _vm.$v.title.$error }
+            class: { invalid: _vm.$v.movie.title.$error }
           },
           [
             _c("label", { attrs: { for: "title" } }, [_vm._v("Title")]),
@@ -21997,7 +21997,7 @@ var render = function() {
               domProps: { value: _vm.movie.title },
               on: {
                 blur: function($event) {
-                  _vm.$v.title.$touch()
+                  _vm.$v.movie.title.$touch()
                 },
                 input: function($event) {
                   if ($event.target.composing) {
@@ -22008,7 +22008,7 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            !_vm.$v.title.required
+            !_vm.$v.movie.title.required
               ? _c("p", [_vm._v("This field must not be empty")])
               : _vm._e()
           ]
@@ -22018,7 +22018,7 @@ var render = function() {
           "div",
           {
             staticClass: "form-group",
-            class: { invalid: _vm.$v.description.$error }
+            class: { invalid: _vm.$v.movie.description.$error }
           },
           [
             _c("label", { attrs: { for: "description" } }, [
@@ -22039,7 +22039,7 @@ var render = function() {
               domProps: { value: _vm.movie.description },
               on: {
                 blur: function($event) {
-                  _vm.$v.description.$touch()
+                  _vm.$v.movie.description.$touch()
                 },
                 input: function($event) {
                   if ($event.target.composing) {
@@ -22050,7 +22050,7 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            !_vm.$v.description.required
+            !_vm.$v.movie.description.required
               ? _c("p", [_vm._v("This field must not be empty")])
               : _vm._e()
           ]
@@ -22060,7 +22060,7 @@ var render = function() {
           "div",
           {
             staticClass: "form-group",
-            class: { invalid: _vm.$v.runTime.$error }
+            class: { invalid: _vm.$v.movie.runTime.$error }
           },
           [
             _c("label", { attrs: { for: "runTime" } }, [
@@ -22081,7 +22081,7 @@ var render = function() {
               domProps: { value: _vm.movie.runTime },
               on: {
                 blur: function($event) {
-                  _vm.$v.runTime.$touch()
+                  _vm.$v.movie.runTime.$touch()
                 },
                 input: function($event) {
                   if ($event.target.composing) {
@@ -22092,7 +22092,7 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            !_vm.$v.runTime.required
+            !_vm.$v.movie.runTime.required
               ? _c("p", [_vm._v("This field must not be empty")])
               : _vm._e()
           ]
@@ -22102,7 +22102,7 @@ var render = function() {
           "div",
           {
             staticClass: "form-group",
-            class: { invalid: _vm.$v.releaseDate.$error }
+            class: { invalid: _vm.$v.movie.releaseDate.$error }
           },
           [
             _c("label", { attrs: { for: "releaseDate" } }, [
@@ -22123,7 +22123,7 @@ var render = function() {
               domProps: { value: _vm.movie.releaseDate },
               on: {
                 blur: function($event) {
-                  _vm.$v.releaseDate.$touch()
+                  _vm.$v.movie.releaseDate.$touch()
                 },
                 input: function($event) {
                   if ($event.target.composing) {
@@ -22134,7 +22134,7 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            !_vm.$v.releaseDate.required
+            !_vm.$v.movie.releaseDate.required
               ? _c("p", [_vm._v("This field must not be empty")])
               : _vm._e()
           ]
@@ -22144,7 +22144,7 @@ var render = function() {
           "div",
           {
             staticClass: "form-group",
-            class: { invalid: _vm.$v.storyLine.$error }
+            class: { invalid: _vm.$v.movie.storyLine.$error }
           },
           [
             _c("label", { attrs: { for: "storyLine" } }, [_vm._v("Story")]),
@@ -22163,7 +22163,7 @@ var render = function() {
               domProps: { value: _vm.movie.storyLine },
               on: {
                 blur: function($event) {
-                  _vm.$v.storyLine.$touch()
+                  _vm.$v.movie.storyLine.$touch()
                 },
                 input: function($event) {
                   if ($event.target.composing) {
@@ -22174,7 +22174,7 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            !_vm.$v.storyLine.required
+            !_vm.$v.movie.storyLine.required
               ? _c("p", [_vm._v("This field must not be empty")])
               : _vm._e()
           ]
@@ -22184,7 +22184,7 @@ var render = function() {
           "div",
           {
             staticClass: "checkbox-inline",
-            class: { invalid: _vm.$v.genre.$error }
+            class: { invalid: _vm.$v.movie.genre.$error }
           },
           _vm._l(_vm.allGenres, function(genre1) {
             return _c("label", { staticClass: "checkbox-inline" }, [
@@ -22229,7 +22229,7 @@ var render = function() {
                       }
                     },
                     function($event) {
-                      _vm.$v.genre.$touch()
+                      _vm.$v.movie.genre.$touch()
                     }
                   ]
                 }

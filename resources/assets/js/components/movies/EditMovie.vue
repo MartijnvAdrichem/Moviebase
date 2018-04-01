@@ -4,38 +4,38 @@
 		<hr>
 		<form autocomplete="off" @submit.prevent="createMovie" methods="post">
 
-			<div class="form-group" v-bind:class="{invalid: $v.title.$error}">
+			<div class="form-group" v-bind:class="{invalid: $v.movie.title.$error}">
 				<label for="title">Title</label>
-				<input @blur="$v.title.$touch()" type="text" id="title" class="form-control" v-model="movie.title" required>
-				<p v-if="!$v.title.required">This field must not be empty</p>
+				<input @blur="$v.movie.title.$touch()" type="text" id="title" class="form-control" v-model="movie.title" required>
+				<p v-if="!$v.movie.title.required">This field must not be empty</p>
 			</div>
 
-			<div class="form-group" v-bind:class="{invalid: $v.description.$error}">
+			<div class="form-group" v-bind:class="{invalid: $v.movie.description.$error}">
 				<label for="description">Description</label>
-				<input @blur="$v.description.$touch()" type="text" id="description" class="form-control" v-model="movie.description" required>
-				<p v-if="!$v.description.required">This field must not be empty</p>
+				<input @blur="$v.movie.description.$touch()" type="text" id="description" class="form-control" v-model="movie.description" required>
+				<p v-if="!$v.movie.description.required">This field must not be empty</p>
 			</div>
 
-			<div class="form-group" v-bind:class="{invalid: $v.runTime.$error}">
+			<div class="form-group" v-bind:class="{invalid: $v.movie.runTime.$error}">
 				<label for="runTime">Run time (in min)</label>
-				<input @blur="$v.runTime.$touch()" type="text" id="runTime" class="form-control" v-model="movie.runTime" required>
-				<p v-if="!$v.runTime.required">This field must not be empty</p>
+				<input @blur="$v.movie.runTime.$touch()" type="text" id="runTime" class="form-control" v-model="movie.runTime" required>
+				<p v-if="!$v.movie.runTime.required">This field must not be empty</p>
 			</div>
 
-			<div class="form-group" v-bind:class="{invalid: $v.releaseDate.$error}">
+			<div class="form-group" v-bind:class="{invalid: $v.movie.releaseDate.$error}">
 				<label for="releaseDate">Release date</label>
-				<input @blur="$v.releaseDate.$touch()" type="text" id="releaseDate" class="form-control" v-model="movie.releaseDate" required>
-				<p v-if="!$v.releaseDate.required">This field must not be empty</p>
+				<input @blur="$v.movie.releaseDate.$touch()" type="text" id="releaseDate" class="form-control" v-model="movie.releaseDate" required>
+				<p v-if="!$v.movie.releaseDate.required">This field must not be empty</p>
 			</div>
 
-			<div class="form-group" v-bind:class="{invalid: $v.storyLine.$error}">
+			<div class="form-group" v-bind:class="{invalid: $v.movie.storyLine.$error}">
 				<label for="storyLine">Story</label>
-				<input @blur="$v.storyLine.$touch()" type="text" id="storyLine" class="form-control" v-model="movie.storyLine" required>
-				<p v-if="!$v.storyLine.required">This field must not be empty</p>
+				<input @blur="$v.movie.storyLine.$touch()" type="text" id="storyLine" class="form-control" v-model="movie.storyLine" required>
+				<p v-if="!$v.movie.storyLine.required">This field must not be empty</p>
 			</div>
 
-			<div class="checkbox-inline" v-bind:class="{invalid: $v.genre.$error}">
-				<label v-for="genre1 in allGenres" class="checkbox-inline"><input @change="$v.genre.$touch()" type="checkbox" :value="genre1.id" v-model="movie.genre"> {{genre1.name}}</label>
+			<div class="checkbox-inline" v-bind:class="{invalid: $v.movie.genre.$error}">
+				<label v-for="genre1 in allGenres" class="checkbox-inline"><input @change="$v.movie.genre.$touch()" type="checkbox" :value="genre1.id" v-model="movie.genre"> {{genre1.name}}</label>
 			</div>
 			<hr>
 			<h2>Cast</h2>
