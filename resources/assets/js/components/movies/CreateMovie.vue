@@ -1,48 +1,67 @@
 <template>
 	<div>
-		<h1 class="text-center">New movie</h1>
+		<h1 class="text-center">Create movie</h1>
 		<hr>
 		<form autocomplete="off" @submit.prevent="createMovie" methods="post">
 
-			<div class="form-group" v-bind:class="{invalid: $v.title.$error}">
+			<div class="form-group" v-bind:class="{invalid: $v.movie.title.$error}">
 				<label for="title">Title</label>
-				<input @blur="$v.title.$touch()" type="text" id="title" class="form-control" v-model="title" required>
-				<p v-if="!$v.title.required">This field must not be empty</p>
+				<input @blur="$v.movie.title.$touch()" type="text" id="title" class="form-control" v-model="movie.title" required>
+				<p v-if="!$v.movie.title.required">This field must not be empty</p>
 			</div>
 
-			<div class="form-group" v-bind:class="{invalid: $v.description.$error}">
+			<div class="form-group" v-bind:class="{invalid: $v.movie.description.$error}">
 				<label for="description">Description</label>
-				<input @blur="$v.description.$touch()" type="text" id="description" class="form-control" v-model="description" required>
-				<p v-if="!$v.description.required">This field must not be empty</p>
+				<input @blur="$v.movie.description.$touch()" type="text" id="description" class="form-control" v-model="movie.description" required>
+				<p v-if="!$v.movie.description.required">This field must not be empty</p>
 			</div>
 
-			<div class="form-group" v-bind:class="{invalid: $v.runTime.$error}">
-				<label for="runTime">Run time (in min)</label>
-				<input @blur="$v.runTime.$touch()" type="text" id="runTime" class="form-control" v-model="runTime" required>
-				<p v-if="!$v.runTime.required">This field must not be empty</p>
+			<div class="row">
+				<div class="form-group col-md-6" v-bind:class="{invalid: $v.movie.runTime.$error}">
+					<label for="runTime">Run time (in min)</label>
+					<input @blur="$v.movie.runTime.$touch()" type="text" id="runTime" class="form-control" v-model="movie.runTime" required>
+					<p v-if="!$v.movie.runTime.required">This field must not be empty</p>
+				</div>
+
+				<div class="form-group col-md-6" v-bind:class="{invalid: $v.movie.releaseDate.$error}">
+					<label for="releaseDate">Release date</label>
+					<input @blur="$v.movie.releaseDate.$touch()" type="text" id="releaseDate" class="form-control" v-model="movie.releaseDate" required>
+					<p v-if="!$v.movie.releaseDate.required">This field must not be empty</p>
+				</div>
 			</div>
 
-			<div class="form-group" v-bind:class="{invalid: $v.releaseDate.$error}">
-				<label for="releaseDate">Release date</label>
-				<input @blur="$v.releaseDate.$touch()" type="text" id="releaseDate" class="form-control" v-model="releaseDate" required>
-				<p v-if="!$v.releaseDate.required">This field must not be empty</p>
-			</div>
 
-			<div class="form-group" v-bind:class="{invalid: $v.storyLine.$error}">
+
+			<div class="form-group" v-bind:class="{invalid: $v.movie.storyLine.$error}">
 				<label for="storyLine">Story</label>
-				<input @blur="$v.storyLine.$touch()" type="text" id="storyLine" class="form-control" v-model="storyLine" required>
-				<p v-if="!$v.storyLine.required">This field must not be empty</p>
+				<textarea rows="4" @blur="$v.movie.storyLine.$touch()" type="text" id="storyLine" class="form-control" v-model="movie.storyLine" required></textarea>
+				<p v-if="!$v.movie.storyLine.required">This field must not be empty</p>
 			</div>
 
-			<div class="checkbox-inline" v-bind:class="{invalid: $v.genre.$error}">
-					<label v-for="genre1 in allGenres" class="checkbox-inline"><input @change="$v.genre.$touch()" type="checkbox" :value="genre1.id" v-model="genre"> {{genre1.name}}</label>
-			</div>
 			<hr>
+			<h2>Movie photo's</h2>
+			<input type="file" multiple @change="onFileChange">
+			<div class="row">
+					<div v-for="photo in movie.photos" class="col-md-3">
+						<button type="button" class="close" @click="deleteImage(photo)" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<img  style="padding: 3px"class="img-responsive" :src="photo" alt="">
+					</div>
+			</div>
+			<hr style="padding-top: 5px">
+			<div class="row">
+			<div class="checkbox-inline col-md-6" v-bind:class="{invalid: $v.movie.genre.$error}">
+				<label v-for="genre1 in allGenres" class="checkbox-inline"><input @change="$v.movie.genre.$touch()" type="checkbox" :value="genre1.id" v-model="movie.genre"> {{genre1.name}}</label>
+			</div>
+			</div>
+			<hr style="padding-top: 5px">
 			<h2>Cast</h2>
 			<div>
-				<app-create-actor-movie-row v-for="(castrow) in cast"  :index="castrow.id" :Actors="allActors"></app-create-actor-movie-row>
+				<app-create-actor-movie-row v-for="(castrow) in movie.cast"  :actor1="castrow.actor_id" :role1="castrow.role" :index="castrow.id" :Actors="allActors"></app-create-actor-movie-row>
 			</div>
 			<button class="btn btn-dark" @click.prevent="addActorRoleRow">Add row</button>
+			<hr>
 			<div class="submit">
 				<button class="btn btn-dark" type="submit" :disabled="$v.$invalid">Submit</button>
 			</div>
@@ -57,26 +76,31 @@
 	import CreateActorMovieRow from './CreateActorMovieRow.vue';
 	import {required, email, numeric, minValue, minLength, sameAs, requiredUnless} from 'vuelidate/lib/validators';
 	export default {
+		props: ['id'],
+
 		data() {
 			return {
-				title: "",
-				description: "",
-				runTime: "",
-				releaseDate: "",
-				genre: [],
-				photos: [],
-				videos: [],
-				cast: [],
-				company: [],
-				storyLine: "",
-				language: "",
+				movie: {
+					title: "",
+					description: "",
+					runTime: "",
+					releaseDate: "",
+					genre: [],
+					photos: [],
+					videos: [],
+					cast: [],
+					company: [],
+					storyLine: "",
+					language: "",
+				},
 
 				allGenres: [],
 				allActors: [],
-				id: 0
+				actor_id: 0
 			}
 		},
 		beforeCreate(){
+
 			axios.get('/genre/all').then( response => {
 				const data = response.data;
 				const resultArray = [];
@@ -98,27 +122,57 @@
 
 		},
 		created() {
+
 			eventBus.$on('actorWasEditted', (data) => {
 				console.log(data);
-				this.cast.splice(this.cast.indexOf(this.cast.find((row) => {
+				this.movie.cast.splice(this.movie.cast.indexOf(this.movie.cast.find((row) => {
 					return row.id === data.id;
 				})), 1);
-				this.cast.push({id: data.id, actor_id: data.actor, role: data.role});
-				console.log("The cast is" + JSON.stringify(this.cast))
+				this.movie.cast.push({id: data.id, actor_id: data.actor, role: data.role});
+				console.log("The cast is" + JSON.stringify(this.movie.cast))
 			})
 		},
 		methods:{
+			onFileChange(e) {
+				let files = e.target.files || e.dataTransfer.files;
+				if (!files.length) {
+					console.log("buh");
+					return;
+				}
+				console.log(files);
+				console.log(files.length);
+				for(let i = 0; i < files.length; i++) {
+					this.createImage(files[i]);
+				}
+			},
+			createImage(file) {
+				let reader = new FileReader();
+				let vm = this;
+				reader.onload = (e) => {
+					vm.movie.photos.push(e.target.result);
+				};
+				reader.readAsDataURL(file);
+			},
+			deleteImage(photo){
+				console.log(photo);
+				this.movie.photos.splice(this.movie.photos.indexOf(photo), 1);
+			},
 			addActorRoleRow(){
-				this.id++;
-				const id = this.id;
-				this.cast.push({id: id, actor_id: '', role: ''});
+				this.actor_id++;
+				const id = this.actor_id;
+				this.movie.cast.push({id: id, actor_id: '', role: ''});
 
+			},
+			addActorRoleRow(actor_id, role){
+				this.actor_id++;
+				const id = this.actor_id;
+				this.movie.cast.push({id: id, actor_id: actor_id, role: role});
+				console.log(JSON.stringify(this.movie.cast));
 			},
 			createMovie(){
 
 				let localCast = [];
-				console.log(this.cast.length);
-				this.cast.forEach((castrow) => {
+				this.movie.cast.forEach((castrow) => {
 					console.log(castrow);
 					localCast.push({actor_id: castrow.actor_id, role: castrow.role});
 				});
@@ -126,14 +180,15 @@
 				console.log("local" + JSON.stringify(localCast));
 
 				const params = {
-					title: this.title,
-					description: this.description,
-					runTime: this.runTime,
-					releaseDate: this.releaseDate,
-					storyLine: this.storyLine,
-					language: this.language,
-					genre: this.genre,
-					cast: localCast
+					title: this.movie.title,
+					description: this.movie.description,
+					runTime: this.movie.runTime,
+					releaseDate: this.movie.releaseDate,
+					storyLine: this.movie.storyLine,
+					language: this.movie.language,
+					genre: this.movie.genre,
+					cast: localCast,
+					photos: this.movie.photos,
 				};
 				console.log(params);
 				axios.post('/movie/create', params)
@@ -143,38 +198,39 @@
 		},
 
 		validations: {
-			title: {
-				required,
-			},
-			description: {
-				required,
-			},
-			runTime: {
-				required,
-			},
-			releaseDate: {
-				required,
-			},
-			genre: {
+			movie: {
+				title: {
+					required,
+				},
+				description: {
 
-			},
-			photos: {
+				},
+				runTime: {
 
-			},
-			videos: {
+				},
+				releaseDate: {
 
-			},
-			cast: {
+				},
+				genre: {
 
-			},
-			company: {
+				},
+				photos: {
 
-			},
-			storyLine: {
-				required,
-			},
-			language: {
+				},
+				videos: {
 
+				},
+				cast: {
+
+				},
+				company: {
+
+				},
+				storyLine: {
+				},
+				language: {
+
+				}
 			}
 		},
 		components: {

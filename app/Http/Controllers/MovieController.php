@@ -4,15 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Movie;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Validator;
+use Intervention\Image\Facades\Image;
 use function MongoDB\BSON\toJSON;
 
 class MovieController extends Controller {
 
     public function create(Request $request) {
 
-        //return $request;
+        foreach( $request->photos as $photo){
+                $fileName = Carbon::now()->timestamp . '_' . uniqid() . '.' . explode('/', explode(':', substr($photo, 0, strpos($photo, ';')))[1])[1];
+                Image::make($photo)->save(public_path('images/') . $fileName);
+            }
         $movie = new Movie($request->all());
         $movie->save();
         $movie->genres()->attach($request->genre);

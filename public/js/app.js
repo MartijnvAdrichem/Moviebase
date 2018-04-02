@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 29);
+/******/ 	return __webpack_require__(__webpack_require__.s = 31);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -75,7 +75,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.regex = exports.ref = exports.len = exports.req = exports.withParams = undefined;
 
-var _withParams = __webpack_require__(69);
+var _withParams = __webpack_require__(70);
 
 var _withParams2 = _interopRequireDefault(_withParams);
 
@@ -134,7 +134,7 @@ var regex = exports.regex = function regex(type, expr) {
 
 
 var bind = __webpack_require__(12);
-var isBuffer = __webpack_require__(34);
+var isBuffer = __webpack_require__(36);
 
 /*global toString:true*/
 
@@ -634,7 +634,7 @@ function toComment(sourceMap) {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (immutable) */ __webpack_exports__["default"] = addStylesClient;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__listToStyles__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__listToStyles__ = __webpack_require__(60);
 /*
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
@@ -863,7 +863,7 @@ function applyToTag (styleElement, obj) {
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(33);
+module.exports = __webpack_require__(35);
 
 /***/ }),
 /* 6 */
@@ -872,17 +872,17 @@ module.exports = __webpack_require__(33);
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eventBus", function() { return eventBus; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_axios__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_axios__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuelidate__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuelidate__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuelidate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vuelidate__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__views_App_vue__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__router__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__views_App_vue__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__router__ = __webpack_require__(63);
 
 
 
@@ -899,10 +899,10 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.router = __WEBPACK_IMPORTED_MODULE_6
 __WEBPACK_IMPORTED_MODULE_5__views_App_vue__["a" /* default */].router = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.router;
 var eventBus = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a();
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__webpack_require__(109), {
-	auth: __webpack_require__(113),
-	http: __webpack_require__(114),
-	router: __webpack_require__(115)
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__webpack_require__(114), {
+	auth: __webpack_require__(118),
+	http: __webpack_require__(119),
+	router: __webpack_require__(120)
 });
 
 new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
@@ -915,6 +915,111 @@ new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 
 /***/ }),
 /* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.maxValue = exports.minValue = exports.and = exports.or = exports.url = exports.sameAs = exports.requiredUnless = exports.requiredIf = exports.required = exports.minLength = exports.maxLength = exports.macAddress = exports.ipAddress = exports.email = exports.between = exports.numeric = exports.alphaNum = exports.alpha = undefined;
+
+var _alpha = __webpack_require__(69);
+
+var _alpha2 = _interopRequireDefault(_alpha);
+
+var _alphaNum = __webpack_require__(71);
+
+var _alphaNum2 = _interopRequireDefault(_alphaNum);
+
+var _numeric = __webpack_require__(72);
+
+var _numeric2 = _interopRequireDefault(_numeric);
+
+var _between = __webpack_require__(73);
+
+var _between2 = _interopRequireDefault(_between);
+
+var _email = __webpack_require__(74);
+
+var _email2 = _interopRequireDefault(_email);
+
+var _ipAddress = __webpack_require__(75);
+
+var _ipAddress2 = _interopRequireDefault(_ipAddress);
+
+var _macAddress = __webpack_require__(76);
+
+var _macAddress2 = _interopRequireDefault(_macAddress);
+
+var _maxLength = __webpack_require__(77);
+
+var _maxLength2 = _interopRequireDefault(_maxLength);
+
+var _minLength = __webpack_require__(78);
+
+var _minLength2 = _interopRequireDefault(_minLength);
+
+var _required = __webpack_require__(79);
+
+var _required2 = _interopRequireDefault(_required);
+
+var _requiredIf = __webpack_require__(80);
+
+var _requiredIf2 = _interopRequireDefault(_requiredIf);
+
+var _requiredUnless = __webpack_require__(81);
+
+var _requiredUnless2 = _interopRequireDefault(_requiredUnless);
+
+var _sameAs = __webpack_require__(82);
+
+var _sameAs2 = _interopRequireDefault(_sameAs);
+
+var _url = __webpack_require__(83);
+
+var _url2 = _interopRequireDefault(_url);
+
+var _or = __webpack_require__(84);
+
+var _or2 = _interopRequireDefault(_or);
+
+var _and = __webpack_require__(85);
+
+var _and2 = _interopRequireDefault(_and);
+
+var _minValue = __webpack_require__(86);
+
+var _minValue2 = _interopRequireDefault(_minValue);
+
+var _maxValue = __webpack_require__(87);
+
+var _maxValue2 = _interopRequireDefault(_maxValue);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.alpha = _alpha2.default;
+exports.alphaNum = _alphaNum2.default;
+exports.numeric = _numeric2.default;
+exports.between = _between2.default;
+exports.email = _email2.default;
+exports.ipAddress = _ipAddress2.default;
+exports.macAddress = _macAddress2.default;
+exports.maxLength = _maxLength2.default;
+exports.minLength = _minLength2.default;
+exports.required = _required2.default;
+exports.requiredIf = _requiredIf2.default;
+exports.requiredUnless = _requiredUnless2.default;
+exports.sameAs = _sameAs2.default;
+exports.url = _url2.default;
+exports.or = _or2.default;
+exports.and = _and2.default;
+exports.minValue = _minValue2.default;
+exports.maxValue = _maxValue2.default;
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports) {
 
 var g;
@@ -941,14 +1046,14 @@ module.exports = g;
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(1);
-var normalizeHeaderName = __webpack_require__(36);
+var normalizeHeaderName = __webpack_require__(38);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -1043,111 +1148,6 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = defaults;
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.maxValue = exports.minValue = exports.and = exports.or = exports.url = exports.sameAs = exports.requiredUnless = exports.requiredIf = exports.required = exports.minLength = exports.maxLength = exports.macAddress = exports.ipAddress = exports.email = exports.between = exports.numeric = exports.alphaNum = exports.alpha = undefined;
-
-var _alpha = __webpack_require__(68);
-
-var _alpha2 = _interopRequireDefault(_alpha);
-
-var _alphaNum = __webpack_require__(70);
-
-var _alphaNum2 = _interopRequireDefault(_alphaNum);
-
-var _numeric = __webpack_require__(71);
-
-var _numeric2 = _interopRequireDefault(_numeric);
-
-var _between = __webpack_require__(72);
-
-var _between2 = _interopRequireDefault(_between);
-
-var _email = __webpack_require__(73);
-
-var _email2 = _interopRequireDefault(_email);
-
-var _ipAddress = __webpack_require__(74);
-
-var _ipAddress2 = _interopRequireDefault(_ipAddress);
-
-var _macAddress = __webpack_require__(75);
-
-var _macAddress2 = _interopRequireDefault(_macAddress);
-
-var _maxLength = __webpack_require__(76);
-
-var _maxLength2 = _interopRequireDefault(_maxLength);
-
-var _minLength = __webpack_require__(77);
-
-var _minLength2 = _interopRequireDefault(_minLength);
-
-var _required = __webpack_require__(78);
-
-var _required2 = _interopRequireDefault(_required);
-
-var _requiredIf = __webpack_require__(79);
-
-var _requiredIf2 = _interopRequireDefault(_requiredIf);
-
-var _requiredUnless = __webpack_require__(80);
-
-var _requiredUnless2 = _interopRequireDefault(_requiredUnless);
-
-var _sameAs = __webpack_require__(81);
-
-var _sameAs2 = _interopRequireDefault(_sameAs);
-
-var _url = __webpack_require__(82);
-
-var _url2 = _interopRequireDefault(_url);
-
-var _or = __webpack_require__(83);
-
-var _or2 = _interopRequireDefault(_or);
-
-var _and = __webpack_require__(84);
-
-var _and2 = _interopRequireDefault(_and);
-
-var _minValue = __webpack_require__(85);
-
-var _minValue2 = _interopRequireDefault(_minValue);
-
-var _maxValue = __webpack_require__(86);
-
-var _maxValue2 = _interopRequireDefault(_maxValue);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.alpha = _alpha2.default;
-exports.alphaNum = _alphaNum2.default;
-exports.numeric = _numeric2.default;
-exports.between = _between2.default;
-exports.email = _email2.default;
-exports.ipAddress = _ipAddress2.default;
-exports.macAddress = _macAddress2.default;
-exports.maxLength = _maxLength2.default;
-exports.minLength = _minLength2.default;
-exports.required = _required2.default;
-exports.requiredIf = _requiredIf2.default;
-exports.requiredUnless = _requiredUnless2.default;
-exports.sameAs = _sameAs2.default;
-exports.url = _url2.default;
-exports.or = _or2.default;
-exports.and = _and2.default;
-exports.minValue = _minValue2.default;
-exports.maxValue = _maxValue2.default;
 
 /***/ }),
 /* 10 */
@@ -3995,12 +3995,12 @@ module.exports = function bind(fn, thisArg) {
 
 
 var utils = __webpack_require__(1);
-var settle = __webpack_require__(37);
-var buildURL = __webpack_require__(39);
-var parseHeaders = __webpack_require__(40);
-var isURLSameOrigin = __webpack_require__(41);
+var settle = __webpack_require__(39);
+var buildURL = __webpack_require__(41);
+var parseHeaders = __webpack_require__(42);
+var isURLSameOrigin = __webpack_require__(43);
 var createError = __webpack_require__(14);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(42);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(44);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -4097,7 +4097,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(43);
+      var cookies = __webpack_require__(45);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -4181,7 +4181,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(38);
+var enhanceError = __webpack_require__(40);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -4331,7 +4331,7 @@ function withParams(paramsOrClosure, maybeValidator) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Header_vue__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Header_vue__ = __webpack_require__(57);
 //
 //
 //
@@ -4424,9 +4424,32 @@ function withParams(paramsOrClosure, maybeValidator) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_js__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__CreateActorMovieRow_vue__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__CreateActorMovieRow_vue__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators__);
+var _methods;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4486,23 +4509,27 @@ function withParams(paramsOrClosure, maybeValidator) {
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
+	props: ['id'],
+
 	data: function data() {
 		return {
-			title: "",
-			description: "",
-			runTime: "",
-			releaseDate: "",
-			genre: [],
-			photos: [],
-			videos: [],
-			cast: [],
-			company: [],
-			storyLine: "",
-			language: "",
+			movie: {
+				title: "",
+				description: "",
+				runTime: "",
+				releaseDate: "",
+				genre: [],
+				photos: [],
+				videos: [],
+				cast: [],
+				company: [],
+				storyLine: "",
+				language: ""
+			},
 
 			allGenres: [],
 			allActors: [],
-			id: 0
+			actor_id: 0
 		};
 	},
 	beforeCreate: function beforeCreate() {
@@ -4532,72 +4559,94 @@ function withParams(paramsOrClosure, maybeValidator) {
 
 		__WEBPACK_IMPORTED_MODULE_1__app_js__["eventBus"].$on('actorWasEditted', function (data) {
 			console.log(data);
-			_this2.cast.splice(_this2.cast.indexOf(_this2.cast.find(function (row) {
+			_this2.movie.cast.splice(_this2.movie.cast.indexOf(_this2.movie.cast.find(function (row) {
 				return row.id === data.id;
 			})), 1);
-			_this2.cast.push({ id: data.id, actor_id: data.actor, role: data.role });
-			console.log("The cast is" + JSON.stringify(_this2.cast));
+			_this2.movie.cast.push({ id: data.id, actor_id: data.actor, role: data.role });
+			console.log("The cast is" + JSON.stringify(_this2.movie.cast));
 		});
 	},
 
-	methods: {
-		addActorRoleRow: function addActorRoleRow() {
-			this.id++;
-			var id = this.id;
-			this.cast.push({ id: id, actor_id: '', role: '' });
+	methods: (_methods = {
+		onFileChange: function onFileChange(e) {
+			var files = e.target.files || e.dataTransfer.files;
+			if (!files.length) {
+				console.log("buh");
+				return;
+			}
+			console.log(files);
+			console.log(files.length);
+			for (var i = 0; i < files.length; i++) {
+				this.createImage(files[i]);
+			}
 		},
-		createMovie: function createMovie() {
-
-			var localCast = [];
-			console.log(this.cast.length);
-			this.cast.forEach(function (castrow) {
-				console.log(castrow);
-				localCast.push({ actor_id: castrow.actor_id, role: castrow.role });
-			});
-
-			console.log("local" + JSON.stringify(localCast));
-
-			var params = {
-				title: this.title,
-				description: this.description,
-				runTime: this.runTime,
-				releaseDate: this.releaseDate,
-				storyLine: this.storyLine,
-				language: this.language,
-				genre: this.genre,
-				cast: localCast
+		createImage: function createImage(file) {
+			var reader = new FileReader();
+			var vm = this;
+			reader.onload = function (e) {
+				vm.movie.photos.push(e.target.result);
 			};
-			console.log(params);
-			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/movie/create', params).then(function (res) {
-				return console.log(res);
-			}).catch(function (error) {
-				return console.log(error);
-			});
+			reader.readAsDataURL(file);
+		},
+		deleteImage: function deleteImage(photo) {
+			console.log(photo);
+			this.movie.photos.splice(this.movie.photos.indexOf(photo), 1);
+		},
+		addActorRoleRow: function addActorRoleRow() {
+			this.actor_id++;
+			var id = this.actor_id;
+			this.movie.cast.push({ id: id, actor_id: '', role: '' });
 		}
-	},
+	}, _defineProperty(_methods, 'addActorRoleRow', function addActorRoleRow(actor_id, role) {
+		this.actor_id++;
+		var id = this.actor_id;
+		this.movie.cast.push({ id: id, actor_id: actor_id, role: role });
+		console.log(JSON.stringify(this.movie.cast));
+	}), _defineProperty(_methods, 'createMovie', function createMovie() {
+
+		var localCast = [];
+		this.movie.cast.forEach(function (castrow) {
+			console.log(castrow);
+			localCast.push({ actor_id: castrow.actor_id, role: castrow.role });
+		});
+
+		console.log("local" + JSON.stringify(localCast));
+
+		var params = {
+			title: this.movie.title,
+			description: this.movie.description,
+			runTime: this.movie.runTime,
+			releaseDate: this.movie.releaseDate,
+			storyLine: this.movie.storyLine,
+			language: this.movie.language,
+			genre: this.movie.genre,
+			cast: localCast,
+			photos: this.movie.photos
+		};
+		console.log(params);
+		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/movie/create', params).then(function (res) {
+			return console.log(res);
+		}).catch(function (error) {
+			return console.log(error);
+		});
+	}), _methods),
 
 	validations: {
-		title: {
-			required: __WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators__["required"]
-		},
-		description: {
-			required: __WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators__["required"]
-		},
-		runTime: {
-			required: __WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators__["required"]
-		},
-		releaseDate: {
-			required: __WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators__["required"]
-		},
-		genre: {},
-		photos: {},
-		videos: {},
-		cast: {},
-		company: {},
-		storyLine: {
-			required: __WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators__["required"]
-		},
-		language: {}
+		movie: {
+			title: {
+				required: __WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators__["required"]
+			},
+			description: {},
+			runTime: {},
+			releaseDate: {},
+			genre: {},
+			photos: {},
+			videos: {},
+			cast: {},
+			company: {},
+			storyLine: {},
+			language: {}
+		}
 	},
 	components: {
 		AppCreateActorMovieRow: __WEBPACK_IMPORTED_MODULE_2__CreateActorMovieRow_vue__["a" /* default */]
@@ -4609,10 +4658,68 @@ function withParams(paramsOrClosure, maybeValidator) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_CreateActorMovieRow_vue__ = __webpack_require__(22);
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_1ebc0b61_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_CreateActorMovieRow_vue__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(2);
+var disposed = false
+function injectStyle (context) {
+  if (disposed) return
+  __webpack_require__(67)
+}
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-1ebc0b61"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+
+var Component = Object(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__["a" /* default */])(
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_CreateActorMovieRow_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_1ebc0b61_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_CreateActorMovieRow_vue__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_1ebc0b61_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_CreateActorMovieRow_vue__["b" /* staticRenderFns */],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\movies\\CreateActorMovieRow.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1ebc0b61", Component.options)
+  } else {
+    hotAPI.reload("data-v-1ebc0b61", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+/* 22 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_js__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuelidate_lib_validators__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuelidate_lib_validators__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuelidate_lib_validators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vuelidate_lib_validators__);
 //
 //
@@ -4662,7 +4769,7 @@ function withParams(paramsOrClosure, maybeValidator) {
 });
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4676,7 +4783,7 @@ function withParams(paramsOrClosure, maybeValidator) {
 });
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4689,7 +4796,7 @@ function withParams(paramsOrClosure, maybeValidator) {
 });
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4703,7 +4810,7 @@ function withParams(paramsOrClosure, maybeValidator) {
 });
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4773,7 +4880,7 @@ function withParams(paramsOrClosure, maybeValidator) {
 });
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4830,13 +4937,13 @@ function withParams(paramsOrClosure, maybeValidator) {
 });
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__);
 //
 //
@@ -4937,7 +5044,232 @@ function withParams(paramsOrClosure, maybeValidator) {
 });
 
 /***/ }),
-/* 28 */
+/* 29 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_js__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__CreateActorMovieRow_vue__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators__);
+var _methods;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+	props: ['id'],
+
+	data: function data() {
+		return {
+			movie: {
+				title: "",
+				description: "",
+				runTime: "",
+				releaseDate: "",
+				genre: [],
+				photos: [],
+				videos: [],
+				cast: [],
+				company: [],
+				storyLine: "",
+				language: ""
+			},
+
+			allGenres: [],
+			allActors: [],
+			actor_id: 0
+		};
+	},
+	beforeCreate: function beforeCreate() {
+		var _this = this;
+
+		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/genre/all').then(function (response) {
+			var data = response.data;
+			var resultArray = [];
+			for (var key in data) {
+				resultArray.push(data[key]);
+			}
+			_this.allGenres = resultArray;
+			console.log(_this.allGenres);
+		});
+		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/actor/all').then(function (response) {
+			var data = response.data;
+			var resultArray = [];
+			for (var key in data) {
+				resultArray.push(data[key]);
+			}
+			_this.allActors = resultArray;
+			console.log("all actors: " + _this.allActors);
+		});
+	},
+	created: function created() {
+		var _this2 = this;
+
+		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/movie/' + this.id).then(function (response) {
+			console.log(response);
+			var data = response.data;
+			_this2.movie = data;
+			// const resultArray = [];
+			// // for (let key in data) {
+			// // 	resultArray.push(data[key]);
+			// // }
+			// this.allActors = resultArray;
+			console.log("movie data: " + JSON.stringify(_this2.allActors));
+		});
+		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/movie/' + this.id + "/cast").then(function (response) {
+			_this2.movie.cast = [];
+			console.log(response);
+			var data = response.data;
+			for (var key in data) {
+				_this2.addActorRoleRow(data[key].id, data[key].role);
+			}
+			console.log("cast data " + JSON.stringify(_this2.movie.cast));
+		});
+
+		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/movie/' + this.id + "/genres").then(function (response) {
+			console.log(response);
+			var data = response.data;
+			var resultArray = [];
+			for (var key in data) {
+				resultArray.push(data[key].id);
+			}
+			_this2.movie.genre = resultArray;
+		});
+
+		__WEBPACK_IMPORTED_MODULE_1__app_js__["eventBus"].$on('actorWasEditted', function (data) {
+			console.log(data);
+			_this2.movie.cast.splice(_this2.movie.cast.indexOf(_this2.movie.cast.find(function (row) {
+				return row.id === data.id;
+			})), 1);
+			_this2.movie.cast.push({ id: data.id, actor_id: data.actor, role: data.role });
+			console.log("The cast is" + JSON.stringify(_this2.movie.cast));
+		});
+	},
+
+	methods: (_methods = {
+		addActorRoleRow: function addActorRoleRow() {
+			this.actor_id++;
+			var id = this.actor_id;
+			this.movie.cast.push({ id: id, actor_id: '', role: '' });
+		}
+	}, _defineProperty(_methods, 'addActorRoleRow', function addActorRoleRow(actor_id, role) {
+		this.actor_id++;
+		var id = this.actor_id;
+		this.movie.cast.push({ id: id, actor_id: actor_id, role: role });
+		console.log(JSON.stringify(this.movie.cast));
+	}), _defineProperty(_methods, 'createMovie', function createMovie() {
+
+		var localCast = [];
+		console.log(this.movie.cast.length);
+		this.movie.cast.forEach(function (castrow) {
+			console.log(castrow);
+			localCast.push({ actor_id: castrow.actor_id, role: castrow.role });
+		});
+
+		console.log("local" + JSON.stringify(localCast));
+
+		var params = {
+			title: this.movie.title,
+			description: this.movie.description,
+			runTime: this.movie.runTime,
+			releaseDate: this.movie.releaseDate,
+			storyLine: this.movie.storyLine,
+			language: this.movie.language,
+			genre: this.movie.genre,
+			cast: localCast
+		};
+		console.log(params);
+		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.put('/movie/edit/' + this.movie.id, params).then(function (res) {
+			return console.log(res);
+		}).catch(function (error) {
+			return console.log(error);
+		});
+	}), _methods),
+
+	validations: {
+		movie: {
+			title: {
+				required: __WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators__["required"]
+			},
+			description: {},
+			runTime: {},
+			releaseDate: {},
+			genre: {},
+			photos: {},
+			videos: {},
+			cast: {},
+			company: {},
+			storyLine: {},
+			language: {}
+		}
+	},
+	components: {
+		AppCreateActorMovieRow: __WEBPACK_IMPORTED_MODULE_2__CreateActorMovieRow_vue__["a" /* default */]
+	}
+});
+
+/***/ }),
+/* 30 */
 /***/ (function(module, exports) {
 
 module.exports = (function () {
@@ -5000,15 +5332,15 @@ module.exports = (function () {
 })();
 
 /***/ }),
-/* 29 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(6);
-module.exports = __webpack_require__(116);
+module.exports = __webpack_require__(121);
 
 
 /***/ }),
-/* 30 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15971,10 +16303,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(31).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), __webpack_require__(33).setImmediate))
 
 /***/ }),
-/* 31 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var apply = Function.prototype.apply;
@@ -16027,7 +16359,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(32);
+__webpack_require__(34);
 // On some exotic environments, it's not clear which object `setimmeidate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -16038,10 +16370,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ }),
-/* 32 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -16231,10 +16563,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), __webpack_require__(10)))
 
 /***/ }),
-/* 33 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16242,8 +16574,8 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 var utils = __webpack_require__(1);
 var bind = __webpack_require__(12);
-var Axios = __webpack_require__(35);
-var defaults = __webpack_require__(8);
+var Axios = __webpack_require__(37);
+var defaults = __webpack_require__(9);
 
 /**
  * Create an instance of Axios
@@ -16277,14 +16609,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(16);
-axios.CancelToken = __webpack_require__(49);
+axios.CancelToken = __webpack_require__(51);
 axios.isCancel = __webpack_require__(15);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(50);
+axios.spread = __webpack_require__(52);
 
 module.exports = axios;
 
@@ -16293,7 +16625,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 34 */
+/* 36 */
 /***/ (function(module, exports) {
 
 /*!
@@ -16320,16 +16652,16 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 35 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var defaults = __webpack_require__(8);
+var defaults = __webpack_require__(9);
 var utils = __webpack_require__(1);
-var InterceptorManager = __webpack_require__(44);
-var dispatchRequest = __webpack_require__(45);
+var InterceptorManager = __webpack_require__(46);
+var dispatchRequest = __webpack_require__(47);
 
 /**
  * Create a new instance of Axios
@@ -16406,7 +16738,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 36 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16425,7 +16757,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 37 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16458,7 +16790,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 38 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16486,7 +16818,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16559,7 +16891,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16619,7 +16951,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 41 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16694,7 +17026,7 @@ module.exports = (
 
 
 /***/ }),
-/* 42 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16737,7 +17069,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16797,7 +17129,7 @@ module.exports = (
 
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16856,18 +17188,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 45 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(1);
-var transformData = __webpack_require__(46);
+var transformData = __webpack_require__(48);
 var isCancel = __webpack_require__(15);
-var defaults = __webpack_require__(8);
-var isAbsoluteURL = __webpack_require__(47);
-var combineURLs = __webpack_require__(48);
+var defaults = __webpack_require__(9);
+var isAbsoluteURL = __webpack_require__(49);
+var combineURLs = __webpack_require__(50);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -16949,7 +17281,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 46 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16976,7 +17308,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 47 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16997,7 +17329,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 48 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17018,7 +17350,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 49 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17082,7 +17414,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 50 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17116,7 +17448,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 51 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17124,7 +17456,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):window.Vue&&window.axios&&Vue.use(o,window.axios)}();
 
 /***/ }),
-/* 52 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17137,7 +17469,7 @@ exports.withParams = exports.validationMixin = exports.Vuelidate = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _vval = __webpack_require__(53);
+var _vval = __webpack_require__(55);
 
 var _params = __webpack_require__(17);
 
@@ -17669,7 +18001,7 @@ exports.withParams = _params.withParams;
 exports.default = Vuelidate;
 
 /***/ }),
-/* 53 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17824,13 +18156,13 @@ function h(tag, key, args) {
 }
 
 /***/ }),
-/* 54 */
+/* 56 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(18);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7cca96b8_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7cca96b8_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(2);
 var disposed = false
 /* script */
@@ -17878,18 +18210,18 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 55 */
+/* 57 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_Header_vue__ = __webpack_require__(19);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_1bc06644_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Header_vue__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_1bc06644_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Header_vue__ = __webpack_require__(61);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(2);
 var disposed = false
 function injectStyle (context) {
   if (disposed) return
-  __webpack_require__(56)
+  __webpack_require__(58)
 }
 /* script */
 
@@ -17936,13 +18268,13 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 56 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(57);
+var content = __webpack_require__(59);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -17963,7 +18295,7 @@ if(false) {
 }
 
 /***/ }),
-/* 57 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -17977,7 +18309,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 58 */
+/* 60 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18012,7 +18344,7 @@ function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 59 */
+/* 61 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18233,7 +18565,7 @@ if (false) {
 }
 
 /***/ }),
-/* 60 */
+/* 62 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18275,19 +18607,19 @@ if (false) {
 }
 
 /***/ }),
-/* 61 */
+/* 63 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_movies_CreateMovie_vue__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__views_Hello_vue__ = __webpack_require__(89);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__views_Home_vue__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__views_Dashboard_vue__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Register_vue__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Login_vue__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_actors_CreateActor_vue__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_movies_EditMovie_vue__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_movies_CreateMovie_vue__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__views_Hello_vue__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__views_Home_vue__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__views_Dashboard_vue__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Register_vue__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Login_vue__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_actors_CreateActor_vue__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_movies_EditMovie_vue__ = __webpack_require__(110);
 
 
 
@@ -18341,18 +18673,18 @@ var routes = [{
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({ mode: 'history', routes: routes }));
 
 /***/ }),
-/* 62 */
+/* 64 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_CreateMovie_vue__ = __webpack_require__(20);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_669cb31c_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_CreateMovie_vue__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_669cb31c_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_CreateMovie_vue__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(2);
 var disposed = false
 function injectStyle (context) {
   if (disposed) return
-  __webpack_require__(63)
+  __webpack_require__(65)
 }
 /* script */
 
@@ -18399,13 +18731,13 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 63 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(64);
+var content = __webpack_require__(66);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -18426,7 +18758,7 @@ if(false) {
 }
 
 /***/ }),
-/* 64 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -18440,71 +18772,13 @@ exports.push([module.i, "\n.invalid[data-v-669cb31c] {\n\tborder: 1px solid red;
 
 
 /***/ }),
-/* 65 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_CreateActorMovieRow_vue__ = __webpack_require__(21);
-/* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_1ebc0b61_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_CreateActorMovieRow_vue__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(2);
-var disposed = false
-function injectStyle (context) {
-  if (disposed) return
-  __webpack_require__(66)
-}
-/* script */
-
-
-/* template */
-
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-1ebc0b61"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-
-var Component = Object(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__["a" /* default */])(
-  __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_CreateActorMovieRow_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_1ebc0b61_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_CreateActorMovieRow_vue__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_1ebc0b61_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_CreateActorMovieRow_vue__["b" /* staticRenderFns */],
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\movies\\CreateActorMovieRow.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1ebc0b61", Component.options)
-  } else {
-    hotAPI.reload("data-v-1ebc0b61", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
-
-
-/***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(67);
+var content = __webpack_require__(68);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -18525,7 +18799,7 @@ if(false) {
 }
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -18539,7 +18813,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18554,7 +18828,7 @@ var _common = __webpack_require__(0);
 exports.default = (0, _common.regex)('alpha', /^[a-zA-Z]*$/);
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18569,7 +18843,7 @@ var withParams =  false ? require('./withParamsBrowser').withParams : __webpack_
 exports.default = withParams;
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18584,7 +18858,7 @@ var _common = __webpack_require__(0);
 exports.default = (0, _common.regex)('alphaNum', /^[a-zA-Z0-9]*$/);
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18599,7 +18873,7 @@ var _common = __webpack_require__(0);
 exports.default = (0, _common.regex)('numeric', /^[0-9]*$/);
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18618,7 +18892,7 @@ exports.default = function (min, max) {
 };
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18635,7 +18909,7 @@ var emailRegex = /(^$|^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+")
 exports.default = (0, _common.regex)('email', emailRegex);
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18679,7 +18953,7 @@ var nibbleValid = function nibbleValid(nibble) {
 };
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18713,7 +18987,7 @@ var hexValid = function hexValid(hex) {
 };
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18732,7 +19006,7 @@ exports.default = function (length) {
 };
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18751,7 +19025,7 @@ exports.default = function (length) {
 };
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18766,7 +19040,7 @@ var _common = __webpack_require__(0);
 exports.default = (0, _common.withParams)({ type: 'required' }, _common.req);
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18785,7 +19059,7 @@ exports.default = function (prop) {
 };
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18804,7 +19078,7 @@ exports.default = function (prop) {
 };
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18823,7 +19097,7 @@ exports.default = function (equalTo) {
 };
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18840,7 +19114,7 @@ var urlRegex = /^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\
 exports.default = (0, _common.regex)('url', urlRegex);
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18871,7 +19145,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18902,7 +19176,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18921,7 +19195,7 @@ exports.default = function (min) {
 };
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18940,7 +19214,7 @@ exports.default = function (max) {
 };
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19052,7 +19326,7 @@ if (false) {
 }
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19063,7 +19337,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h1", { staticClass: "text-center" }, [_vm._v("New movie")]),
+    _c("h1", { staticClass: "text-center" }, [_vm._v("Create movie")]),
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
@@ -19083,7 +19357,7 @@ var render = function() {
           "div",
           {
             staticClass: "form-group",
-            class: { invalid: _vm.$v.title.$error }
+            class: { invalid: _vm.$v.movie.title.$error }
           },
           [
             _c("label", { attrs: { for: "title" } }, [_vm._v("Title")]),
@@ -19093,27 +19367,27 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.title,
-                  expression: "title"
+                  value: _vm.movie.title,
+                  expression: "movie.title"
                 }
               ],
               staticClass: "form-control",
               attrs: { type: "text", id: "title", required: "" },
-              domProps: { value: _vm.title },
+              domProps: { value: _vm.movie.title },
               on: {
                 blur: function($event) {
-                  _vm.$v.title.$touch()
+                  _vm.$v.movie.title.$touch()
                 },
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.title = $event.target.value
+                  _vm.$set(_vm.movie, "title", $event.target.value)
                 }
               }
             }),
             _vm._v(" "),
-            !_vm.$v.title.required
+            !_vm.$v.movie.title.required
               ? _c("p", [_vm._v("This field must not be empty")])
               : _vm._e()
           ]
@@ -19123,7 +19397,7 @@ var render = function() {
           "div",
           {
             staticClass: "form-group",
-            class: { invalid: _vm.$v.description.$error }
+            class: { invalid: _vm.$v.movie.description.$error }
           },
           [
             _c("label", { attrs: { for: "description" } }, [
@@ -19135,221 +19409,276 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.description,
-                  expression: "description"
+                  value: _vm.movie.description,
+                  expression: "movie.description"
                 }
               ],
               staticClass: "form-control",
               attrs: { type: "text", id: "description", required: "" },
-              domProps: { value: _vm.description },
+              domProps: { value: _vm.movie.description },
               on: {
                 blur: function($event) {
-                  _vm.$v.description.$touch()
+                  _vm.$v.movie.description.$touch()
                 },
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.description = $event.target.value
+                  _vm.$set(_vm.movie, "description", $event.target.value)
                 }
               }
             }),
             _vm._v(" "),
-            !_vm.$v.description.required
+            !_vm.$v.movie.description.required
               ? _c("p", [_vm._v("This field must not be empty")])
               : _vm._e()
           ]
         ),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "form-group",
-            class: { invalid: _vm.$v.runTime.$error }
-          },
-          [
-            _c("label", { attrs: { for: "runTime" } }, [
-              _vm._v("Run time (in min)")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.runTime,
-                  expression: "runTime"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text", id: "runTime", required: "" },
-              domProps: { value: _vm.runTime },
-              on: {
-                blur: function($event) {
-                  _vm.$v.runTime.$touch()
-                },
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.runTime = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            !_vm.$v.runTime.required
-              ? _c("p", [_vm._v("This field must not be empty")])
-              : _vm._e()
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "form-group",
-            class: { invalid: _vm.$v.releaseDate.$error }
-          },
-          [
-            _c("label", { attrs: { for: "releaseDate" } }, [
-              _vm._v("Release date")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.releaseDate,
-                  expression: "releaseDate"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text", id: "releaseDate", required: "" },
-              domProps: { value: _vm.releaseDate },
-              on: {
-                blur: function($event) {
-                  _vm.$v.releaseDate.$touch()
-                },
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.releaseDate = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            !_vm.$v.releaseDate.required
-              ? _c("p", [_vm._v("This field must not be empty")])
-              : _vm._e()
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "form-group",
-            class: { invalid: _vm.$v.storyLine.$error }
-          },
-          [
-            _c("label", { attrs: { for: "storyLine" } }, [_vm._v("Story")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.storyLine,
-                  expression: "storyLine"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text", id: "storyLine", required: "" },
-              domProps: { value: _vm.storyLine },
-              on: {
-                blur: function($event) {
-                  _vm.$v.storyLine.$touch()
-                },
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.storyLine = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            !_vm.$v.storyLine.required
-              ? _c("p", [_vm._v("This field must not be empty")])
-              : _vm._e()
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "checkbox-inline",
-            class: { invalid: _vm.$v.genre.$error }
-          },
-          _vm._l(_vm.allGenres, function(genre1) {
-            return _c("label", { staticClass: "checkbox-inline" }, [
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            {
+              staticClass: "form-group col-md-6",
+              class: { invalid: _vm.$v.movie.runTime.$error }
+            },
+            [
+              _c("label", { attrs: { for: "runTime" } }, [
+                _vm._v("Run time (in min)")
+              ]),
+              _vm._v(" "),
               _c("input", {
                 directives: [
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.genre,
-                    expression: "genre"
+                    value: _vm.movie.runTime,
+                    expression: "movie.runTime"
                   }
                 ],
-                attrs: { type: "checkbox" },
-                domProps: {
-                  value: genre1.id,
-                  checked: Array.isArray(_vm.genre)
-                    ? _vm._i(_vm.genre, genre1.id) > -1
-                    : _vm.genre
-                },
+                staticClass: "form-control",
+                attrs: { type: "text", id: "runTime", required: "" },
+                domProps: { value: _vm.movie.runTime },
                 on: {
-                  change: [
-                    function($event) {
-                      var $$a = _vm.genre,
-                        $$el = $event.target,
-                        $$c = $$el.checked ? true : false
-                      if (Array.isArray($$a)) {
-                        var $$v = genre1.id,
-                          $$i = _vm._i($$a, $$v)
-                        if ($$el.checked) {
-                          $$i < 0 && (_vm.genre = $$a.concat([$$v]))
-                        } else {
-                          $$i > -1 &&
-                            (_vm.genre = $$a
-                              .slice(0, $$i)
-                              .concat($$a.slice($$i + 1)))
-                        }
-                      } else {
-                        _vm.genre = $$c
-                      }
-                    },
-                    function($event) {
-                      _vm.$v.genre.$touch()
+                  blur: function($event) {
+                    _vm.$v.movie.runTime.$touch()
+                  },
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
                     }
-                  ]
+                    _vm.$set(_vm.movie, "runTime", $event.target.value)
+                  }
                 }
               }),
-              _vm._v(" " + _vm._s(genre1.name))
+              _vm._v(" "),
+              !_vm.$v.movie.runTime.required
+                ? _c("p", [_vm._v("This field must not be empty")])
+                : _vm._e()
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "form-group col-md-6",
+              class: { invalid: _vm.$v.movie.releaseDate.$error }
+            },
+            [
+              _c("label", { attrs: { for: "releaseDate" } }, [
+                _vm._v("Release date")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.movie.releaseDate,
+                    expression: "movie.releaseDate"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", id: "releaseDate", required: "" },
+                domProps: { value: _vm.movie.releaseDate },
+                on: {
+                  blur: function($event) {
+                    _vm.$v.movie.releaseDate.$touch()
+                  },
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.movie, "releaseDate", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              !_vm.$v.movie.releaseDate.required
+                ? _c("p", [_vm._v("This field must not be empty")])
+                : _vm._e()
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "form-group",
+            class: { invalid: _vm.$v.movie.storyLine.$error }
+          },
+          [
+            _c("label", { attrs: { for: "storyLine" } }, [_vm._v("Story")]),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.movie.storyLine,
+                  expression: "movie.storyLine"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { rows: "4", type: "text", id: "storyLine", required: "" },
+              domProps: { value: _vm.movie.storyLine },
+              on: {
+                blur: function($event) {
+                  _vm.$v.movie.storyLine.$touch()
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.movie, "storyLine", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            !_vm.$v.movie.storyLine.required
+              ? _c("p", [_vm._v("This field must not be empty")])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("h2", [_vm._v("Movie photo's")]),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "file", multiple: "" },
+          on: { change: _vm.onFileChange }
+        }),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row" },
+          _vm._l(_vm.movie.photos, function(photo) {
+            return _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "close",
+                  attrs: { type: "button", "aria-label": "Close" },
+                  on: {
+                    click: function($event) {
+                      _vm.deleteImage(photo)
+                    }
+                  }
+                },
+                [
+                  _c("span", { attrs: { "aria-hidden": "true" } }, [
+                    _vm._v("×")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("img", {
+                staticClass: "img-responsive",
+                staticStyle: { padding: "3px" },
+                attrs: { src: photo, alt: "" }
+              })
             ])
           })
         ),
         _vm._v(" "),
-        _c("hr"),
+        _c("hr", { staticStyle: { "padding-top": "5px" } }),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            {
+              staticClass: "checkbox-inline col-md-6",
+              class: { invalid: _vm.$v.movie.genre.$error }
+            },
+            _vm._l(_vm.allGenres, function(genre1) {
+              return _c("label", { staticClass: "checkbox-inline" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.movie.genre,
+                      expression: "movie.genre"
+                    }
+                  ],
+                  attrs: { type: "checkbox" },
+                  domProps: {
+                    value: genre1.id,
+                    checked: Array.isArray(_vm.movie.genre)
+                      ? _vm._i(_vm.movie.genre, genre1.id) > -1
+                      : _vm.movie.genre
+                  },
+                  on: {
+                    change: [
+                      function($event) {
+                        var $$a = _vm.movie.genre,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = genre1.id,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 &&
+                              _vm.$set(_vm.movie, "genre", $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              _vm.$set(
+                                _vm.movie,
+                                "genre",
+                                $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                              )
+                          }
+                        } else {
+                          _vm.$set(_vm.movie, "genre", $$c)
+                        }
+                      },
+                      function($event) {
+                        _vm.$v.movie.genre.$touch()
+                      }
+                    ]
+                  }
+                }),
+                _vm._v(" " + _vm._s(genre1.name))
+              ])
+            })
+          )
+        ]),
+        _vm._v(" "),
+        _c("hr", { staticStyle: { "padding-top": "5px" } }),
         _vm._v(" "),
         _c("h2", [_vm._v("Cast")]),
         _vm._v(" "),
         _c(
           "div",
-          _vm._l(_vm.cast, function(castrow) {
+          _vm._l(_vm.movie.cast, function(castrow) {
             return _c("app-create-actor-movie-row", {
-              attrs: { index: castrow.id, Actors: _vm.allActors }
+              attrs: {
+                actor1: castrow.actor_id,
+                role1: castrow.role,
+                index: castrow.id,
+                Actors: _vm.allActors
+              }
             })
           })
         ),
@@ -19367,6 +19696,8 @@ var render = function() {
           },
           [_vm._v("Add row")]
         ),
+        _vm._v(" "),
+        _c("hr"),
         _vm._v(" "),
         _c("div", { staticClass: "submit" }, [
           _c(
@@ -19393,18 +19724,18 @@ if (false) {
 }
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_Hello_vue__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_Hello_vue__ = __webpack_require__(23);
 /* unused harmony reexport namespace */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_1ab9b7d6_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Hello_vue__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_1ab9b7d6_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Hello_vue__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(2);
 var disposed = false
 function injectStyle (context) {
   if (disposed) return
-  __webpack_require__(90)
+  __webpack_require__(91)
 }
 /* script */
 
@@ -19451,13 +19782,13 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(91);
+var content = __webpack_require__(92);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -19478,7 +19809,7 @@ if(false) {
 }
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -19492,7 +19823,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19515,18 +19846,18 @@ if (false) {
 }
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_Home_vue__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_Home_vue__ = __webpack_require__(24);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_11c5acec_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Home_vue__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_11c5acec_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Home_vue__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(2);
 var disposed = false
 function injectStyle (context) {
   if (disposed) return
-  __webpack_require__(94)
+  __webpack_require__(95)
 }
 /* script */
 
@@ -19573,13 +19904,13 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(95);
+var content = __webpack_require__(96);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -19600,7 +19931,7 @@ if(false) {
 }
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -19614,7 +19945,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19637,18 +19968,18 @@ if (false) {
 }
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_Dashboard_vue__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_Dashboard_vue__ = __webpack_require__(25);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6ac91152_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Dashboard_vue__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6ac91152_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Dashboard_vue__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(2);
 var disposed = false
 function injectStyle (context) {
   if (disposed) return
-  __webpack_require__(98)
+  __webpack_require__(99)
 }
 /* script */
 
@@ -19695,13 +20026,13 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(99);
+var content = __webpack_require__(100);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -19722,7 +20053,7 @@ if(false) {
 }
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -19736,7 +20067,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19759,13 +20090,13 @@ if (false) {
 }
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_Register_vue__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_Register_vue__ = __webpack_require__(26);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_e24368cc_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Register_vue__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_e24368cc_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Register_vue__ = __webpack_require__(103);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(2);
 var disposed = false
 /* script */
@@ -19813,7 +20144,7 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20009,13 +20340,13 @@ if (false) {
 }
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_Login_vue__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_Login_vue__ = __webpack_require__(27);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_01e7f602_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Login_vue__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_01e7f602_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Login_vue__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(2);
 var disposed = false
 /* script */
@@ -20063,7 +20394,7 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20187,18 +20518,18 @@ if (false) {
 }
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_CreateActor_vue__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_CreateActor_vue__ = __webpack_require__(28);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_966e02dc_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_CreateActor_vue__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_966e02dc_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_CreateActor_vue__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(2);
 var disposed = false
 function injectStyle (context) {
   if (disposed) return
-  __webpack_require__(106)
+  __webpack_require__(107)
 }
 /* script */
 
@@ -20245,13 +20576,13 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(107);
+var content = __webpack_require__(108);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -20272,7 +20603,7 @@ if(false) {
 }
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -20286,7 +20617,7 @@ exports.push([module.i, "\n.invalid[data-v-966e02dc] {\n\tborder: 1px solid red;
 
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20538,10 +20869,462 @@ if (false) {
 }
 
 /***/ }),
-/* 109 */
+/* 110 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_EditMovie_vue__ = __webpack_require__(29);
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5232fab8_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_EditMovie_vue__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(2);
+var disposed = false
+function injectStyle (context) {
+  if (disposed) return
+  __webpack_require__(111)
+}
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-5232fab8"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+
+var Component = Object(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__["a" /* default */])(
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_EditMovie_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5232fab8_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_EditMovie_vue__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5232fab8_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_EditMovie_vue__["b" /* staticRenderFns */],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\movies\\EditMovie.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5232fab8", Component.options)
+  } else {
+    hotAPI.reload("data-v-5232fab8", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Auth = __webpack_require__(110)();
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(112);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(4).default
+var update = add("a262f41a", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"optionsId\":\"0\",\"vue\":true,\"id\":\"data-v-5232fab8\",\"scoped\":true,\"sourceMap\":false}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EditMovie.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"optionsId\":\"0\",\"vue\":true,\"id\":\"data-v-5232fab8\",\"scoped\":true,\"sourceMap\":false}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EditMovie.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 112 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(3)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.invalid[data-v-5232fab8] {\n\tborder: 1px solid red;\n\tbackground-color: #ffc9aa\n}\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 113 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("h1", { staticClass: "text-center" }, [
+      _vm._v(
+        "Edit movie " + _vm._s(_vm.movie.title) + " " + _vm._s(_vm.movie.id)
+      )
+    ]),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        attrs: { autocomplete: "off", methods: "post" },
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.createMovie($event)
+          }
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "form-group",
+            class: { invalid: _vm.$v.movie.title.$error }
+          },
+          [
+            _c("label", { attrs: { for: "title" } }, [_vm._v("Title")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.movie.title,
+                  expression: "movie.title"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", id: "title", required: "" },
+              domProps: { value: _vm.movie.title },
+              on: {
+                blur: function($event) {
+                  _vm.$v.movie.title.$touch()
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.movie, "title", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            !_vm.$v.movie.title.required
+              ? _c("p", [_vm._v("This field must not be empty")])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "form-group",
+            class: { invalid: _vm.$v.movie.description.$error }
+          },
+          [
+            _c("label", { attrs: { for: "description" } }, [
+              _vm._v("Description")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.movie.description,
+                  expression: "movie.description"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", id: "description", required: "" },
+              domProps: { value: _vm.movie.description },
+              on: {
+                blur: function($event) {
+                  _vm.$v.movie.description.$touch()
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.movie, "description", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            !_vm.$v.movie.description.required
+              ? _c("p", [_vm._v("This field must not be empty")])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "form-group",
+            class: { invalid: _vm.$v.movie.runTime.$error }
+          },
+          [
+            _c("label", { attrs: { for: "runTime" } }, [
+              _vm._v("Run time (in min)")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.movie.runTime,
+                  expression: "movie.runTime"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", id: "runTime", required: "" },
+              domProps: { value: _vm.movie.runTime },
+              on: {
+                blur: function($event) {
+                  _vm.$v.movie.runTime.$touch()
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.movie, "runTime", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            !_vm.$v.movie.runTime.required
+              ? _c("p", [_vm._v("This field must not be empty")])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "form-group",
+            class: { invalid: _vm.$v.movie.releaseDate.$error }
+          },
+          [
+            _c("label", { attrs: { for: "releaseDate" } }, [
+              _vm._v("Release date")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.movie.releaseDate,
+                  expression: "movie.releaseDate"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", id: "releaseDate", required: "" },
+              domProps: { value: _vm.movie.releaseDate },
+              on: {
+                blur: function($event) {
+                  _vm.$v.movie.releaseDate.$touch()
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.movie, "releaseDate", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            !_vm.$v.movie.releaseDate.required
+              ? _c("p", [_vm._v("This field must not be empty")])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "form-group",
+            class: { invalid: _vm.$v.movie.storyLine.$error }
+          },
+          [
+            _c("label", { attrs: { for: "storyLine" } }, [_vm._v("Story")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.movie.storyLine,
+                  expression: "movie.storyLine"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", id: "storyLine", required: "" },
+              domProps: { value: _vm.movie.storyLine },
+              on: {
+                blur: function($event) {
+                  _vm.$v.movie.storyLine.$touch()
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.movie, "storyLine", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            !_vm.$v.movie.storyLine.required
+              ? _c("p", [_vm._v("This field must not be empty")])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "checkbox-inline",
+            class: { invalid: _vm.$v.movie.genre.$error }
+          },
+          _vm._l(_vm.allGenres, function(genre1) {
+            return _c("label", { staticClass: "checkbox-inline" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.movie.genre,
+                    expression: "movie.genre"
+                  }
+                ],
+                attrs: { type: "checkbox" },
+                domProps: {
+                  value: genre1.id,
+                  checked: Array.isArray(_vm.movie.genre)
+                    ? _vm._i(_vm.movie.genre, genre1.id) > -1
+                    : _vm.movie.genre
+                },
+                on: {
+                  change: [
+                    function($event) {
+                      var $$a = _vm.movie.genre,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = genre1.id,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 &&
+                            _vm.$set(_vm.movie, "genre", $$a.concat([$$v]))
+                        } else {
+                          $$i > -1 &&
+                            _vm.$set(
+                              _vm.movie,
+                              "genre",
+                              $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                            )
+                        }
+                      } else {
+                        _vm.$set(_vm.movie, "genre", $$c)
+                      }
+                    },
+                    function($event) {
+                      _vm.$v.movie.genre.$touch()
+                    }
+                  ]
+                }
+              }),
+              _vm._v(" " + _vm._s(genre1.name))
+            ])
+          })
+        ),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("h2", [_vm._v("Cast")]),
+        _vm._v(" "),
+        _c(
+          "div",
+          _vm._l(_vm.movie.cast, function(castrow) {
+            return _c("app-create-actor-movie-row", {
+              attrs: {
+                actor1: castrow.actor_id,
+                role1: castrow.role,
+                index: castrow.id,
+                Actors: _vm.allActors
+              }
+            })
+          })
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-dark",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.addActorRoleRow($event)
+              }
+            }
+          },
+          [_vm._v("Add row")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "submit" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-dark",
+              attrs: { type: "submit", disabled: _vm.$v.$invalid }
+            },
+            [_vm._v("Submit")]
+          )
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-5232fab8", { render: render, staticRenderFns: staticRenderFns })
+  }
+}
+
+/***/ }),
+/* 114 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Auth = __webpack_require__(115)();
 
 module.exports = (function () {
 
@@ -20582,12 +21365,12 @@ module.exports = (function () {
 })();
 
 /***/ }),
-/* 110 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __utils  = __webpack_require__(111),
-    __token  = __webpack_require__(112),
-    __cookie = __webpack_require__(28)
+var __utils  = __webpack_require__(116),
+    __token  = __webpack_require__(117),
+    __cookie = __webpack_require__(30)
 
 module.exports = function () {
 
@@ -21292,7 +22075,7 @@ module.exports = function () {
 
 
 /***/ }),
-/* 111 */
+/* 116 */
 /***/ (function(module, exports) {
 
 module.exports = (function (){
@@ -21374,10 +22157,10 @@ module.exports = (function (){
 
 
 /***/ }),
-/* 112 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __cookie = __webpack_require__(28);
+var __cookie = __webpack_require__(30);
 
 module.exports = (function () {
 
@@ -21454,7 +22237,7 @@ module.exports = (function () {
 })();
 
 /***/ }),
-/* 113 */
+/* 118 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -21476,7 +22259,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 114 */
+/* 119 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -21542,7 +22325,7 @@ module.exports = {
 
 
 /***/ }),
-/* 115 */
+/* 120 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -21610,690 +22393,10 @@ module.exports = {
 };
 
 /***/ }),
-/* 116 */
+/* 121 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 117 */,
-/* 118 */,
-/* 119 */,
-/* 120 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_js__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__CreateActorMovieRow_vue__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators__);
-var _methods;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-	props: ['id'],
-
-	data: function data() {
-		return {
-			movie: {
-				title: "",
-				description: "",
-				runTime: "",
-				releaseDate: "",
-				genre: [],
-				photos: [],
-				videos: [],
-				cast: [],
-				company: [],
-				storyLine: "",
-				language: ""
-			},
-
-			allGenres: [],
-			allActors: [],
-			actor_id: 0
-		};
-	},
-	beforeCreate: function beforeCreate() {
-		var _this = this;
-
-		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/genre/all').then(function (response) {
-			var data = response.data;
-			var resultArray = [];
-			for (var key in data) {
-				resultArray.push(data[key]);
-			}
-			_this.allGenres = resultArray;
-			console.log(_this.allGenres);
-		});
-		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/actor/all').then(function (response) {
-			var data = response.data;
-			var resultArray = [];
-			for (var key in data) {
-				resultArray.push(data[key]);
-			}
-			_this.allActors = resultArray;
-			console.log("all actors: " + _this.allActors);
-		});
-	},
-	created: function created() {
-		var _this2 = this;
-
-		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/movie/' + this.id).then(function (response) {
-			console.log(response);
-			var data = response.data;
-			_this2.movie = data;
-			// const resultArray = [];
-			// // for (let key in data) {
-			// // 	resultArray.push(data[key]);
-			// // }
-			// this.allActors = resultArray;
-			console.log("movie data: " + JSON.stringify(_this2.allActors));
-		});
-		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/movie/' + this.id + "/cast").then(function (response) {
-			_this2.movie.cast = [];
-			console.log(response);
-			var data = response.data;
-			for (var key in data) {
-				_this2.addActorRoleRow(data[key].id, data[key].role);
-			}
-			console.log("cast data " + JSON.stringify(_this2.movie.cast));
-		});
-
-		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/movie/' + this.id + "/genres").then(function (response) {
-			console.log(response);
-			var data = response.data;
-			var resultArray = [];
-			for (var key in data) {
-				resultArray.push(data[key].id);
-			}
-			_this2.movie.genre = resultArray;
-		});
-
-		__WEBPACK_IMPORTED_MODULE_1__app_js__["eventBus"].$on('actorWasEditted', function (data) {
-			console.log(data);
-			_this2.movie.cast.splice(_this2.movie.cast.indexOf(_this2.movie.cast.find(function (row) {
-				return row.id === data.id;
-			})), 1);
-			_this2.movie.cast.push({ id: data.id, actor_id: data.actor, role: data.role });
-			console.log("The cast is" + JSON.stringify(_this2.movie.cast));
-		});
-	},
-
-	methods: (_methods = {
-		addActorRoleRow: function addActorRoleRow() {
-			this.actor_id++;
-			var id = this.actor_id;
-			this.movie.cast.push({ id: id, actor_id: '', role: '' });
-		}
-	}, _defineProperty(_methods, 'addActorRoleRow', function addActorRoleRow(actor_id, role) {
-		this.actor_id++;
-		var id = this.actor_id;
-		this.movie.cast.push({ id: id, actor_id: actor_id, role: role });
-		console.log(JSON.stringify(this.movie.cast));
-	}), _defineProperty(_methods, 'createMovie', function createMovie() {
-
-		var localCast = [];
-		console.log(this.movie.cast.length);
-		this.movie.cast.forEach(function (castrow) {
-			console.log(castrow);
-			localCast.push({ actor_id: castrow.actor_id, role: castrow.role });
-		});
-
-		console.log("local" + JSON.stringify(localCast));
-
-		var params = {
-			title: this.movie.title,
-			description: this.movie.description,
-			runTime: this.movie.runTime,
-			releaseDate: this.movie.releaseDate,
-			storyLine: this.movie.storyLine,
-			language: this.movie.language,
-			genre: this.movie.genre,
-			cast: localCast
-		};
-		console.log(params);
-		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.put('/movie/edit/' + this.movie.id, params).then(function (res) {
-			return console.log(res);
-		}).catch(function (error) {
-			return console.log(error);
-		});
-	}), _methods),
-
-	validations: {
-		movie: {
-			title: {
-				required: __WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators__["required"]
-			},
-			description: {},
-			runTime: {},
-			releaseDate: {},
-			genre: {},
-			photos: {},
-			videos: {},
-			cast: {},
-			company: {},
-			storyLine: {},
-			language: {}
-		}
-	},
-	components: {
-		AppCreateActorMovieRow: __WEBPACK_IMPORTED_MODULE_2__CreateActorMovieRow_vue__["a" /* default */]
-	}
-});
-
-/***/ }),
-/* 121 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_EditMovie_vue__ = __webpack_require__(120);
-/* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5232fab8_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_EditMovie_vue__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(2);
-var disposed = false
-function injectStyle (context) {
-  if (disposed) return
-  __webpack_require__(122)
-}
-/* script */
-
-
-/* template */
-
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-5232fab8"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-
-var Component = Object(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__["a" /* default */])(
-  __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_EditMovie_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5232fab8_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_EditMovie_vue__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5232fab8_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_EditMovie_vue__["b" /* staticRenderFns */],
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\movies\\EditMovie.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5232fab8", Component.options)
-  } else {
-    hotAPI.reload("data-v-5232fab8", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
-
-
-/***/ }),
-/* 122 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(123);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var add = __webpack_require__(4).default
-var update = add("a262f41a", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"optionsId\":\"0\",\"vue\":true,\"id\":\"data-v-5232fab8\",\"scoped\":true,\"sourceMap\":false}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EditMovie.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"optionsId\":\"0\",\"vue\":true,\"id\":\"data-v-5232fab8\",\"scoped\":true,\"sourceMap\":false}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EditMovie.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 123 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(3)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.invalid[data-v-5232fab8] {\n\tborder: 1px solid red;\n\tbackground-color: #ffc9aa\n}\n\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 124 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", { staticClass: "text-center" }, [
-      _vm._v(
-        "Edit movie " + _vm._s(_vm.movie.title) + " " + _vm._s(_vm.movie.id)
-      )
-    ]),
-    _vm._v(" "),
-    _c("hr"),
-    _vm._v(" "),
-    _c(
-      "form",
-      {
-        attrs: { autocomplete: "off", methods: "post" },
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.createMovie($event)
-          }
-        }
-      },
-      [
-        _c(
-          "div",
-          {
-            staticClass: "form-group",
-            class: { invalid: _vm.$v.movie.title.$error }
-          },
-          [
-            _c("label", { attrs: { for: "title" } }, [_vm._v("Title")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.movie.title,
-                  expression: "movie.title"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text", id: "title", required: "" },
-              domProps: { value: _vm.movie.title },
-              on: {
-                blur: function($event) {
-                  _vm.$v.movie.title.$touch()
-                },
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.movie, "title", $event.target.value)
-                }
-              }
-            }),
-            _vm._v(" "),
-            !_vm.$v.movie.title.required
-              ? _c("p", [_vm._v("This field must not be empty")])
-              : _vm._e()
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "form-group",
-            class: { invalid: _vm.$v.movie.description.$error }
-          },
-          [
-            _c("label", { attrs: { for: "description" } }, [
-              _vm._v("Description")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.movie.description,
-                  expression: "movie.description"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text", id: "description", required: "" },
-              domProps: { value: _vm.movie.description },
-              on: {
-                blur: function($event) {
-                  _vm.$v.movie.description.$touch()
-                },
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.movie, "description", $event.target.value)
-                }
-              }
-            }),
-            _vm._v(" "),
-            !_vm.$v.movie.description.required
-              ? _c("p", [_vm._v("This field must not be empty")])
-              : _vm._e()
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "form-group",
-            class: { invalid: _vm.$v.movie.runTime.$error }
-          },
-          [
-            _c("label", { attrs: { for: "runTime" } }, [
-              _vm._v("Run time (in min)")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.movie.runTime,
-                  expression: "movie.runTime"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text", id: "runTime", required: "" },
-              domProps: { value: _vm.movie.runTime },
-              on: {
-                blur: function($event) {
-                  _vm.$v.movie.runTime.$touch()
-                },
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.movie, "runTime", $event.target.value)
-                }
-              }
-            }),
-            _vm._v(" "),
-            !_vm.$v.movie.runTime.required
-              ? _c("p", [_vm._v("This field must not be empty")])
-              : _vm._e()
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "form-group",
-            class: { invalid: _vm.$v.movie.releaseDate.$error }
-          },
-          [
-            _c("label", { attrs: { for: "releaseDate" } }, [
-              _vm._v("Release date")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.movie.releaseDate,
-                  expression: "movie.releaseDate"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text", id: "releaseDate", required: "" },
-              domProps: { value: _vm.movie.releaseDate },
-              on: {
-                blur: function($event) {
-                  _vm.$v.movie.releaseDate.$touch()
-                },
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.movie, "releaseDate", $event.target.value)
-                }
-              }
-            }),
-            _vm._v(" "),
-            !_vm.$v.movie.releaseDate.required
-              ? _c("p", [_vm._v("This field must not be empty")])
-              : _vm._e()
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "form-group",
-            class: { invalid: _vm.$v.movie.storyLine.$error }
-          },
-          [
-            _c("label", { attrs: { for: "storyLine" } }, [_vm._v("Story")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.movie.storyLine,
-                  expression: "movie.storyLine"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text", id: "storyLine", required: "" },
-              domProps: { value: _vm.movie.storyLine },
-              on: {
-                blur: function($event) {
-                  _vm.$v.movie.storyLine.$touch()
-                },
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.movie, "storyLine", $event.target.value)
-                }
-              }
-            }),
-            _vm._v(" "),
-            !_vm.$v.movie.storyLine.required
-              ? _c("p", [_vm._v("This field must not be empty")])
-              : _vm._e()
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "checkbox-inline",
-            class: { invalid: _vm.$v.movie.genre.$error }
-          },
-          _vm._l(_vm.allGenres, function(genre1) {
-            return _c("label", { staticClass: "checkbox-inline" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.movie.genre,
-                    expression: "movie.genre"
-                  }
-                ],
-                attrs: { type: "checkbox" },
-                domProps: {
-                  value: genre1.id,
-                  checked: Array.isArray(_vm.movie.genre)
-                    ? _vm._i(_vm.movie.genre, genre1.id) > -1
-                    : _vm.movie.genre
-                },
-                on: {
-                  change: [
-                    function($event) {
-                      var $$a = _vm.movie.genre,
-                        $$el = $event.target,
-                        $$c = $$el.checked ? true : false
-                      if (Array.isArray($$a)) {
-                        var $$v = genre1.id,
-                          $$i = _vm._i($$a, $$v)
-                        if ($$el.checked) {
-                          $$i < 0 &&
-                            _vm.$set(_vm.movie, "genre", $$a.concat([$$v]))
-                        } else {
-                          $$i > -1 &&
-                            _vm.$set(
-                              _vm.movie,
-                              "genre",
-                              $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                            )
-                        }
-                      } else {
-                        _vm.$set(_vm.movie, "genre", $$c)
-                      }
-                    },
-                    function($event) {
-                      _vm.$v.movie.genre.$touch()
-                    }
-                  ]
-                }
-              }),
-              _vm._v(" " + _vm._s(genre1.name))
-            ])
-          })
-        ),
-        _vm._v(" "),
-        _c("hr"),
-        _vm._v(" "),
-        _c("h2", [_vm._v("Cast")]),
-        _vm._v(" "),
-        _c(
-          "div",
-          _vm._l(_vm.movie.cast, function(castrow) {
-            return _c("app-create-actor-movie-row", {
-              attrs: {
-                actor1: castrow.actor_id,
-                role1: castrow.role,
-                index: castrow.id,
-                Actors: _vm.allActors
-              }
-            })
-          })
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-dark",
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.addActorRoleRow($event)
-              }
-            }
-          },
-          [_vm._v("Add row")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "submit" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-dark",
-              attrs: { type: "submit", disabled: _vm.$v.$invalid }
-            },
-            [_vm._v("Submit")]
-          )
-        ])
-      ]
-    )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-5232fab8", { render: render, staticRenderFns: staticRenderFns })
-  }
-}
 
 /***/ })
 /******/ ]);
