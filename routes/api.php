@@ -36,9 +36,11 @@ Route::post('auth/login', 'AuthController@login');
 
 Route::post('movie/create', 'MovieController@create');
 Route::get('movie/{id}', 'MovieController@getMovie');
+Route::get('movies/all', 'MovieController@allMovies');
 Route::put('movie/edit/{id}', 'MovieController@update');
 Route::get('movie/{id}/cast', 'MovieController@getCast');
 Route::get('movie/{id}/genres', 'MovieController@getGenres');
+Route::get('movie/{id}/photos', 'MovieController@getPhotos');
 
 Route::post('actor/create', 'ActorController@create');
 Route::get('actor/all', 'ActorController@getActors');

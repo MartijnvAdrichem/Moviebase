@@ -16,4 +16,9 @@ class Movie extends Model {
     public function actors(){
         return $this->belongsToMany('App\Actor');
     }
+
+    public function photos(){
+
+        return $this->morphMany('App\Photo', 'imageable');
+    }
 }

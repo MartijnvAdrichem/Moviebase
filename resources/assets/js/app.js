@@ -5,12 +5,15 @@ import VueAxios from 'vue-axios';
 import Vuelidate from 'vuelidate';
 import App from './views/App.vue'
 import router from './router'
+import image from './components/image.vue';
+import VueCarousel from 'vue-carousel';
 
-
+Vue.use(VueCarousel);
 axios.defaults.baseURL = '/api';
 Vue.use(Vuelidate);
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
+Vue.component('app-image', image);
 Vue.router = router;
 App.router = Vue.router;
 export const eventBus = new Vue();

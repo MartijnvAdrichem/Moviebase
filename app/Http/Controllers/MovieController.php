@@ -15,14 +15,16 @@ class MovieController extends Controller {
 
     public function create(Request $request) {
 
-        foreach( $request->photos as $photo){
-                $fileName = Carbon::now()->timestamp . '_' . uniqid() . '.' . explode('/', explode(':', substr($photo, 0, strpos($photo, ';')))[1])[1];
-                Image::make($photo)->save(public_path('images/') . $fileName);
-            }
         $movie = new Movie($request->all());
         $movie->save();
         $movie->genres()->attach($request->genre);
         $movie->actors()->attach($request->cast);
+
+        foreach( $request->photos as $photo){
+            $fileName = Carbon::now()->timestamp . '_' . uniqid() . '.' . explode('/', explode(':', substr($photo, 0, strpos($photo, ';')))[1])[1];
+            Image::make($photo)->save(public_path('images/') . $fileName);
+            $movie->photos()->create(['path'=>$fileName]);
+        }
 
     }
 
@@ -50,5 +52,14 @@ class MovieController extends Controller {
     public function getGenres($id){
         $genres = Movie::findOrFail($id)->genres;
         return $genres;
+    }
+    public function getPhotos($id){
+        $genres = Movie::findOrFail($id)->photos;
+        return $genres;
+    }
+
+
+    public function allMovies(){
+        return Movie::all();
     }
 }

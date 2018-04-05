@@ -104,38 +104,6 @@
 		},
 		created() {
 
-
-			axios.get('/movie/' + this.id).then( response => {
-				console.log(response);
-				const data = response.data;
-				this.movie = data;
-				// const resultArray = [];
-				// // for (let key in data) {
-				// // 	resultArray.push(data[key]);
-				// // }
-				// this.allActors = resultArray;
-				console.log("movie data: " + JSON.stringify(this.allActors));
-			});
-			axios.get('/movie/' + this.id + "/cast").then( response => {
-				this.movie.cast = [];
-				console.log(response);
-				const data = response.data;
-				for (let key in data) {
-					this.addActorRoleRow(data[key].id, data[key].role);
-				}
-				console.log("cast data " + JSON.stringify(this.movie.cast));
-			});
-
-			axios.get('/movie/' + this.id + "/genres").then( response => {
-				console.log(response);
-				const data = response.data;
-				const resultArray = [];
-				for (let key in data) {
-					resultArray.push(data[key].id);
-				}
-				this.movie.genre = resultArray;
-			});
-
 			eventBus.$on('actorWasEditted', (data) => {
 				console.log(data);
 				this.movie.cast.splice(this.movie.cast.indexOf(this.movie.cast.find((row) => {
