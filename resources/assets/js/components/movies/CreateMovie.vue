@@ -58,7 +58,7 @@
 			<hr style="padding-top: 5px">
 			<h2>Cast</h2>
 			<div>
-				<app-create-actor-movie-row v-for="(castrow) in movie.cast"  :actor1="castrow.actor_id" :role1="castrow.role" :index="castrow.id" :Actors="allActors"></app-create-actor-movie-row>
+				<app-create-actor-movie-row v-for="(castrow) in movie.cast"  :key="castrow.id" :actor1="castrow.actor_id" :role1="castrow.role" :index="castrow.id" :Actors="allActors"></app-create-actor-movie-row>
 			</div>
 			<button class="btn btn-dark" @click.prevent="addActorRoleRow">Add row</button>
 			<hr>

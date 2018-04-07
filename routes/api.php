@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 
 Route::group(['middleware' => 'jwt.auth'], function(){
     Route::get('auth/user', 'AuthController@user');
+    Route::post('review/create', 'ReviewController@create');
 });
 
 Route::group(['middleware' => 'jwt.refresh'], function(){

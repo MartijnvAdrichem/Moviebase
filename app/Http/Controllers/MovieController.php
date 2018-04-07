@@ -39,8 +39,9 @@ class MovieController extends Controller {
     }
 
     public function getMovie($id){
-        $movie = Movie::findOrFail($id);
-        return $movie->toJson(JSON_PRETTY_PRINT);
+//        $movie = Movie::where('id', $id)->with('reviews')->first();
+        $movie = Movie::with('reviews')->with('genres')->findOrFail($id);
+        return $movie;
 
     }
 

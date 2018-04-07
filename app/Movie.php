@@ -21,4 +21,8 @@ class Movie extends Model {
 
         return $this->morphMany('App\Photo', 'imageable');
     }
+
+    public function reviews(){
+        return $this->hasMany('App\Review')->with('user');
+    }
 }

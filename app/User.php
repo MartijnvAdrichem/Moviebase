@@ -36,4 +36,8 @@ class User extends Authenticatable
         return [];
     }
 
+    public function reviews(){
+        return $this->hasMany('App\Review');
+    }
+
 }

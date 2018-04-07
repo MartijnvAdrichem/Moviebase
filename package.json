@@ -21,9 +21,12 @@
     },
     "dependencies": {
         "@websanova/vue-auth": "^2.21.3-beta",
+        "moment": "^2.22.0",
         "vue-axios": "^2.0.2",
         "vue-carousel": "^0.6.11",
         "vue-router": "^3.0.1",
+        "vue-star-rating": "^1.5.1",
+        "vue-youtube-embed": "^2.1.3",
         "vuelidate": "^0.6.2"
     }
 }

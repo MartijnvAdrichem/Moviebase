@@ -1,6 +1,6 @@
 <template>
 	<ul class="">
-		<router-link tag="li" v-for="movie in allMovies"  active-class="active" :to="{path: '/movie/' + movie.id}"><a>{{movie.title}}</a></router-link>
+		<router-link tag="li" v-for="movie in allMovies"  :key="movie.id" active-class="active" :to="{path: '/movie/' + movie.id}"><a>{{movie.title}}</a></router-link>
 	</ul>
 </template>
 
