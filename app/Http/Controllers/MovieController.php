@@ -40,7 +40,7 @@ class MovieController extends Controller {
 
     public function getMovie($id){
 //        $movie = Movie::where('id', $id)->with('reviews')->first();
-        $movie = Movie::with('reviews')->with('genres')->findOrFail($id);
+        $movie = Movie::with(['reviews', 'genres', 'actors', 'photos'])->findOrFail($id);
         return $movie;
 
     }

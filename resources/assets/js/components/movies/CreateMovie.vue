@@ -39,7 +39,7 @@
 			</div>
 
 			<hr>
-			<h2>Movie photo's</h2>
+			<h2>Movie photos</h2>
 			<input type="file" multiple @change="onFileChange">
 			<div class="row">
 					<div v-for="photo in movie.photos" class="col-md-3">

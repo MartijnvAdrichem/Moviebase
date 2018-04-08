@@ -5,17 +5,17 @@
 		<div v-else>
 			<h1 >{{movie.title}} ( {{movie.releaseDate | formatDate }} )</h1>
 			<div class="row">
-				<p>Run time {{movie.runTime | minToHour}} | <span v-if="movie.genre"><span v-for="(genre, index) in movie.genre">{{genre.name}}<span v-if="index != Object.keys(movie.genre).length - 1">, </span></span> </span> | </p>
+				<p>Run time {{movie.runTime | minToHour}} | <span><span v-for="(genre, index) in movie.genres">{{genre.name}}<span v-if="index != Object.keys(movie.genres).length - 1">, </span></span></span> | </p>
 
 					<star-rating
-							style="margin-left: 20px; margin-top: -5px; margin-right: 20px"
+							style="margin-left: 20px; margin-top: -10px; margin-right: 20px"
 					v-bind:increment="0.1"
 					v-bind:max-rating="5"
 					v-model="rating"
 					inactive-color="#000"
 					active-color="#E4BB24"
 					v-bind:star-size="20"
-					read-only = True
+					:read-only = true
 					></star-rating>
 				| Total reviews: {{movie.reviews.length}}
 			</div>
@@ -34,7 +34,7 @@
 		<carousel :per-page="1" :navigationEnabled="true" :mouse-drag="false">
 			<slide v-for="photo in movie.photos" :key="photo.id">
 				<!--<app-image :src="photo.path"></app-image>-->
-				<img style="min-height: 100%; height: 100%" class="img-responsive center-block" :src="'/images/' + photo.path" alt="">
+				<img style="min-height: 100%; height: 100%" class="img-responsive center-block" :src="'/images/' + photo.path" alt="Photo">
 			</slide>
 		</carousel>
 			</div>
@@ -47,6 +47,7 @@
 		</carousel>
 			</div>
 			<hr>
+
 		<!--<img :src="movie.mainphoto" alt="">-->
 			<div class="row col-md-12">
 				<h2>User reviews</h2>
@@ -80,7 +81,7 @@
 					mainphoto: "1522683964_5ac2503ca7488.png",
 					runTime: "",
 					releaseDate: "",
-					genre: [],
+					genres: [],
 					reviews: [],
 					photos: [],
 					videos: [],
@@ -117,26 +118,7 @@
 				// // }
 				// this.allActors = resultArray;
 				console.log("movie data: " + JSON.stringify(this.movie));
-			});
-			axios.get('/movie/' + this.id + "/cast").then( response => {
-				this.movie.cast = [];
-				console.log(response);
-				const data = response.data;
-				for (let key in data) {
-					this.addActorRoleRow(data[key].id, data[key].role);
-				}
-				console.log("cast data " + JSON.stringify(this.movie.cast));
-			});
-			axios.get('/movie/' + this.id + "/photos").then( response => {
-				console.log(response);
-				const data = response.data;
-				const resultArray = [];
-				for (let key in data) {
-					console.log(data[key]);
-					resultArray.push(data[key]);
-				}
-				this.movie.photos = resultArray;
-				console.log("photos"  + JSON.stringify(this.movie.photos))
+				console.log("Genre data" +  this.movie.genres)
 				this.loading = false;
 			});
 		},
