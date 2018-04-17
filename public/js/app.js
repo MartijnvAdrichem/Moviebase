@@ -34198,16 +34198,16 @@ var render = function() {
       _c("app-header"),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "bg col-md-3 col-sm-3 col-xs-3" }),
+        _c("div", { staticClass: "bg col-md-3 col-sm-1 col-xs-1" }),
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "col-md-6 col-sm-6 col-xs-6" },
+          { staticClass: "col-md-6 col-sm-10 col-xs-10" },
           [_c("router-view")],
           1
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-3 col-sm-3 col-xs-3" })
+        _c("div", { staticClass: "col-md-3 col-sm-1 col-xs-1" })
       ])
     ],
     1
@@ -34441,6 +34441,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -34459,11 +34469,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				releaseDate: "",
 				genre: [],
 				photos: [],
-				videos: [],
+				video: "",
 				cast: [],
 				company: [],
 				storyLine: "",
-				language: ""
+				language: "",
+				mainphoto: ""
 			},
 
 			allGenres: [],
@@ -34527,6 +34538,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			};
 			reader.readAsDataURL(file);
 		},
+		createMainImage: function createMainImage(event) {
+			var file = e.target.files || e.dataTransfer.files;
+			if (!file.length) {
+				return;
+			}
+			var reader = new FileReader();
+			var vm = this;
+			reader.onload = function (e) {
+				vm.movie.mainphoto = e.target.result;
+			};
+			reader.readAsDataURL(file);
+		},
 		deleteImage: function deleteImage(photo) {
 			console.log(photo);
 			this.movie.photos.splice(this.movie.photos.indexOf(photo), 1);
@@ -34560,7 +34583,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			language: this.movie.language,
 			genre: this.movie.genre,
 			cast: localCast,
-			photos: this.movie.photos
+			photos: this.movie.photos,
+			video: this.movie.video,
+			mainPhoto: this.movie.mainphoto
 		};
 		console.log(params);
 		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/movie/create', params).then(function (res) {
@@ -34580,7 +34605,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			releaseDate: {},
 			genre: {},
 			photos: {},
-			videos: {},
+			video: {},
 			cast: {},
 			company: {},
 			storyLine: {},
@@ -35433,9 +35458,64 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "form-group",
+            class: { invalid: _vm.$v.movie.video.$error }
+          },
+          [
+            _c("label", { attrs: { for: "video" } }, [_vm._v("Trailer")]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "put the youtube video id ex: https://www.youtube.com/watch?v=dQw4w9WgXcQ -> video id = dQw4w9WgXcQ "
+              )
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.movie.video,
+                  expression: "movie.video"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", id: "video", required: "" },
+              domProps: { value: _vm.movie.video },
+              on: {
+                blur: function($event) {
+                  _vm.$v.movie.video.$touch()
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.movie, "video", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            !_vm.$v.movie.video.required
+              ? _c("p", [_vm._v("This field must not be empty")])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
         _c("hr"),
         _vm._v(" "),
         _c("h2", [_vm._v("Movie photos")]),
+        _vm._v(" "),
+        _c("label", [_vm._v("Main photo")]),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "file" },
+          on: { change: _vm.createMainImage }
+        }),
+        _vm._v(" "),
+        _c("label", [_vm._v("Other photos")]),
         _vm._v(" "),
         _c("input", {
           attrs: { type: "file", multiple: "" },
@@ -37858,7 +37938,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.VueCarousel-slide[data-v-1fb4c286] {\n\tbackground-image: url(\"/images/background.PNG\");\n\t/*background: #f8f9fa;*/\n\tcolor: #fff;\n\tfont-family: Arial;\n\tfont-size: 24px;\n\ttext-align: center;\n\tmin-height: 100px;\n}\n.photo[data-v-1fb4c286] {\n\tposition: absolute;\n\ttop: 50%;\n\tleft: 50%;\n\t-webkit-transform: translate(-50%, -50%);\n\t        transform: translate(-50%, -50%);\n}\n", ""]);
+exports.push([module.i, "\n.VueCarousel-slide[data-v-1fb4c286] {\n\tbackground-image: url(\"/images/background.PNG\");\n\t/*background: #f8f9fa;*/\n\tcolor: #fff;\n\tfont-family: Arial;\n\tfont-size: 12px;\n\ttext-align: center;\n\tmin-height: 100px;\n}\n.photo[data-v-1fb4c286] {\n\tposition: absolute;\n\ttop: 50%;\n\tleft: 50%;\n\t-webkit-transform: translate(-50%, -50%);\n\t        transform: translate(-50%, -50%);\n}\n.test[data-v-1fb4c286] {\n\twhite-space: pre-wrap;\n\tword-wrap: break-word;\n\tfont-family: inherit;\n}\n", ""]);
 
 // exports
 
@@ -37942,6 +38022,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -37950,29 +38041,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
 		return {
-			id: 86,
+			id: 0,
 			loading: true,
 			movie: {
 				title: "",
 				description: "",
-				mainphoto: "1522683964_5ac2503ca7488.png",
+				mainphoto: "",
 				runTime: "",
 				releaseDate: "",
 				genres: [],
 				reviews: [],
 				photos: [],
 				videos: [],
-				cast: [],
+				actors: [],
 				company: [],
 				storyLine: "",
-				language: ""
+				language: "",
+				video: ""
 			}
 		};
 	},
 
 	computed: {
 		rating: function rating() {
-			if (this.movie.reviews) {
+			if (this.movie.reviews.length > 0) {
 				var totalRating = 0;
 				this.movie.reviews.forEach(function (review) {
 					totalRating += Number(review.rating);
@@ -37980,18 +38072,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				});
 				return totalRating / this.movie.reviews.length;
 			}
+			return "0";
 		}
 	},
 	beforeCreate: function beforeCreate() {
 		var _this = this;
 
-		this.id = 86;
-		console.log(this.id);
-		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/movie/' + this.id).then(function (response) {
+		var id = this.$route.params.id;
+		console.log(id);
+		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/movie/' + id).then(function (response) {
 			console.log(response);
 			var data = response.data;
 			_this.movie = data;
-			_this.movie.mainphoto = "test.jpg";
 			// const resultArray = [];
 			// // for (let key in data) {
 			// // 	resultArray.push(data[key]);
@@ -38002,7 +38094,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			_this.loading = false;
 		});
 	},
-	created: function created() {},
+	created: function created() {
+		$('.carousel').carousel({
+			interval: 2000
+		});
+	},
 
 	methods: {
 		addActorRoleRow: function addActorRoleRow(actor_id, role) {
@@ -38592,9 +38688,9 @@ var render = function() {
                 }
               }),
               _vm._v(
-                "\n\t\t\t\t| Total reviews: " +
+                "\n\t\t\t| Total reviews: " +
                   _vm._s(_vm.movie.reviews.length) +
-                  "\n\t\t\t"
+                  "\n\t\t"
               )
             ],
             1
@@ -38602,7 +38698,7 @@ var render = function() {
           _vm._v(" "),
           _c("hr"),
           _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "row", staticStyle: { margin: "10px" } }, [
             _c(
               "div",
               { staticClass: "col-md-4" },
@@ -38623,7 +38719,7 @@ var render = function() {
                   attrs: {
                     "player-height": "300",
                     "player-width": "500",
-                    "video-id": "dQw4w9WgXcQ"
+                    "video-id": _vm.movie.video
                   }
                 })
               ],
@@ -38631,14 +38727,15 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("p", [_vm._v(_vm._s(_vm.movie.description))])
+          _c("div", { staticClass: "card", staticStyle: { margin: "10px" } }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("p", [_vm._v(_vm._s(_vm.movie.description))])
+            ])
           ]),
           _vm._v(" "),
-          _vm.movie.photos
+          _vm.movie.photos.length > 0
             ? _c(
                 "div",
-                { staticClass: "row" },
                 [
                   _c(
                     "carousel",
@@ -38646,13 +38743,13 @@ var render = function() {
                       attrs: {
                         "per-page": 1,
                         navigationEnabled: true,
-                        "mouse-drag": false
+                        "mouse-drag": true
                       }
                     },
                     _vm._l(_vm.movie.photos, function(photo) {
                       return _c("slide", { key: photo.id }, [
                         _c("img", {
-                          staticClass: "img-responsive center-block",
+                          staticClass: "image-responsive center-block",
                           staticStyle: { "min-height": "100%", height: "100%" },
                           attrs: { src: "/images/" + photo.path, alt: "Photo" }
                         })
@@ -38664,27 +38761,57 @@ var render = function() {
               )
             : _vm._e(),
           _vm._v(" "),
-          _vm.movie.cast
+          _vm.movie.actors.length > 0
             ? _c(
                 "div",
-                { staticClass: "row" },
                 [
                   _c(
                     "carousel",
                     {
                       attrs: {
-                        "per-page": 10,
+                        "per-page": 5,
                         navigationEnabled: true,
-                        "mouse-drag": false
+                        "mouse-drag": true
                       }
                     },
-                    _vm._l(_vm.movie.cast, function(actor) {
+                    _vm._l(_vm.movie.actors, function(actor) {
                       return _c("slide", { key: actor.id }, [
+                        _c(
+                          "p",
+                          { staticClass: " text-center font-weight-bold" },
+                          [_vm._v("Iron man")]
+                        ),
+                        _vm._v(" "),
                         _c("img", {
-                          staticClass: "img-responsive center-block",
-                          staticStyle: { "min-height": "100%", height: "100%" },
-                          attrs: { src: "/images/" + actor.photo, alt: "" }
-                        })
+                          staticClass:
+                            " rounded-circle image-responsive center-block",
+                          staticStyle: {
+                            "min-height": "75px",
+                            height: "75px",
+                            "min-width": "75px",
+                            "max-width": "75px"
+                          },
+                          attrs: {
+                            src: actor.photo
+                              ? "/images/" + actor.photo
+                              : "/images/placeholder_avatar.png",
+                            alt: ""
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          { staticClass: " text-center font-weight-bold" },
+                          [
+                            _vm._v(
+                              _vm._s(actor.firstname) +
+                                " " +
+                                _vm._s(actor.prefix ? actor.prefix : "") +
+                                " " +
+                                _vm._s(actor.lastname)
+                            )
+                          ]
+                        )
                       ])
                     })
                   )
@@ -38695,11 +38822,22 @@ var render = function() {
           _vm._v(" "),
           _c("hr"),
           _vm._v(" "),
+          _c("div", { staticClass: "test row col-md-12" }, [
+            _c("h2", [_vm._v("Story")]),
+            _vm._v("\n\t\t\t" + _vm._s(_vm.movie.storyLine) + "\n\t\t")
+          ]),
+          _vm._v(" "),
           _c(
             "div",
             { staticClass: "row col-md-12" },
             [
               _c("h2", [_vm._v("User reviews")]),
+              _vm._v(" "),
+              _vm.movie.reviews.length == 0
+                ? _c("div", { staticClass: "row col-md-12" }, [
+                    _c("p", [_vm._v("There are no reviews yet!")])
+                  ])
+                : _vm._e(),
               _vm._v(" "),
               _vm._l(_vm.movie.reviews, function(review) {
                 return _c(

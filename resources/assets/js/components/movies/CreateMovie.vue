@@ -38,8 +38,18 @@
 				<p v-if="!$v.movie.storyLine.required">This field must not be empty</p>
 			</div>
 
+			<div class="form-group" v-bind:class="{invalid: $v.movie.video.$error}">
+				<label for="video">Trailer</label>
+				<p>put the youtube video id ex: https://www.youtube.com/watch?v=dQw4w9WgXcQ -> video id = dQw4w9WgXcQ </p>
+				<input @blur="$v.movie.video.$touch()" type="text" id="video" class="form-control" v-model="movie.video" required>
+				<p v-if="!$v.movie.video.required">This field must not be empty</p>
+			</div>
+
 			<hr>
 			<h2>Movie photos</h2>
+			<label>Main photo</label>
+			<input type="file" @change="createMainImage">
+			<label>Other photos</label>
 			<input type="file" multiple @change="onFileChange">
 			<div class="row">
 					<div v-for="photo in movie.photos" class="col-md-3">
@@ -87,11 +97,12 @@
 					releaseDate: "",
 					genre: [],
 					photos: [],
-					videos: [],
+					video: "",
 					cast: [],
 					company: [],
 					storyLine: "",
 					language: "",
+					mainphoto: "",
 				},
 
 				allGenres: [],
@@ -153,6 +164,18 @@
 				};
 				reader.readAsDataURL(file);
 			},
+			createMainImage(event){
+				let file = e.target.files || e.dataTransfer.files;
+				if (!file.length) {
+					return;
+				}
+				let reader = new FileReader();
+				let vm = this;
+				reader.onload = (e) => {
+					vm.movie.mainphoto = e.target.result;
+				};
+				reader.readAsDataURL(file);
+			},
 			deleteImage(photo){
 				console.log(photo);
 				this.movie.photos.splice(this.movie.photos.indexOf(photo), 1);
@@ -189,6 +212,8 @@
 					genre: this.movie.genre,
 					cast: localCast,
 					photos: this.movie.photos,
+					video: this.movie.video,
+					mainPhoto: this.movie.mainphoto,
 				};
 				console.log(params);
 				axios.post('/movie/create', params)
@@ -217,7 +242,7 @@
 				photos: {
 
 				},
-				videos: {
+				video: {
 
 				},
 				cast: {

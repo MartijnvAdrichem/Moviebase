@@ -3,9 +3,9 @@
 		<app-header></app-header>
 
 		<div class="row">
-			<div class="bg col-md-3 col-sm-3 col-xs-3"></div>
-			<div class="col-md-6 col-sm-6 col-xs-6"><router-view></router-view></div>
-			<div class="col-md-3 col-sm-3 col-xs-3"></div>
+			<div class="bg col-md-3 col-sm-1 col-xs-1"></div>
+			<div class="col-md-6 col-sm-10 col-xs-10"><router-view></router-view></div>
+			<div class="col-md-3 col-sm-1 col-xs-1"></div>
 		</div>
 	</div>
 

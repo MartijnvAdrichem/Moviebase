@@ -20,37 +20,48 @@
 				| Total reviews: {{movie.reviews.length}}
 			</div>
 		<hr>
-		<div class="row">
+		<div style="margin: 10px;" class="row">
 			<div class="col-md-4"><app-image style="min-height: 300px; max-height: 300px" :src="movie.mainphoto"></app-image></div>
-			<div class="col-md-8"><youtube player-height="300" player-width="500" video-id="dQw4w9WgXcQ"></youtube></div>
+			<div class="col-md-8"><youtube player-height="300" player-width="500" :video-id="movie.video"></youtube></div>
 		</div>
-
-<div class="row">
-
-		<p>{{movie.description}}</p>
-</div>
-			<div v-if="movie.photos" class="row">
+	
+			<div style="margin: 10px;" class="card">
+			<div class="card-body">
+				<p>{{movie.description}}</p>
+			</div>
+			</div>
+			<div v-if="movie.photos.length > 0">
 		<!--<img v-for="photo in movie.photos" :src="'/images/' + photo.path" alt="">-->
-		<carousel :per-page="1" :navigationEnabled="true" :mouse-drag="false">
+		<carousel :per-page="1" :navigationEnabled="true" :mouse-drag="true">
 			<slide v-for="photo in movie.photos" :key="photo.id">
-				<!--<app-image :src="photo.path"></app-image>-->
-				<img style="min-height: 100%; height: 100%" class="img-responsive center-block" :src="'/images/' + photo.path" alt="Photo">
+				<img style="min-height: 100%; height: 100%" class="image-responsive center-block" :src="'/images/' + photo.path" alt="Photo">
 			</slide>
 		</carousel>
 			</div>
-			<div v-if="movie.cast" class="row">
-		<carousel :per-page="10" :navigationEnabled="true" :mouse-drag="false">
-			<slide v-for="actor in movie.cast" :key="actor.id">
-				<!--<app-image :src="photo.path"></app-image>-->
-				<img style="min-height: 100%; height: 100%" class="img-responsive center-block" :src="'/images/' + actor.photo" alt="">
-			</slide>
-		</carousel>
+
+
+			<div v-if="movie.actors.length > 0">
+				<carousel :per-page="5" :navigationEnabled="true" :mouse-drag="true">
+					<slide v-for="actor in movie.actors" :key="actor.id">
+						<p class=" text-center font-weight-bold">Iron man</p>
+						<img style="min-height: 75px; height: 75px; min-width: 75px; max-width: 75px;"  class=" rounded-circle image-responsive center-block" :src="actor.photo ? '/images/' + actor.photo : '/images/placeholder_avatar.png'" alt="">
+						<p class=" text-center font-weight-bold">{{actor.firstname}} {{actor.prefix ? actor.prefix : ""}} {{actor.lastname}}</p>
+					</slide>
+				</carousel>
 			</div>
 			<hr>
-
+			<div class="test row col-md-12">
+				<h2>Story</h2>
+				{{movie.storyLine}}
+			</div>
 		<!--<img :src="movie.mainphoto" alt="">-->
 			<div class="row col-md-12">
 				<h2>User reviews</h2>
+
+				<div class="row col-md-12" v-if="movie.reviews.length == 0">
+					<p>There are no reviews yet!</p>
+				</div>
+
 				<div style="margin-bottom: 20px" class="card col-md-12" v-for="review in movie.reviews" >
 					<detail-review class="row col-md-12" :review="review"></detail-review>
 
@@ -73,28 +84,29 @@
 	export default {
 		data() {
 			return {
-				id: 86,
+				id: 0,
 				loading: true,
 				movie: {
 					title: "",
 					description: "",
-					mainphoto: "1522683964_5ac2503ca7488.png",
+					mainphoto: "",
 					runTime: "",
 					releaseDate: "",
 					genres: [],
 					reviews: [],
 					photos: [],
 					videos: [],
-					cast: [],
+					actors: [],
 					company: [],
 					storyLine: "",
 					language: "",
+					video: "",
 				},
 			}
 		},
 		computed:{
 			rating() {
-				if(this.movie.reviews){
+				if(this.movie.reviews.length > 0){
 					let totalRating = 0;
 					this.movie.reviews.forEach((review) => {
 						totalRating +=  Number(review.rating);
@@ -102,28 +114,30 @@
 					});
 					return totalRating / this.movie.reviews.length;
 				}
+				return "0";
 			}
 		},
 		beforeCreate(){
-			this.id = 86;
-			console.log(this.id);
-			axios.get('/movie/' + this.id).then( response => {
+			 let id = this.$route.params.id;
+			console.log(id);
+			axios.get('/movie/' + id).then( response => {
 				console.log(response);
 				const data = response.data;
 				this.movie = data;
-				this.movie.mainphoto = "test.jpg";
 				// const resultArray = [];
 				// // for (let key in data) {
 				// // 	resultArray.push(data[key]);
 				// // }
 				// this.allActors = resultArray;
 				console.log("movie data: " + JSON.stringify(this.movie));
-				console.log("Genre data" +  this.movie.genres)
+				console.log("Genre data" +  this.movie.genres);
 				this.loading = false;
 			});
 		},
 		created(){
-
+			$('.carousel').carousel({
+				interval: 2000
+			})
 		},
 		methods: {
 			addActorRoleRow(actor_id, role){
@@ -147,7 +161,7 @@
 		/*background: #f8f9fa;*/
 		color: #fff;
 		font-family: Arial;
-		font-size: 24px;
+		font-size: 12px;
 		text-align: center;
 		min-height: 100px;
 	}
@@ -157,5 +171,10 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+	}
+	.test {
+		white-space: pre-wrap;
+		word-wrap: break-word;
+		font-family: inherit;
 	}
 </style>
