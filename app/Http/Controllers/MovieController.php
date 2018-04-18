@@ -14,8 +14,12 @@ use function MongoDB\BSON\toJSON;
 class MovieController extends Controller {
 
     public function create(Request $request) {
-
         $movie = new Movie($request->all());
+        $photo = $request->mainPhoto;
+        $fileName = Carbon::now()->timestamp . '_' . uniqid() . '.' . explode('/', explode(':', substr($photo, 0, strpos($photo, ';')))[1])[1];
+        $movie->mainphoto = $fileName;
+
+        Image::make($photo)->save(public_path('images/') . $fileName);
         $movie->save();
         $movie->genres()->attach($request->genre);
         $movie->actors()->attach($request->cast);

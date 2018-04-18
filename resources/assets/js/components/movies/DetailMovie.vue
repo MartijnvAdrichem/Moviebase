@@ -34,7 +34,7 @@
 		<!--<img v-for="photo in movie.photos" :src="'/images/' + photo.path" alt="">-->
 		<carousel :per-page="1" :navigationEnabled="true" :mouse-drag="true">
 			<slide v-for="photo in movie.photos" :key="photo.id">
-				<img style="min-height: 100%; height: 100%" class="image-responsive center-block" :src="'/images/' + photo.path" alt="Photo">
+				<img style=" max-height: 500px " class="img-responsive center-block" :src="'/images/' + photo.path" alt="Photo">
 			</slide>
 		</carousel>
 			</div>
@@ -43,14 +43,14 @@
 			<div v-if="movie.actors.length > 0">
 				<carousel :per-page="5" :navigationEnabled="true" :mouse-drag="true">
 					<slide v-for="actor in movie.actors" :key="actor.id">
-						<p class=" text-center font-weight-bold">Iron man</p>
-						<img style="min-height: 75px; height: 75px; min-width: 75px; max-width: 75px;"  class=" rounded-circle image-responsive center-block" :src="actor.photo ? '/images/' + actor.photo : '/images/placeholder_avatar.png'" alt="">
-						<p class=" text-center font-weight-bold">{{actor.firstname}} {{actor.prefix ? actor.prefix : ""}} {{actor.lastname}}</p>
+						<p class=" text-center font-weight-bold">{{actor.pivot.role}}</p>
+						<img style="min-height: 75px; height: 75px; min-width: 75px; max-width: 75px;"  class=" rounded-circle img-responsive center-block" :src="actor.photo ? '/images/' + actor.photo : '/images/placeholder_avatar.png'" alt="">
+						<router-link class="text-center font-weight-bold" tag="p" :to="'/actor/' + actor.id">{{actor.firstname}} {{actor.prefix ? actor.prefix : ""}} {{actor.lastname}}</router-link>
 					</slide>
 				</carousel>
 			</div>
 			<hr>
-			<div class="test row col-md-12">
+			<div class="textblock row col-md-12">
 				<h2>Story</h2>
 				{{movie.storyLine}}
 			</div>
@@ -172,7 +172,7 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 	}
-	.test {
+	.textblock {
 		white-space: pre-wrap;
 		word-wrap: break-word;
 		font-family: inherit;

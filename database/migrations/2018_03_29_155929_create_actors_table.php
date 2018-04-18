@@ -20,7 +20,7 @@ class CreateActorsTable extends Migration
             $table->string('lastname');
             $table->text('biography')->nullable();
             $table->date('birthday');
-            $table->date('profilePhoto_path')->nullable();
+            $table->string('profilephoto')->nullable();
             $table->timestamps();
         });
     }

@@ -45,6 +45,7 @@ Route::get('movie/{id}/photos', 'MovieController@getPhotos');
 
 Route::post('actor/create', 'ActorController@create');
 Route::get('actor/all', 'ActorController@getActors');
+Route::get('actor/{id}', 'ActorController@getActor');
 
 Route::get('genre/all', 'GenreController@getGenres');
 

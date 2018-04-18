@@ -9,6 +9,7 @@ import CreateActor from './components/actors/CreateActor.vue';
 import EditMovie from './components/movies/EditMovie.vue';
 import IndexMovie from './components/movies/IndexMovie.vue';
 import DetailMovie from './components/movies/DetailMovie.vue';
+import DetailActor from './components/actors/DetailActor.vue';
 
 const routes = [{
 	path: '/',
@@ -58,7 +59,14 @@ const routes = [{
 	meta: {
 		auth: true
 	},
-},
+}, {
+	path: '/actor/:id',
+	component: DetailActor,
+	props: true,
+	meta: {
+		auth: true
+	},
+}
 ];
 
 export default new VueRouter({mode: 'history', routes})

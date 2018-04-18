@@ -164,17 +164,17 @@
 				};
 				reader.readAsDataURL(file);
 			},
-			createMainImage(event){
+			createMainImage(e){
 				let file = e.target.files || e.dataTransfer.files;
 				if (!file.length) {
 					return;
 				}
 				let reader = new FileReader();
 				let vm = this;
-				reader.onload = (e) => {
-					vm.movie.mainphoto = e.target.result;
+				reader.onload = (ev) => {
+					vm.movie.mainphoto = ev.target.result;
 				};
-				reader.readAsDataURL(file);
+				reader.readAsDataURL(file[0]);
 			},
 			deleteImage(photo){
 				console.log(photo);

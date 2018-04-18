@@ -34249,6 +34249,9 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_movies_IndexMovie_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_movies_IndexMovie_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_movies_DetailMovie_vue__ = __webpack_require__(243);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_movies_DetailMovie_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_movies_DetailMovie_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_actors_DetailActor_vue__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_actors_DetailActor_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_actors_DetailActor_vue__);
+
 
 
 
@@ -34305,6 +34308,13 @@ var routes = [{
 }, {
 	path: '/movie/:id',
 	component: __WEBPACK_IMPORTED_MODULE_10__components_movies_DetailMovie_vue___default.a,
+	props: true,
+	meta: {
+		auth: true
+	}
+}, {
+	path: '/actor/:id',
+	component: __WEBPACK_IMPORTED_MODULE_11__components_actors_DetailActor_vue___default.a,
 	props: true,
 	meta: {
 		auth: true
@@ -34538,17 +34548,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			};
 			reader.readAsDataURL(file);
 		},
-		createMainImage: function createMainImage(event) {
+		createMainImage: function createMainImage(e) {
 			var file = e.target.files || e.dataTransfer.files;
 			if (!file.length) {
 				return;
 			}
 			var reader = new FileReader();
 			var vm = this;
-			reader.onload = function (e) {
-				vm.movie.mainphoto = e.target.result;
+			reader.onload = function (ev) {
+				vm.movie.mainphoto = ev.target.result;
 			};
-			reader.readAsDataURL(file);
+			reader.readAsDataURL(file[0]);
 		},
 		deleteImage: function deleteImage(photo) {
 			console.log(photo);
@@ -36738,6 +36748,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -36764,7 +36779,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				lastname: this.lastname,
 				biography: this.biography,
 				birthday: this.birthday,
-				profilePhoto: this.profilePhoto,
+				profilephoto: this.profilePhoto,
 				photos: this.photos
 			};
 
@@ -36773,6 +36788,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			}).catch(function (error) {
 				return console.log(error);
 			});
+		},
+		createMainImage: function createMainImage(e) {
+			var file = e.target.files || e.dataTransfer.files;
+			if (!file.length) {
+				return;
+			}
+			var reader = new FileReader();
+			var vm = this;
+			reader.onload = function (ev) {
+				vm.movie.mainphoto = ev.target.result;
+			};
+			reader.readAsDataURL(file[0]);
 		}
 	},
 
@@ -37009,6 +37036,28 @@ var render = function() {
             }),
             _vm._v(" "),
             !_vm.$v.birthday.required
+              ? _c("p", [_vm._v("This field must not be empty")])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "form-group",
+            class: { invalid: _vm.$v.profilePhoto.$error }
+          },
+          [
+            _c("label", { attrs: { for: "birthday" } }, [
+              _vm._v("Profile picture")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "file" },
+              on: { change: _vm.createMainImage }
+            }),
+            _vm._v(" "),
+            !_vm.$v.profilePhoto.required
               ? _c("p", [_vm._v("This field must not be empty")])
               : _vm._e()
           ]
@@ -37938,7 +37987,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.VueCarousel-slide[data-v-1fb4c286] {\n\tbackground-image: url(\"/images/background.PNG\");\n\t/*background: #f8f9fa;*/\n\tcolor: #fff;\n\tfont-family: Arial;\n\tfont-size: 12px;\n\ttext-align: center;\n\tmin-height: 100px;\n}\n.photo[data-v-1fb4c286] {\n\tposition: absolute;\n\ttop: 50%;\n\tleft: 50%;\n\t-webkit-transform: translate(-50%, -50%);\n\t        transform: translate(-50%, -50%);\n}\n.test[data-v-1fb4c286] {\n\twhite-space: pre-wrap;\n\tword-wrap: break-word;\n\tfont-family: inherit;\n}\n", ""]);
+exports.push([module.i, "\n.VueCarousel-slide[data-v-1fb4c286] {\n\tbackground-image: url(\"/images/background.PNG\");\n\t/*background: #f8f9fa;*/\n\tcolor: #fff;\n\tfont-family: Arial;\n\tfont-size: 12px;\n\ttext-align: center;\n\tmin-height: 100px;\n}\n.photo[data-v-1fb4c286] {\n\tposition: absolute;\n\ttop: 50%;\n\tleft: 50%;\n\t-webkit-transform: translate(-50%, -50%);\n\t        transform: translate(-50%, -50%);\n}\n.textblock[data-v-1fb4c286] {\n\twhite-space: pre-wrap;\n\tword-wrap: break-word;\n\tfont-family: inherit;\n}\n", ""]);
 
 // exports
 
@@ -38749,8 +38798,8 @@ var render = function() {
                     _vm._l(_vm.movie.photos, function(photo) {
                       return _c("slide", { key: photo.id }, [
                         _c("img", {
-                          staticClass: "image-responsive center-block",
-                          staticStyle: { "min-height": "100%", height: "100%" },
+                          staticClass: "img-responsive center-block",
+                          staticStyle: { "max-height": "500px" },
                           attrs: { src: "/images/" + photo.path, alt: "Photo" }
                         })
                       ])
@@ -38775,44 +38824,52 @@ var render = function() {
                       }
                     },
                     _vm._l(_vm.movie.actors, function(actor) {
-                      return _c("slide", { key: actor.id }, [
-                        _c(
-                          "p",
-                          { staticClass: " text-center font-weight-bold" },
-                          [_vm._v("Iron man")]
-                        ),
-                        _vm._v(" "),
-                        _c("img", {
-                          staticClass:
-                            " rounded-circle image-responsive center-block",
-                          staticStyle: {
-                            "min-height": "75px",
-                            height: "75px",
-                            "min-width": "75px",
-                            "max-width": "75px"
-                          },
-                          attrs: {
-                            src: actor.photo
-                              ? "/images/" + actor.photo
-                              : "/images/placeholder_avatar.png",
-                            alt: ""
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "p",
-                          { staticClass: " text-center font-weight-bold" },
-                          [
-                            _vm._v(
-                              _vm._s(actor.firstname) +
-                                " " +
-                                _vm._s(actor.prefix ? actor.prefix : "") +
-                                " " +
-                                _vm._s(actor.lastname)
-                            )
-                          ]
-                        )
-                      ])
+                      return _c(
+                        "slide",
+                        { key: actor.id },
+                        [
+                          _c(
+                            "p",
+                            { staticClass: " text-center font-weight-bold" },
+                            [_vm._v(_vm._s(actor.pivot.role))]
+                          ),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass:
+                              " rounded-circle img-responsive center-block",
+                            staticStyle: {
+                              "min-height": "75px",
+                              height: "75px",
+                              "min-width": "75px",
+                              "max-width": "75px"
+                            },
+                            attrs: {
+                              src: actor.photo
+                                ? "/images/" + actor.photo
+                                : "/images/placeholder_avatar.png",
+                              alt: ""
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "text-center font-weight-bold",
+                              attrs: { tag: "p", to: "/actor/" + actor.id }
+                            },
+                            [
+                              _vm._v(
+                                _vm._s(actor.firstname) +
+                                  " " +
+                                  _vm._s(actor.prefix ? actor.prefix : "") +
+                                  " " +
+                                  _vm._s(actor.lastname)
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
                     })
                   )
                 ],
@@ -38822,7 +38879,7 @@ var render = function() {
           _vm._v(" "),
           _c("hr"),
           _vm._v(" "),
-          _c("div", { staticClass: "test row col-md-12" }, [
+          _c("div", { staticClass: "textblock row col-md-12" }, [
             _c("h2", [_vm._v("Story")]),
             _vm._v("\n\t\t\t" + _vm._s(_vm.movie.storyLine) + "\n\t\t")
           ]),
@@ -40654,6 +40711,276 @@ module.exports = {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 274 */,
+/* 275 */,
+/* 276 */,
+/* 277 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(278)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(280)
+/* template */
+var __vue_template__ = __webpack_require__(281)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-4f861246"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\actors\\DetailActor.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4f861246", Component.options)
+  } else {
+    hotAPI.reload("data-v-4f861246", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 278 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(279);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("82295114", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4f861246\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./DetailActor.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4f861246\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./DetailActor.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 279 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.textblock[data-v-4f861246] {\n\tword-wrap: break-word;\n\tfont-family: inherit;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 280 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data() {
+		return {
+			loading: true,
+			actor: {
+				firstname: "",
+				prefix: "",
+				lastname: "",
+				biography: "",
+				birthday: "",
+				profilephoto: "",
+				photos: [],
+				movies: []
+			}
+		};
+	},
+	beforeCreate: function beforeCreate() {
+		var _this = this;
+
+		var id = this.$route.params.id;
+		console.log(id);
+		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/actor/' + id).then(function (response) {
+			console.log(response);
+			var data = response.data;
+			_this.actor = data;
+			_this.loading = false;
+		});
+	},
+
+	name: "detail-actor"
+});
+
+/***/ }),
+/* 281 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm.loading
+      ? _c("div", [_vm._v("Loading...")])
+      : _c("div", [
+          _c("h1", [
+            _vm._v(
+              _vm._s(_vm.actor.firstname) +
+                " " +
+                _vm._s(_vm.actor.prefix) +
+                " " +
+                _vm._s(_vm.actor.lastname)
+            )
+          ]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("img", {
+                staticClass: "img-responsive center-block",
+                attrs: {
+                  src: _vm.actor.profilephoto
+                    ? "/images/" + _vm.actor.profilephoto
+                    : "/images/placeholder_avatar.png",
+                  alt: ""
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "textblock col-md-6" }, [
+              _c("p", { staticClass: "font-weight-bold" }, [
+                _vm._v("Born: " + _vm._s(_vm.actor.birthday))
+              ]),
+              _vm._v("\n\t\t\t\t" + _vm._s(_vm.actor.biography) + "\n\t\t\t")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("h1", [_vm._v("Filmography")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row col-md-12" }, [
+            _c(
+              "li",
+              { staticClass: " col-md-12 list-group" },
+              _vm._l(_vm.actor.movies, function(movie) {
+                return _c("ul", { staticClass: " list-group-item" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col-md-4" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "font-weight-bold",
+                          attrs: { tag: "p", to: "/movie/" + movie.id }
+                        },
+                        [_vm._v(_vm._s(movie.title))]
+                      ),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(" " + _vm._s(movie.pivot.role))])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-4 col-md-offset-4" }, [
+                    _c("p", { attrs: { align: "right" } }, [
+                      _vm._v(
+                        " " + _vm._s(_vm._f("formatDate")(movie.releaseDate))
+                      )
+                    ])
+                  ])
+                ])
+              })
+            )
+          ])
+        ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4f861246", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

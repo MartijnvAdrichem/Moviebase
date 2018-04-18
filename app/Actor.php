@@ -13,4 +13,14 @@ class Actor extends Model {
 				"biography",
 				"birthday",
         ];
+
+    public function movies(){
+        return $this->belongsToMany('App\Movie')->withPivot('role');
+    }
+
+    public function photos(){
+
+        return $this->morphMany('App\Photo', 'imageable');
+    }
+
 }

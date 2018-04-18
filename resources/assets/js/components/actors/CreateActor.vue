@@ -35,6 +35,11 @@
 				<input @blur="$v.birthday.$touch()" type="text" id="birthday" class="form-control" v-model="birthday" required>
 				<p v-if="!$v.birthday.required">This field must not be empty</p>
 			</div>
+			<div class="form-group" v-bind:class="{invalid: $v.profilePhoto.$error}">
+				<label for="birthday">Profile picture</label>
+				<input type="file" @change="createMainImage">
+				<p v-if="!$v.profilePhoto.required">This field must not be empty</p>
+			</div>
 
 
 
@@ -72,14 +77,26 @@
 					lastname: this.lastname,
 					biography: this.biography,
 					birthday: this.birthday,
-					profilePhoto: this.profilePhoto,
+					profilephoto: this.profilePhoto,
 					photos: this.photos
 				};
 
 				axios.post('/actor/create', params)
 					.then(res => console.log(res))
 					.catch(error => console.log(error));
-			}
+			},
+			createMainImage(e){
+				let file = e.target.files || e.dataTransfer.files;
+				if (!file.length) {
+					return;
+				}
+				let reader = new FileReader();
+				let vm = this;
+				reader.onload = (ev) => {
+					vm.movie.mainphoto = ev.target.result;
+				};
+				reader.readAsDataURL(file[0]);
+			},
 		},
 
 		validations: {
