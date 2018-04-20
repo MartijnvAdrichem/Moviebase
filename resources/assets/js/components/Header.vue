@@ -8,10 +8,10 @@
 
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav">
-								<router-link tag="li" to="/movie/new" class="navbar-text nav-link" active-class="active">
+								<router-link tag="li" to="/movie" class="navbar-text nav-link" active-class="active">
 									Movies
 								</router-link>
-								<router-link tag="li" to="/actor/new" class="navbar-text nav-link" active-class="active">
+								<router-link tag="li" to="/actor" class="navbar-text nav-link" active-class="active">
 									Actors
 								</router-link>
 							<
@@ -52,7 +52,13 @@
 
 <script>
 	export default {
-		name: "header"
+		name: "header",
+
+		methods: {
+			logout(){
+				this.$auth.logout()
+			}
+		}
 	}
 </script>
 

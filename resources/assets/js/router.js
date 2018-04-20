@@ -10,6 +10,7 @@ import EditMovie from './components/movies/EditMovie.vue';
 import IndexMovie from './components/movies/IndexMovie.vue';
 import DetailMovie from './components/movies/DetailMovie.vue';
 import DetailActor from './components/actors/DetailActor.vue';
+import IndexActor from './components/actors/IndexActor.vue';
 
 const routes = [{
 	path: '/',
@@ -52,6 +53,9 @@ const routes = [{
 }, {
 	path: '/movie',
 	component: IndexMovie,
+}, {
+	path: '/actor',
+	component: IndexActor,
 }, {
 	path: '/movie/:id',
 	component: DetailMovie,

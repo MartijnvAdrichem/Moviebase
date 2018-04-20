@@ -52,7 +52,9 @@
 			<hr>
 			<div class="textblock row col-md-12">
 				<h2>Story</h2>
-				{{movie.storyLine}}
+				<div class="row col-md-12">
+					{{movie.storyLine}}
+				</div>
 			</div>
 		<!--<img :src="movie.mainphoto" alt="">-->
 			<div class="row col-md-12">
