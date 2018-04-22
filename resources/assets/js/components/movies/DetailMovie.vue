@@ -3,7 +3,14 @@
 
 		<div v-if="loading">Loading...</div>
 		<div v-else>
-			<h1 >{{movie.title}} ( {{movie.releaseDate | formatDate }} )</h1>
+			<div class="row">
+				<div class="col-md-8">
+					<h1 >{{movie.title}} ({{movie.releaseDate | formatDate }})</h1>
+				</div>
+				<div class="col-md-4">
+					<router-link tag="button" class="pull-right btn btn-primary" :to="{path: '/movie/edit/' + movie.id}">Edit movie</router-link>
+				</div>
+			</div>
 			<div class="row">
 				<p>Run time {{movie.runTime | minToHour}} | <span><span v-for="(genre, index) in movie.genres">{{genre.name}}<span v-if="index != Object.keys(movie.genres).length - 1">, </span></span></span> | </p>
 
@@ -116,7 +123,7 @@
 					});
 					return totalRating / this.movie.reviews.length;
 				}
-				return "0";
+				return 0;
 			}
 		},
 		beforeCreate(){
@@ -126,11 +133,6 @@
 				console.log(response);
 				const data = response.data;
 				this.movie = data;
-				// const resultArray = [];
-				// // for (let key in data) {
-				// // 	resultArray.push(data[key]);
-				// // }
-				// this.allActors = resultArray;
 				console.log("movie data: " + JSON.stringify(this.movie));
 				console.log("Genre data" +  this.movie.genres);
 				this.loading = false;

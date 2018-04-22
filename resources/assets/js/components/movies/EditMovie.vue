@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1 class="text-center">Edit movie {{movie.title}} {{movie.id}}</h1>
+		<h1 class="text-center">Edit movie</h1>
 		<hr>
 		<form autocomplete="off" @submit.prevent="createMovie" methods="post">
 
@@ -16,35 +16,75 @@
 				<p v-if="!$v.movie.description.required">This field must not be empty</p>
 			</div>
 
-			<div class="form-group" v-bind:class="{invalid: $v.movie.runTime.$error}">
-				<label for="runTime">Run time (in min)</label>
-				<input @blur="$v.movie.runTime.$touch()" type="text" id="runTime" class="form-control" v-model="movie.runTime" required>
-				<p v-if="!$v.movie.runTime.required">This field must not be empty</p>
+			<div class="row">
+				<div class="form-group col-md-6" v-bind:class="{invalid: $v.movie.runTime.$error}">
+					<label for="runTime">Run time (in min)</label>
+					<input @blur="$v.movie.runTime.$touch()" type="text" id="runTime" class="form-control" v-model="movie.runTime" required>
+					<p v-if="!$v.movie.runTime.required">This field must not be empty</p>
+				</div>
+
+				<div class="form-group col-md-6" v-bind:class="{invalid: $v.movie.releaseDate.$error}">
+					<label for="releaseDate">Release date</label>
+					<input @blur="$v.movie.releaseDate.$touch()" type="text" id="releaseDate" class="form-control" v-model="movie.releaseDate" required>
+					<p v-if="!$v.movie.releaseDate.required">This field must not be empty</p>
+				</div>
 			</div>
 
-			<div class="form-group" v-bind:class="{invalid: $v.movie.releaseDate.$error}">
-				<label for="releaseDate">Release date</label>
-				<input @blur="$v.movie.releaseDate.$touch()" type="text" id="releaseDate" class="form-control" v-model="movie.releaseDate" required>
-				<p v-if="!$v.movie.releaseDate.required">This field must not be empty</p>
-			</div>
+
 
 			<div class="form-group" v-bind:class="{invalid: $v.movie.storyLine.$error}">
 				<label for="storyLine">Story</label>
-				<input @blur="$v.movie.storyLine.$touch()" type="text" id="storyLine" class="form-control" v-model="movie.storyLine" required>
+				<textarea rows="4" @blur="$v.movie.storyLine.$touch()" type="text" id="storyLine" class="form-control" v-model="movie.storyLine" required></textarea>
 				<p v-if="!$v.movie.storyLine.required">This field must not be empty</p>
 			</div>
 
-			<div class="checkbox-inline" v-bind:class="{invalid: $v.movie.genre.$error}">
-				<label v-for="genre1 in allGenres" class="checkbox-inline"><input @change="$v.movie.genre.$touch()" type="checkbox" :value="genre1.id" v-model="movie.genre"> {{genre1.name}}</label>
+			<div class="form-group" v-bind:class="{invalid: $v.movie.video.$error}">
+				<label for="video">Trailer</label>
+				<p>put the youtube video id ex: https://www.youtube.com/watch?v=dQw4w9WgXcQ -> video id = dQw4w9WgXcQ </p>
+				<input @blur="$v.movie.video.$touch()" type="text" id="video" class="form-control" v-model="movie.video" required>
+				<p v-if="!$v.movie.video.required">This field must not be empty</p>
 			</div>
+
 			<hr>
+			<h2>Movie photos</h2>
+			<label>Main photo</label>
+			<input type="file" @change="createMainImage">
+			<label>Other photos</label>
+			<input type="file" multiple @change="onFileChange">
+			<label v-if="movie.photos.length > 0">New photos</label>
+			<div class="row">
+				<div v-for="photo in movie.photos" class="col-md-3">
+					<button type="button" class="close" @click="deleteImage(photo)" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<img  style="padding: 3px"class="img-responsive" :src="photo" alt="">
+				</div>
+			</div>
+			<label v-if="movie.oldphotos.length > 0">Existing photos</label>
+			<div class="row">
+				<div v-for="photo in movie.oldphotos" class="col-md-3">
+					<button type="button" class="close" @click="deleteOldImage(photo)" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<img  style="padding: 3px"class="img-responsive" :src="'/images/' + photo.path" alt="">
+				</div>
+			</div>
+			<hr style="padding-top: 5px">
+			<div class="row">
+				<div class="checkbox-inline col-md-6" v-bind:class="{invalid: $v.movie.genre.$error}">
+					<label v-for="genre1 in allGenres" class="checkbox-inline"><input @change="$v.movie.genre.$touch()" type="checkbox" :value="genre1.id" v-model="movie.genre"> {{genre1.name}}</label>
+				</div>
+			</div>
+			<hr style="padding-top: 5px">
 			<h2>Cast</h2>
 			<div>
-				<app-create-actor-movie-row v-for="(castrow) in movie.cast" :key="castrow.id" :actor1="castrow.actor_id" :role1="castrow.role" :index="castrow.id" :Actors="allActors"></app-create-actor-movie-row>
+				<app-create-actor-movie-row v-for="(castrow) in movie.cast"  :key="castrow.id" :actor1="castrow.actor_id" :role1="castrow.role" :index="castrow.id" :Actors="allActors"></app-create-actor-movie-row>
 			</div>
 			<button class="btn btn-dark" @click.prevent="addActorRoleRow">Add row</button>
+			<hr>
 			<div class="submit">
-				<button class="btn btn-dark" type="submit" :disabled="$v.$invalid">Submit</button>
+				<button class="btn btn-dark" @click.prevent="cancelEdit">Cancel</button>
+				<button class="btn btn-dark" type="submit" :disabled="$v.$invalid">Update</button>
 			</div>
 		</form>
 	</div>
@@ -57,7 +97,6 @@
 	import CreateActorMovieRow from './CreateActorMovieRow.vue';
 	import {required, email, numeric, minValue, minLength, sameAs, requiredUnless} from 'vuelidate/lib/validators';
 	export default {
-		props: ['id'],
 
 		data() {
 			return {
@@ -67,12 +106,16 @@
 					runTime: "",
 					releaseDate: "",
 					genre: [],
+					oldphotos: [],
 					photos: [],
-					videos: [],
+					video: "",
 					cast: [],
 					company: [],
 					storyLine: "",
 					language: "",
+					oldmainphoto: "",
+					mainphoto: ""
+
 				},
 
 				allGenres: [],
@@ -101,6 +144,33 @@
 				console.log("all actors: " + this.allActors);
 			});
 
+			let id = this.$route.params.id;
+			axios.get('/movie/' + id).then( response => {
+				console.log(response);
+				const data = response.data;
+				this.movie = data;
+				console.log("movie data: " + JSON.stringify(this.movie));
+				console.log("Genre data" +  this.movie.genres);
+				this.movie.oldphotos = this.movie.photos;
+				this.movie.photos = [];
+				if(this.movie.cast == null){
+					this.movie.cast = [];
+				}
+				if(this.movie.genres == null){
+					console.log("========================================================")
+					this.movie.genre = [];
+				}
+				this.movie.oldmainphoto = this.movie.mainphoto;
+				this.movie.mainphoto = "";
+
+				this.movie.genre = [];
+				this.movie.genres.forEach(genre => {
+					console.log(genre)
+					this.movie.genre.push(genre.id);
+				})
+				console.log(this.movie.genre);
+			});
+
 		},
 		created() {
 
@@ -114,6 +184,50 @@
 			})
 		},
 		methods:{
+			cancelEdit() {
+				this.$router.push({path: '/movie/' + this.movie.id});
+			},
+			onFileChange(e) {
+				let files = e.target.files || e.dataTransfer.files;
+				if (!files.length) {
+					console.log("buh");
+					return;
+				}
+				console.log(files);
+				console.log(files.length);
+				for(let i = 0; i < files.length; i++) {
+					this.createImage(files[i]);
+				}
+			},
+			createImage(file) {
+				let reader = new FileReader();
+				let vm = this;
+				reader.onload = (e) => {
+					vm.movie.photos.push(e.target.result);
+				};
+				reader.readAsDataURL(file);
+			},
+			createMainImage(e){
+				let file = e.target.files || e.dataTransfer.files;
+				if (!file.length) {
+					return;
+				}
+				let reader = new FileReader();
+				let vm = this;
+				reader.onload = (ev) => {
+					vm.movie.mainphoto = ev.target.result;
+				};
+				reader.readAsDataURL(file[0]);
+			},
+			deleteImage(photo){
+				console.log(photo);
+				this.movie.photos.splice(this.movie.photos.indexOf(photo), 1);
+			},
+			deleteOldImage(photo) {
+				console.log(photo);
+				this.movie.oldphotos.splice(this.movie.oldphotos.findIndex(lphoto => lphoto.id === photo.id), 1);
+				this.$forceUpdate()
+			},
 			addActorRoleRow(){
 				this.actor_id++;
 				const id = this.actor_id;
@@ -129,12 +243,10 @@
 			createMovie(){
 
 				let localCast = [];
-				console.log(this.movie.cast.length);
-				this.movie.cast.forEach((castrow) => {
-					console.log(castrow);
-					localCast.push({actor_id: castrow.actor_id, role: castrow.role});
-				});
-
+					this.movie.cast.forEach((castrow) => {
+						console.log(castrow);
+						localCast.push({actor_id: castrow.actor_id, role: castrow.role});
+					});
 				console.log("local" + JSON.stringify(localCast));
 
 				const params = {
@@ -145,7 +257,12 @@
 					storyLine: this.movie.storyLine,
 					language: this.movie.language,
 					genre: this.movie.genre,
-					cast: localCast
+					cast: localCast,
+					photos: this.movie.photos,
+					video: this.movie.video,
+					mainPhoto: this.movie.mainphoto,
+					oldmainphoto: this.movie.oldmainphoto,
+					oldphotos: this.movie.oldphotos,
 				};
 				console.log(params);
 				axios.put('/movie/edit/'+ this.movie.id, params)
@@ -174,7 +291,7 @@
 				photos: {
 
 				},
-				videos: {
+				video: {
 
 				},
 				cast: {

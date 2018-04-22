@@ -15,11 +15,14 @@ class MovieController extends Controller {
 
     public function create(Request $request) {
         $movie = new Movie($request->all());
-        $photo = $request->mainPhoto;
-        $fileName = Carbon::now()->timestamp . '_' . uniqid() . '.' . explode('/', explode(':', substr($photo, 0, strpos($photo, ';')))[1])[1];
-        $movie->mainphoto = $fileName;
 
-        Image::make($photo)->save(public_path('images/') . $fileName);
+        $photo = $request->mainPhoto;
+        if($photo) {
+            $fileName = Carbon::now()->timestamp . '_' . uniqid() . '.' . explode('/', explode(':', substr($photo, 0, strpos($photo, ';')))[1])[1];
+            $movie->mainphoto = $fileName;
+            Image::make($photo)->save(public_path('images/') . $fileName);
+        }
+
         $movie->save();
         $movie->genres()->attach($request->genre);
         $movie->actors()->attach($request->cast);
@@ -36,6 +39,21 @@ class MovieController extends Controller {
 
         //return $request;
         $movie = Movie::findOrFail($id);
+        $movie->photos()->delete();
+
+        foreach( $request->oldphotos as $photo1){
+            $movie->photos()->create($photo1);
+        }
+
+        $photo = $request->mainPhoto;
+        if($photo != null) {
+            $fileName = Carbon::now()->timestamp . '_' . uniqid() . '.' . explode('/', explode(':', substr($photo, 0, strpos($photo, ';')))[1])[1];
+            $movie->mainphoto = $fileName;
+            Image::make($photo)->save(public_path('images/') . $fileName);
+
+        } else {
+            $request->mainPhoto = $request->oldmainphoto;
+        }
         $movie->update($request->all());
         $movie->genres()->sync($request->genre);
         $movie->actors()->sync($request->cast);
