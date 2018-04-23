@@ -11,6 +11,7 @@ import IndexMovie from './components/movies/IndexMovie.vue';
 import DetailMovie from './components/movies/DetailMovie.vue';
 import DetailActor from './components/actors/DetailActor.vue';
 import IndexActor from './components/actors/IndexActor.vue';
+import EditActor from './components/actors/EditActor.vue';
 
 const routes = [{
 	path: '/',
@@ -66,6 +67,13 @@ const routes = [{
 }, {
 	path: '/actor/:id',
 	component: DetailActor,
+	props: true,
+	meta: {
+		auth: true
+	},
+}, {
+	path: '/actor/edit/:id',
+	component: EditActor,
 	props: true,
 	meta: {
 		auth: true

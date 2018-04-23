@@ -2,7 +2,7 @@
 	<div>
 
 
-		<h1 class="text-center">New Actor</h1>
+		<h1 class="text-center">Edit Actor</h1>
 		<hr>
 		<form autocomplete="off" @submit.prevent="createActor" methods="post">
 
@@ -44,7 +44,7 @@
 
 
 			<div class="submit">
-				<button class="btn btn-dark" type="submit" :disabled="$v.actor.$invalid">Submit</button>
+				<button class="btn btn-dark" type="submit" :disabled="$v.actor.$invalid">Update</button>
 			</div>
 		</form>
 	</div>
@@ -58,31 +58,40 @@
 		data() {
 			return {
 				actor: {
+					id: 0,
 					firstname: "",
 					prefix: "",
 					lastname: "",
 					biography: "",
 					birthday: "",
 					profilePhoto: "",
-					photos: []
 				},
 			}
 		},
 		beforeCreate(){
-
+			let id = this.$route.params.id;
+			console.log(id);
+			axios.get('/actor/' + id).then( response => {
+				console.log(response);
+				const data = response.data;
+				this.actor = data;
+				this.actor.profilePhoto = "";
+			});
 		},
 		methods:{
 			createActor(){
-				const params = {
+				let params = {
 					firstname: this.actor.firstname,
 					prefix: this.actor.prefix,
 					lastname: this.actor.lastname,
 					biography: this.actor.biography,
 					birthday: this.actor.birthday,
-					profilephoto: this.actor.profilePhoto,
 				};
 
-				axios.post('/actor/create', params)
+				if(this.actor.profilePhoto !== ""){
+					params['profilephoto'] = this.actor.profilePhoto;
+				}
+				axios.put('/actor/edit/' + this.actor.id, params)
 					.then(res => console.log(res))
 					.catch(error => console.log(error));
 			},

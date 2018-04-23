@@ -19,6 +19,19 @@ class ActorController extends Controller {
         $actor->save();
     }
 
+    public function update($id, Request $request) {
+
+        $actor = Actor::findOrFail($id);
+        if ($request->profilephoto){
+            $photo = $request->profilephoto;
+            $fileName = Carbon::now()->timestamp . '_' . uniqid() . '.' . explode('/', explode(':', substr($photo, 0, strpos($photo, ';')))[1])[1];
+            $actor->profilephoto = $fileName;
+            Image::make($photo)->save(public_path('images/') . $fileName);
+        }
+
+        $actor->update($request->all());
+    }
+
     public function getActors(){
         return Actor::orderBy('firstname', 'ASC')->orderBy('lastname', 'ASC')->get();
     }

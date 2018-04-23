@@ -157,7 +157,6 @@
 					this.movie.cast = [];
 				}
 				if(this.movie.genres == null){
-					console.log("========================================================")
 					this.movie.genre = [];
 				}
 				this.movie.oldmainphoto = this.movie.mainphoto;

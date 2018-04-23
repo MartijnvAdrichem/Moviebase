@@ -34259,6 +34259,9 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_actors_DetailActor_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_actors_DetailActor_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_actors_IndexActor_vue__ = __webpack_require__(263);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_actors_IndexActor_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_actors_IndexActor_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_actors_EditActor_vue__ = __webpack_require__(287);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_actors_EditActor_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_actors_EditActor_vue__);
+
 
 
 
@@ -34327,6 +34330,13 @@ var routes = [{
 }, {
 	path: '/actor/:id',
 	component: __WEBPACK_IMPORTED_MODULE_11__components_actors_DetailActor_vue___default.a,
+	props: true,
+	meta: {
+		auth: true
+	}
+}, {
+	path: '/actor/edit/:id',
+	component: __WEBPACK_IMPORTED_MODULE_13__components_actors_EditActor_vue___default.a,
 	props: true,
 	meta: {
 		auth: true
@@ -36772,13 +36782,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
 		return {
-			firstname: "",
-			prefix: "",
-			lastname: "",
-			biography: "",
-			birthday: "",
-			profilePhoto: "",
-			photos: []
+			actor: {
+				firstname: "",
+				prefix: "",
+				lastname: "",
+				biography: "",
+				birthday: "",
+				profilePhoto: "",
+				photos: []
+			}
 		};
 	},
 	beforeCreate: function beforeCreate() {},
@@ -36786,13 +36798,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	methods: {
 		createActor: function createActor() {
 			var params = {
-				firstname: this.firstname,
-				prefix: this.prefix,
-				lastname: this.lastname,
-				biography: this.biography,
-				birthday: this.birthday,
-				profilephoto: this.profilePhoto,
-				photos: this.photos
+				firstname: this.actor.firstname,
+				prefix: this.actor.prefix,
+				lastname: this.actor.lastname,
+				biography: this.actor.biography,
+				birthday: this.actor.birthday,
+				profilephoto: this.actor.profilePhoto
 			};
 
 			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/actor/create', params).then(function (res) {
@@ -36809,22 +36820,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			var reader = new FileReader();
 			var vm = this;
 			reader.onload = function (ev) {
-				vm.movie.mainphoto = ev.target.result;
+				vm.actor.profilePhoto = ev.target.result;
 			};
 			reader.readAsDataURL(file[0]);
 		}
 	},
 
 	validations: {
-		firstname: {
-			required: __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__["required"]
-		},
-		prefix: {},
-		lastname: {},
-		biography: {},
-		birthday: {},
-		profilePhoto: {},
-		photos: {}
+		actor: {
+			firstname: {
+				required: __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__["required"]
+			},
+			prefix: {},
+			lastname: {},
+			biography: {},
+			birthday: {},
+			profilePhoto: {},
+			photos: {}
+		}
 	}
 });
 
@@ -36857,7 +36870,7 @@ var render = function() {
           "div",
           {
             staticClass: "form-group",
-            class: { invalid: _vm.$v.firstname.$error }
+            class: { invalid: _vm.$v.actor.firstname.$error }
           },
           [
             _c("label", { attrs: { for: "firstname" } }, [_vm._v("Firstname")]),
@@ -36867,27 +36880,27 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.firstname,
-                  expression: "firstname"
+                  value: _vm.actor.firstname,
+                  expression: "actor.firstname"
                 }
               ],
               staticClass: "form-control",
               attrs: { type: "text", id: "firstname", required: "" },
-              domProps: { value: _vm.firstname },
+              domProps: { value: _vm.actor.firstname },
               on: {
                 blur: function($event) {
-                  _vm.$v.firstname.$touch()
+                  _vm.$v.actor.firstname.$touch()
                 },
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.firstname = $event.target.value
+                  _vm.$set(_vm.actor, "firstname", $event.target.value)
                 }
               }
             }),
             _vm._v(" "),
-            !_vm.$v.firstname.required
+            !_vm.$v.actor.firstname.required
               ? _c("p", [_vm._v("This field must not be empty")])
               : _vm._e()
           ]
@@ -36897,7 +36910,7 @@ var render = function() {
           "div",
           {
             staticClass: "form-group",
-            class: { invalid: _vm.$v.prefix.$error }
+            class: { invalid: _vm.$v.actor.prefix.$error }
           },
           [
             _c("label", { attrs: { for: "prefix" } }, [_vm._v("Prefix")]),
@@ -36907,27 +36920,27 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.prefix,
-                  expression: "prefix"
+                  value: _vm.actor.prefix,
+                  expression: "actor.prefix"
                 }
               ],
               staticClass: "form-control",
               attrs: { type: "text", id: "prefix", required: "" },
-              domProps: { value: _vm.prefix },
+              domProps: { value: _vm.actor.prefix },
               on: {
                 blur: function($event) {
-                  _vm.$v.prefix.$touch()
+                  _vm.$v.actor.prefix.$touch()
                 },
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.prefix = $event.target.value
+                  _vm.$set(_vm.actor, "prefix", $event.target.value)
                 }
               }
             }),
             _vm._v(" "),
-            !_vm.$v.prefix.required
+            !_vm.$v.actor.prefix.required
               ? _c("p", [_vm._v("This field must not be empty")])
               : _vm._e()
           ]
@@ -36937,7 +36950,7 @@ var render = function() {
           "div",
           {
             staticClass: "form-group",
-            class: { invalid: _vm.$v.lastname.$error }
+            class: { invalid: _vm.$v.actor.lastname.$error }
           },
           [
             _c("label", { attrs: { for: "lastname" } }, [_vm._v("Lastname")]),
@@ -36947,27 +36960,27 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.lastname,
-                  expression: "lastname"
+                  value: _vm.actor.lastname,
+                  expression: "actor.lastname"
                 }
               ],
               staticClass: "form-control",
               attrs: { type: "text", id: "lastname", required: "" },
-              domProps: { value: _vm.lastname },
+              domProps: { value: _vm.actor.lastname },
               on: {
                 blur: function($event) {
-                  _vm.$v.lastname.$touch()
+                  _vm.$v.actor.lastname.$touch()
                 },
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.lastname = $event.target.value
+                  _vm.$set(_vm.actor, "lastname", $event.target.value)
                 }
               }
             }),
             _vm._v(" "),
-            !_vm.$v.lastname.required
+            !_vm.$v.actor.lastname.required
               ? _c("p", [_vm._v("This field must not be empty")])
               : _vm._e()
           ]
@@ -36977,7 +36990,7 @@ var render = function() {
           "div",
           {
             staticClass: "form-group",
-            class: { invalid: _vm.$v.biography.$error }
+            class: { invalid: _vm.$v.actor.biography.$error }
           },
           [
             _c("label", { attrs: { for: "biography" } }, [_vm._v("Biography")]),
@@ -36987,27 +37000,27 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.biography,
-                  expression: "biography"
+                  value: _vm.actor.biography,
+                  expression: "actor.biography"
                 }
               ],
               staticClass: "form-control",
               attrs: { type: "text", id: "biography", required: "" },
-              domProps: { value: _vm.biography },
+              domProps: { value: _vm.actor.biography },
               on: {
                 blur: function($event) {
-                  _vm.$v.biography.$touch()
+                  _vm.$v.actor.biography.$touch()
                 },
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.biography = $event.target.value
+                  _vm.$set(_vm.actor, "biography", $event.target.value)
                 }
               }
             }),
             _vm._v(" "),
-            !_vm.$v.biography.required
+            !_vm.$v.actor.biography.required
               ? _c("p", [_vm._v("This field must not be empty")])
               : _vm._e()
           ]
@@ -37017,7 +37030,7 @@ var render = function() {
           "div",
           {
             staticClass: "form-group",
-            class: { invalid: _vm.$v.birthday.$error }
+            class: { invalid: _vm.$v.actor.birthday.$error }
           },
           [
             _c("label", { attrs: { for: "birthday" } }, [_vm._v("Birthday")]),
@@ -37027,27 +37040,27 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.birthday,
-                  expression: "birthday"
+                  value: _vm.actor.birthday,
+                  expression: "actor.birthday"
                 }
               ],
               staticClass: "form-control",
               attrs: { type: "text", id: "birthday", required: "" },
-              domProps: { value: _vm.birthday },
+              domProps: { value: _vm.actor.birthday },
               on: {
                 blur: function($event) {
-                  _vm.$v.birthday.$touch()
+                  _vm.$v.actor.birthday.$touch()
                 },
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.birthday = $event.target.value
+                  _vm.$set(_vm.actor, "birthday", $event.target.value)
                 }
               }
             }),
             _vm._v(" "),
-            !_vm.$v.birthday.required
+            !_vm.$v.actor.birthday.required
               ? _c("p", [_vm._v("This field must not be empty")])
               : _vm._e()
           ]
@@ -37057,7 +37070,7 @@ var render = function() {
           "div",
           {
             staticClass: "form-group",
-            class: { invalid: _vm.$v.profilePhoto.$error }
+            class: { invalid: _vm.$v.actor.profilePhoto.$error }
           },
           [
             _c("label", { attrs: { for: "birthday" } }, [
@@ -37069,7 +37082,7 @@ var render = function() {
               on: { change: _vm.createMainImage }
             }),
             _vm._v(" "),
-            !_vm.$v.profilePhoto.required
+            !_vm.$v.actor.profilePhoto.required
               ? _c("p", [_vm._v("This field must not be empty")])
               : _vm._e()
           ]
@@ -37080,7 +37093,7 @@ var render = function() {
             "button",
             {
               staticClass: "btn btn-dark",
-              attrs: { type: "submit", disabled: _vm.$v.$invalid }
+              attrs: { type: "submit", disabled: _vm.$v.actor.$invalid }
             },
             [_vm._v("Submit")]
           )
@@ -37366,7 +37379,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				_this.movie.cast = [];
 			}
 			if (_this.movie.genres == null) {
-				console.log("========================================================");
 				_this.movie.genre = [];
 			}
 			_this.movie.oldmainphoto = _this.movie.mainphoto;
@@ -41623,6 +41635,512 @@ module.exports = {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 284 */,
+/* 285 */,
+/* 286 */,
+/* 287 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(288)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(290)
+/* template */
+var __vue_template__ = __webpack_require__(291)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-140fd4f8"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\actors\\EditActor.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-140fd4f8", Component.options)
+  } else {
+    hotAPI.reload("data-v-140fd4f8", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 288 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(289);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(4)("2c9d58dc", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-140fd4f8\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EditActor.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-140fd4f8\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EditActor.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 289 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(3)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.invalid[data-v-140fd4f8] {\n\tborder: 1px solid red;\n\tbackground-color: #ffc9aa\n}\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 290 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data() {
+		return {
+			actor: {
+				id: 0,
+				firstname: "",
+				prefix: "",
+				lastname: "",
+				biography: "",
+				birthday: "",
+				profilePhoto: ""
+			}
+		};
+	},
+	beforeCreate: function beforeCreate() {
+		var _this = this;
+
+		var id = this.$route.params.id;
+		console.log(id);
+		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/actor/' + id).then(function (response) {
+			console.log(response);
+			var data = response.data;
+			_this.actor = data;
+			_this.actor.profilePhoto = "";
+		});
+	},
+
+	methods: {
+		createActor: function createActor() {
+			var params = {
+				firstname: this.actor.firstname,
+				prefix: this.actor.prefix,
+				lastname: this.actor.lastname,
+				biography: this.actor.biography,
+				birthday: this.actor.birthday
+			};
+
+			if (this.actor.profilePhoto !== "") {
+				params['profilephoto'] = this.actor.profilePhoto;
+			}
+			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.put('/actor/edit/' + this.actor.id, params).then(function (res) {
+				return console.log(res);
+			}).catch(function (error) {
+				return console.log(error);
+			});
+		},
+		createMainImage: function createMainImage(e) {
+			var file = e.target.files || e.dataTransfer.files;
+			if (!file.length) {
+				return;
+			}
+			var reader = new FileReader();
+			var vm = this;
+			reader.onload = function (ev) {
+				vm.actor.profilePhoto = ev.target.result;
+			};
+			reader.readAsDataURL(file[0]);
+		}
+	},
+
+	validations: {
+		actor: {
+			firstname: {
+				required: __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__["required"]
+			},
+			prefix: {},
+			lastname: {},
+			biography: {},
+			birthday: {},
+			profilePhoto: {},
+			photos: {}
+		}
+	}
+});
+
+/***/ }),
+/* 291 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("h1", { staticClass: "text-center" }, [_vm._v("Edit Actor")]),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        attrs: { autocomplete: "off", methods: "post" },
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.createActor($event)
+          }
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "form-group",
+            class: { invalid: _vm.$v.actor.firstname.$error }
+          },
+          [
+            _c("label", { attrs: { for: "firstname" } }, [_vm._v("Firstname")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.actor.firstname,
+                  expression: "actor.firstname"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", id: "firstname", required: "" },
+              domProps: { value: _vm.actor.firstname },
+              on: {
+                blur: function($event) {
+                  _vm.$v.actor.firstname.$touch()
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.actor, "firstname", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            !_vm.$v.actor.firstname.required
+              ? _c("p", [_vm._v("This field must not be empty")])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "form-group",
+            class: { invalid: _vm.$v.actor.prefix.$error }
+          },
+          [
+            _c("label", { attrs: { for: "prefix" } }, [_vm._v("Prefix")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.actor.prefix,
+                  expression: "actor.prefix"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", id: "prefix", required: "" },
+              domProps: { value: _vm.actor.prefix },
+              on: {
+                blur: function($event) {
+                  _vm.$v.actor.prefix.$touch()
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.actor, "prefix", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            !_vm.$v.actor.prefix.required
+              ? _c("p", [_vm._v("This field must not be empty")])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "form-group",
+            class: { invalid: _vm.$v.actor.lastname.$error }
+          },
+          [
+            _c("label", { attrs: { for: "lastname" } }, [_vm._v("Lastname")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.actor.lastname,
+                  expression: "actor.lastname"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", id: "lastname", required: "" },
+              domProps: { value: _vm.actor.lastname },
+              on: {
+                blur: function($event) {
+                  _vm.$v.actor.lastname.$touch()
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.actor, "lastname", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            !_vm.$v.actor.lastname.required
+              ? _c("p", [_vm._v("This field must not be empty")])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "form-group",
+            class: { invalid: _vm.$v.actor.biography.$error }
+          },
+          [
+            _c("label", { attrs: { for: "biography" } }, [_vm._v("Biography")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.actor.biography,
+                  expression: "actor.biography"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", id: "biography", required: "" },
+              domProps: { value: _vm.actor.biography },
+              on: {
+                blur: function($event) {
+                  _vm.$v.actor.biography.$touch()
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.actor, "biography", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            !_vm.$v.actor.biography.required
+              ? _c("p", [_vm._v("This field must not be empty")])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "form-group",
+            class: { invalid: _vm.$v.actor.birthday.$error }
+          },
+          [
+            _c("label", { attrs: { for: "birthday" } }, [_vm._v("Birthday")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.actor.birthday,
+                  expression: "actor.birthday"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", id: "birthday", required: "" },
+              domProps: { value: _vm.actor.birthday },
+              on: {
+                blur: function($event) {
+                  _vm.$v.actor.birthday.$touch()
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.actor, "birthday", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            !_vm.$v.actor.birthday.required
+              ? _c("p", [_vm._v("This field must not be empty")])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "form-group",
+            class: { invalid: _vm.$v.actor.profilePhoto.$error }
+          },
+          [
+            _c("label", { attrs: { for: "birthday" } }, [
+              _vm._v("Profile picture")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "file" },
+              on: { change: _vm.createMainImage }
+            }),
+            _vm._v(" "),
+            !_vm.$v.actor.profilePhoto.required
+              ? _c("p", [_vm._v("This field must not be empty")])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "submit" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-dark",
+              attrs: { type: "submit", disabled: _vm.$v.actor.$invalid }
+            },
+            [_vm._v("Update")]
+          )
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-140fd4f8", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
