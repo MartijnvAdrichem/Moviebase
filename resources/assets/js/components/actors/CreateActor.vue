@@ -26,7 +26,7 @@
 
 			<div class="form-group" v-bind:class="{invalid: $v.actor.biography.$error}">
 				<label for="biography">Biography</label>
-				<input @blur="$v.actor.biography.$touch()" type="text" id="biography" class="form-control" v-model="actor.biography" required>
+				<textarea rows="3" @blur="$v.actor.biography.$touch()" type="text" id="biography" class="form-control" v-model="actor.biography" required></textarea>
 				<p v-if="!$v.actor.biography.required">This field must not be empty</p>
 			</div>
 

@@ -18,6 +18,10 @@ use Illuminate\Http\Request;
 Route::group(['middleware' => 'jwt.auth'], function(){
     Route::get('auth/user', 'AuthController@user');
     Route::post('review/create', 'ReviewController@create');
+    Route::get('movie/{id}/watchlist', 'MovieController@isOnWatchlist');
+    Route::post('user/watchlist/add/{id}', 'UserController@AddMovieWatchlist');
+    Route::post('user/watchlist/remove/{id}', 'UserController@RemoveMovieWatchlist');
+    Route::get('user/watchlist', 'UserController@getWatchlist');
 });
 
 Route::group(['middleware' => 'jwt.refresh'], function(){
@@ -42,10 +46,14 @@ Route::put('movie/edit/{id}', 'MovieController@update');
 Route::get('movie/{id}/cast', 'MovieController@getCast');
 Route::get('movie/{id}/genres', 'MovieController@getGenres');
 Route::get('movie/{id}/photos', 'MovieController@getPhotos');
+Route::get('movie/random/{amount}', 'MovieController@getRandomMovies');
+
+
 
 Route::post('actor/create', 'ActorController@create');
 Route::get('actor/all', 'ActorController@getActors');
 Route::get('actor/{id}', 'ActorController@getActor');
+Route::get('actor/random/{amount}', 'ActorController@getRandomActors');
 Route::put('actor/edit/{id}', 'ActorController@update');
 
 Route::get('genre/all', 'GenreController@getGenres');

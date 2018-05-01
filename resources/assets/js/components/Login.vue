@@ -33,7 +33,7 @@
 		},
 		methods: {
 			login(){
-				var app = this
+				let app = this;
 				this.$auth.login({
 					params: {
 						email: app.email,

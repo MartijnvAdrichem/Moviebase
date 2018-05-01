@@ -12,11 +12,12 @@ import DetailMovie from './components/movies/DetailMovie.vue';
 import DetailActor from './components/actors/DetailActor.vue';
 import IndexActor from './components/actors/IndexActor.vue';
 import EditActor from './components/actors/EditActor.vue';
+import Watchlist from './components/users/Watchlist.vue';
 
 const routes = [{
 	path: '/',
 	name: 'home',
-	component: Home
+	component: Dashboard
 },{
 	path: '/register',
 	name: 'register',
@@ -61,19 +62,20 @@ const routes = [{
 	path: '/movie/:id',
 	component: DetailMovie,
 	props: true,
-	meta: {
-		auth: true
-	},
 }, {
 	path: '/actor/:id',
 	component: DetailActor,
+	props: true,
+}, {
+	path: '/actor/edit/:id',
+	component: EditActor,
 	props: true,
 	meta: {
 		auth: true
 	},
 }, {
-	path: '/actor/edit/:id',
-	component: EditActor,
+	path: '/user/watchlist',
+	component: Watchlist,
 	props: true,
 	meta: {
 		auth: true

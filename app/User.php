@@ -40,4 +40,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Review');
     }
 
+    public function movies(){
+        return $this->belongsToMany('App\Movie')->withPivot('watched');
+    }
+
 }

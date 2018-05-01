@@ -43,4 +43,10 @@ class ActorController extends Controller {
 
     }
 
+
+    public function getRandomActors($amount){
+        $actors = Actor::inRandomOrder()->take($amount)->get();
+        return $actors;
+
+    }
 }

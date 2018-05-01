@@ -2,8 +2,14 @@
 	<div>
 		<div v-if="loading">Loading...</div>
 		<div v-else>
-
-			<h1>{{actor.firstname}} {{actor.prefix}} {{actor.lastname}}</h1>
+			<div class="row">
+				<div class="col-md-8">
+					<h1>{{actor.firstname}} {{actor.prefix}} {{actor.lastname}}</h1>
+				</div>
+				<div class="col-md-4">
+					<router-link tag="button" class="pull-right btn btn-primary" :to="{path: '/actor/edit/' + actor.id}">Edit actor</router-link>
+				</div>
+			</div>
 			<hr>
 			<div class="row">
 				<div class="col-md-4">

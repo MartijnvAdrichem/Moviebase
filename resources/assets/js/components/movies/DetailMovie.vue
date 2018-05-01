@@ -5,10 +5,14 @@
 		<div v-else>
 			<div class="row">
 				<div class="col-md-8">
-					<h1 >{{movie.title}} ({{movie.releaseDate | formatDate }})</h1>
+						<h1>{{movie.title}} ({{movie.releaseDate | formatDate }})</h1>
 				</div>
 				<div class="col-md-4">
 					<router-link tag="button" class="pull-right btn btn-primary" :to="{path: '/movie/edit/' + movie.id}">Edit movie</router-link>
+					<div v-if="$auth.check()">
+						<button v-if="watchlist === 0" style="margin-right: 4px" @click="addMovieToWatchlist" title="Add to watchlist" class="pull-right btn btn-primary"><i class="fas fa-plus"></i></button>
+						<button v-if="watchlist === 1" style="margin-right: 4px" @click="removeMovieFromWatchlist" title="Remove from watchlist" class="pull-right btn btn-danger"><i class="fas fa-minus"></i></button>
+					</div>
 				</div>
 			</div>
 			<div class="row">
@@ -95,6 +99,7 @@
 			return {
 				id: 0,
 				loading: true,
+				watchlist: 0,
 				movie: {
 					title: "",
 					description: "",
@@ -137,6 +142,15 @@
 				console.log("Genre data" +  this.movie.genres);
 				this.loading = false;
 			});
+
+			if(this.$auth.check()) {
+				axios.get('/movie/' + id + '/watchlist').then(response => {
+					console.log(response);
+					this.watchlist = response.data;
+				});
+			}
+
+
 		},
 		created(){
 			$('.carousel').carousel({
@@ -144,6 +158,17 @@
 			})
 		},
 		methods: {
+			addMovieToWatchlist(){
+				axios.post('user/watchlist/add/' + this.movie.id)
+					.then(res => this.watchlist = 1)
+					.catch(error => console.log(error));
+			},
+			removeMovieFromWatchlist(){
+				axios.post('user/watchlist/remove/' + this.movie.id)
+					.then(res => this.watchlist = 0)
+					.catch(error => console.log(error));
+			},
+
 			addActorRoleRow(actor_id, role){
 				this.actor_id++;
 				const id = this.actor_id;

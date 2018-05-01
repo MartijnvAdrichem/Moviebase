@@ -6,6 +6,7 @@ use App\Movie;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Validator;
 use Intervention\Image\Facades\Image;
@@ -81,6 +82,22 @@ class MovieController extends Controller {
         return $genres;
     }
 
+    public function isOnWatchlist($id){
+       $user = Auth::user();
+        $exists = DB::table('movie_user')->where('movie_id', $id)->where('user_id', $user->id)->get();
+        if(count($exists)){
+            return 1;
+        }
+        return 0;
+
+
+    }
+
+    public function getRandomMovies($amount){
+        $movies = Movie::inRandomOrder()->take($amount)->get();
+        return $movies;
+
+    }
 
     public function allMovies(){
         return Movie::all();
