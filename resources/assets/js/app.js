@@ -28,6 +28,11 @@ Vue.filter('formatDate', function(value) {
 		return moment(String(value)).format('YYYY')
 	}
 });
+Vue.filter('formatBirthday', function(value) {
+	if (value) {
+		return moment(String(value)).format('DD-MM-YYYY')
+	}
+});
 Vue.filter('minToHour', function(value) {
 	if (value) {
 		let hours = Math.floor(value / 60);

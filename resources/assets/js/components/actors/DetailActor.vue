@@ -16,7 +16,7 @@
 					<img style=""  class="img-responsive center-block" :src="actor.profilephoto ? '/images/' + actor.profilephoto : '/images/placeholder_avatar.png'" alt="">
 				</div>
 				<div class="textblock col-md-6">
-					<p class="font-weight-bold">Born: {{actor.birthday}}</p>
+					<p class="font-weight-bold">Born: {{actor.birthday | formatBirthday}}</p>
 					{{actor.biography}}
 				</div>
 			</div>
