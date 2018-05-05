@@ -83,7 +83,7 @@
 			</div>
 
 			<div class="row col-md-12">
-				<create-review :movie_id="id"></create-review>
+				<create-review :movie_id="movie.id"></create-review>
 			</div>
 		</div>
 	</div>

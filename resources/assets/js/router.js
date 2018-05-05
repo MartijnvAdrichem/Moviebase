@@ -1,7 +1,5 @@
 import VueRouter from 'vue-router'
 import CreateMovie from './components/movies/CreateMovie.vue';
-import Hello from './views/Hello.vue'
-import Home from './views/Home.vue'
 import Dashboard from './views/Dashboard.vue';
 import Register from './components/Register.vue';
 import Login from './components/Login.vue';

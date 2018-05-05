@@ -8,12 +8,14 @@
 				<label for="title">Title</label>
 				<input @blur="$v.movie.title.$touch()" type="text" id="title" class="form-control" v-model="movie.title" required>
 				<p v-if="!$v.movie.title.required">This field must not be empty</p>
+				<p v-if="!$v.movie.title.maxLen">This field cant have more than 50 characters</p>
 			</div>
 
 			<div class="form-group" v-bind:class="{invalid: $v.movie.description.$error}">
 				<label for="description">Description</label>
 				<input @blur="$v.movie.description.$touch()" type="text" id="description" class="form-control" v-model="movie.description" required>
 				<p v-if="!$v.movie.description.required">This field must not be empty</p>
+				<p v-if="!$v.movie.description.maxLen">This field cant have more than 300 characters</p>
 			</div>
 
 			<div class="row">
@@ -21,6 +23,7 @@
 					<label for="runTime">Run time (in min)</label>
 					<input @blur="$v.movie.runTime.$touch()" type="text" id="runTime" class="form-control" v-model="movie.runTime" required>
 					<p v-if="!$v.movie.runTime.required">This field must not be empty</p>
+					<p v-if="!$v.movie.runTime.numeric">This field must be a number</p>
 				</div>
 
 				<div class="form-group col-md-6" v-bind:class="{invalid: $v.movie.releaseDate.$error}">
@@ -36,13 +39,13 @@
 				<label for="storyLine">Story</label>
 				<textarea rows="4" @blur="$v.movie.storyLine.$touch()" type="text" id="storyLine" class="form-control" v-model="movie.storyLine" required></textarea>
 				<p v-if="!$v.movie.storyLine.required">This field must not be empty</p>
+				<p v-if="!$v.movie.storyLine.maxLen">This field cant have more than 2500 characters</p>
 			</div>
 
 			<div class="form-group" v-bind:class="{invalid: $v.movie.video.$error}">
 				<label for="video">Trailer</label>
 				<p>put the youtube video id ex: https://www.youtube.com/watch?v=dQw4w9WgXcQ -> video id = dQw4w9WgXcQ </p>
-				<input @blur="$v.movie.video.$touch()" type="text" id="video" class="form-control" v-model="movie.video" required>
-				<p v-if="!$v.movie.video.required">This field must not be empty</p>
+				<input @blur="$v.movie.video.$touch()" type="text" id="video" class="form-control" v-model="movie.video">
 			</div>
 
 			<hr>
@@ -84,7 +87,7 @@
 	import axios from 'axios';
 	import {eventBus} from '../../app.js'
 	import CreateActorMovieRow from './CreateActorMovieRow.vue';
-	import {required, email, numeric, minValue, minLength, sameAs, requiredUnless} from 'vuelidate/lib/validators';
+	import {required, email, numeric, minValue, minLength, maxLength, sameAs, requiredUnless } from 'vuelidate/lib/validators';
 	export default {
 		props: ['id'],
 
@@ -226,15 +229,19 @@
 			movie: {
 				title: {
 					required,
+					maxLen: maxLength(50)
 				},
 				description: {
-
+					required,
+					maxLen: maxLength(300)
 				},
 				runTime: {
+					required,
+					numeric
 
 				},
 				releaseDate: {
-
+					required
 				},
 				genre: {
 
@@ -248,14 +255,11 @@
 				cast: {
 
 				},
-				company: {
-
-				},
 				storyLine: {
-				},
-				language: {
+					required,
+					maxLen: maxLength(2500)
 
-				}
+				},
 			}
 		},
 		components: {

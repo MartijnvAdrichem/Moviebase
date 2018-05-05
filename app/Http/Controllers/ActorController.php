@@ -12,10 +12,12 @@ class ActorController extends Controller {
 
         $actor = new Actor($request->all());
         $photo = $request->profilephoto;
-        $fileName = Carbon::now()->timestamp . '_' . uniqid() . '.' . explode('/', explode(':', substr($photo, 0, strpos($photo, ';')))[1])[1];
-        $actor->profilephoto = $fileName;
+        if($photo) {
+            $fileName = Carbon::now()->timestamp . '_' . uniqid() . '.' . explode('/', explode(':', substr($photo, 0, strpos($photo, ';')))[1])[1];
+            $actor->profilephoto = $fileName;
+            Image::make($photo)->save(public_path('images/') . $fileName);
+        }
 
-        Image::make($photo)->save(public_path('images/') . $fileName);
         $actor->save();
     }
 
