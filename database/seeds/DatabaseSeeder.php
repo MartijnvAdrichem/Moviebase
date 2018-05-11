@@ -318,7 +318,7 @@ Watching this in theaters with the sometimes too-loud sound, seeing the building
         ]);
 
         $movie->reviews()->create([
-            'title' => 'Better then the first!',
+            'title' => 'Better than the first!',
             'user_id' => 2,
             'content' => 'Avengers age of Ultron is by far the best Marvel movie to date. It has all the elements of the first movie, but steps it up in the action, character and dialog. I went into this movie with very unrealistically high expectations. So when I saw this movie, I was very worried but excited. ',
             'rating' => '4'
