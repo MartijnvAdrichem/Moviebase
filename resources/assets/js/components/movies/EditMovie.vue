@@ -21,14 +21,14 @@
 			<div class="row">
 				<div class="form-group col-md-6" v-bind:class="{invalid: $v.movie.runTime.$error}">
 					<label for="runTime">Run time (in min)</label>
-					<input @blur="$v.movie.runTime.$touch()" type="text" id="runTime" class="form-control" v-model="movie.runTime" required>
+					<input @blur="$v.movie.runTime.$touch()" type="number" id="runTime" class="form-control" v-model="movie.runTime" required>
 					<p v-if="!$v.movie.runTime.required">This field must not be empty</p>
 					<p v-if="!$v.movie.runTime.numeric">This field must be a number</p>
 				</div>
 
 				<div class="form-group col-md-6" v-bind:class="{invalid: $v.movie.releaseDate.$error}">
 					<label for="releaseDate">Release date</label>
-					<input @blur="$v.movie.releaseDate.$touch()" type="text" id="releaseDate" class="form-control" v-model="movie.releaseDate" required>
+					<input @blur="$v.movie.releaseDate.$touch()" type="date" id="releaseDate" class="form-control" v-model="movie.releaseDate" required>
 					<p v-if="!$v.movie.releaseDate.required">This field must not be empty</p>
 				</div>
 			</div>

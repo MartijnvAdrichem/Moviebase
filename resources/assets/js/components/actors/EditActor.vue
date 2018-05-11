@@ -34,7 +34,7 @@
 
 			<div class="form-group" v-bind:class="{invalid: $v.actor.birthday.$error}">
 				<label for="birthday">Birthday</label>
-				<input @blur="$v.actor.birthday.$touch()" type="text" id="birthday" class="form-control" v-model="actor.birthday" required>
+				<input @blur="$v.actor.birthday.$touch()" type="date" id="birthday" class="form-control" v-model="actor.birthday" required>
 				<p v-if="!$v.actor.birthday.required">This field must not be empty</p>
 			</div>
 			<div class="form-group" v-bind:class="{invalid: $v.actor.profilePhoto.$error}">
