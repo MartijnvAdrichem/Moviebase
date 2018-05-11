@@ -40,13 +40,17 @@ class MovieController extends Controller {
 
         //return $request;
         $movie = Movie::findOrFail($id);
+        $movie->photos()->delete();
 
+        foreach( $request->photos as $photo1){
+            $movie->photos()->create($photo1);
+        }
+        
         foreach( $request->photos as $photo){
             $fileName = Carbon::now()->timestamp . '_' . uniqid() . '.' . explode('/', explode(':', substr($photo, 0, strpos($photo, ';')))[1])[1];
             Image::make($photo)->save(public_path('images/') . $fileName);
             $movie->photos()->create(['path'=>$fileName]);
         }
-
 
         $photo = $request->mainPhoto;
         if($photo != null) {
