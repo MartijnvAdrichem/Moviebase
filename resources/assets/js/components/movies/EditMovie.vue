@@ -200,7 +200,6 @@
 			onFileChange(e) {
 				let files = e.target.files || e.dataTransfer.files;
 				if (!files.length) {
-					console.log("buh");
 					return;
 				}
 				console.log(files);
