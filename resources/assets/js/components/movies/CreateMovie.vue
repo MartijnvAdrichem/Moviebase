@@ -138,12 +138,13 @@
 		created() {
 
 			eventBus.$on('actorWasEditted', (data) => {
-				console.log(data);
-				this.movie.cast.splice(this.movie.cast.indexOf(this.movie.cast.find((row) => {
+				let index = this.movie.cast.indexOf(this.movie.cast.find((row) => {
 					return row.id === data.id;
-				})), 1);
-				this.movie.cast.push({id: data.id, actor_id: data.actor, role: data.role});
-				console.log("The cast is" + JSON.stringify(this.movie.cast))
+				}));
+
+				this.movie.cast[index].id = data.id;
+				this.movie.cast[index].actor_id = data.actor;
+				this.movie.cast[index].role = data.role;
 			})
 		},
 		methods:{

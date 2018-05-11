@@ -81,7 +81,7 @@
 			<hr style="padding-top: 5px">
 			<h2>Cast</h2>
 			<div>
-				<app-create-actor-movie-row v-for="(castrow) in movie.cast"  :key="castrow.id" :actor1="castrow.actor_id" :role1="castrow.role" :index="castrow.id" :Actors="allActors"></app-create-actor-movie-row>
+				<app-create-actor-movie-row v-for="castrow in movie.cast"  :key="castrow.id" :actor1="castrow.actor_id" :role1="castrow.role" :index="castrow.id" :Actors="allActors"></app-create-actor-movie-row>
 			</div>
 			<button class="btn btn-dark" @click.prevent="addActorRoleRow">Add row</button>
 			<hr>
@@ -156,9 +156,16 @@
 				console.log("Genre data" +  this.movie.genres);
 				this.movie.oldphotos = this.movie.photos;
 				this.movie.photos = [];
-				if(this.movie.cast == null){
+
+				if(this.movie.cast === null){
 					this.movie.cast = [];
 				}
+					this.movie.cast = [];
+				this.movie.actors.forEach(actor =>{
+					this.addActorRoleRows(actor.id, actor.pivot.role)
+				});
+
+
 				if(this.movie.genres == null){
 					this.movie.genre = [];
 				}
@@ -177,12 +184,13 @@
 		created() {
 
 			eventBus.$on('actorWasEditted', (data) => {
-				console.log(data);
-				this.movie.cast.splice(this.movie.cast.indexOf(this.movie.cast.find((row) => {
+				let index = this.movie.cast.indexOf(this.movie.cast.find((row) => {
 					return row.id === data.id;
-				})), 1);
-				this.movie.cast.push({id: data.id, actor_id: data.actor, role: data.role});
-				console.log("The cast is" + JSON.stringify(this.movie.cast))
+				}));
+
+				this.movie.cast[index].id = data.id;
+				this.movie.cast[index].actor_id = data.actor;
+				this.movie.cast[index].role = data.role;
 			})
 		},
 		methods:{
@@ -234,9 +242,9 @@
 				this.actor_id++;
 				const id = this.actor_id;
 				this.movie.cast.push({id: id, actor_id: '', role: ''});
-
+				this.$forceUpdate();
 			},
-			addActorRoleRow(actor_id, role){
+			addActorRoleRows(actor_id, role){
 				this.actor_id++;
 				const id = this.actor_id;
 				this.movie.cast.push({id: id, actor_id: actor_id, role: role});

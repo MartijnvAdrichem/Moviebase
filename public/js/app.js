@@ -34502,12 +34502,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 		var _this2 = this;
 
 		__WEBPACK_IMPORTED_MODULE_1__app_js__["eventBus"].$on('actorWasEditted', function (data) {
-			console.log(data);
-			_this2.movie.cast.splice(_this2.movie.cast.indexOf(_this2.movie.cast.find(function (row) {
+			var index = _this2.movie.cast.indexOf(_this2.movie.cast.find(function (row) {
 				return row.id === data.id;
-			})), 1);
-			_this2.movie.cast.push({ id: data.id, actor_id: data.actor, role: data.role });
-			console.log("The cast is" + JSON.stringify(_this2.movie.cast));
+			}));
+
+			_this2.movie.cast[index].id = data.id;
+			_this2.movie.cast[index].actor_id = data.actor;
+			_this2.movie.cast[index].role = data.role;
 		});
 	},
 
@@ -37302,10 +37303,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__CreateActorMovieRow_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__CreateActorMovieRow_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vuelidate_lib_validators__);
-var _methods;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -37464,9 +37461,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			console.log("Genre data" + _this.movie.genres);
 			_this.movie.oldphotos = _this.movie.photos;
 			_this.movie.photos = [];
-			if (_this.movie.cast == null) {
+
+			if (_this.movie.cast === null) {
 				_this.movie.cast = [];
 			}
+			_this.movie.cast = [];
+			_this.movie.actors.forEach(function (actor) {
+				_this.addActorRoleRows(actor.id, actor.pivot.role);
+			});
+
 			if (_this.movie.genres == null) {
 				_this.movie.genre = [];
 			}
@@ -37485,16 +37488,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 		var _this2 = this;
 
 		__WEBPACK_IMPORTED_MODULE_1__app_js__["eventBus"].$on('actorWasEditted', function (data) {
-			console.log(data);
-			_this2.movie.cast.splice(_this2.movie.cast.indexOf(_this2.movie.cast.find(function (row) {
+			var index = _this2.movie.cast.indexOf(_this2.movie.cast.find(function (row) {
 				return row.id === data.id;
-			})), 1);
-			_this2.movie.cast.push({ id: data.id, actor_id: data.actor, role: data.role });
-			console.log("The cast is" + JSON.stringify(_this2.movie.cast));
+			}));
+
+			_this2.movie.cast[index].id = data.id;
+			_this2.movie.cast[index].actor_id = data.actor;
+			_this2.movie.cast[index].role = data.role;
 		});
 	},
 
-	methods: (_methods = {
+	methods: {
 		cancelEdit: function cancelEdit() {
 			this.$router.push({ path: '/movie/' + this.movie.id });
 		},
@@ -37545,44 +37549,47 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			this.actor_id++;
 			var id = this.actor_id;
 			this.movie.cast.push({ id: id, actor_id: '', role: '' });
+			this.$forceUpdate();
+		},
+		addActorRoleRows: function addActorRoleRows(actor_id, role) {
+			this.actor_id++;
+			var id = this.actor_id;
+			this.movie.cast.push({ id: id, actor_id: actor_id, role: role });
+			console.log(JSON.stringify(this.movie.cast));
+		},
+		createMovie: function createMovie() {
+			var _this3 = this;
+
+			var localCast = [];
+			this.movie.cast.forEach(function (castrow) {
+				console.log(castrow);
+				localCast.push({ actor_id: castrow.actor_id, role: castrow.role });
+			});
+			console.log("local" + JSON.stringify(localCast));
+
+			var params = {
+				title: this.movie.title,
+				description: this.movie.description,
+				runTime: this.movie.runTime,
+				releaseDate: this.movie.releaseDate,
+				storyLine: this.movie.storyLine,
+				language: this.movie.language,
+				genre: this.movie.genre,
+				cast: localCast,
+				photos: this.movie.photos,
+				video: this.movie.video,
+				mainPhoto: this.movie.mainphoto,
+				oldmainphoto: this.movie.oldmainphoto,
+				oldphotos: this.movie.oldphotos
+			};
+			console.log(params);
+			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.put('/movie/edit/' + this.movie.id, params).then(function (res) {
+				return _this3.$router.push('/movie/' + _this3.movie.id);
+			}).catch(function (error) {
+				return console.log("error");
+			});
 		}
-	}, _defineProperty(_methods, 'addActorRoleRow', function addActorRoleRow(actor_id, role) {
-		this.actor_id++;
-		var id = this.actor_id;
-		this.movie.cast.push({ id: id, actor_id: actor_id, role: role });
-		console.log(JSON.stringify(this.movie.cast));
-	}), _defineProperty(_methods, 'createMovie', function createMovie() {
-		var _this3 = this;
-
-		var localCast = [];
-		this.movie.cast.forEach(function (castrow) {
-			console.log(castrow);
-			localCast.push({ actor_id: castrow.actor_id, role: castrow.role });
-		});
-		console.log("local" + JSON.stringify(localCast));
-
-		var params = {
-			title: this.movie.title,
-			description: this.movie.description,
-			runTime: this.movie.runTime,
-			releaseDate: this.movie.releaseDate,
-			storyLine: this.movie.storyLine,
-			language: this.movie.language,
-			genre: this.movie.genre,
-			cast: localCast,
-			photos: this.movie.photos,
-			video: this.movie.video,
-			mainPhoto: this.movie.mainphoto,
-			oldmainphoto: this.movie.oldmainphoto,
-			oldphotos: this.movie.oldphotos
-		};
-		console.log(params);
-		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.put('/movie/edit/' + this.movie.id, params).then(function (res) {
-			return _this3.$router.push('/movie/' + _this3.movie.id);
-		}).catch(function (error) {
-			return console.log("error");
-		});
-	}), _methods),
+	},
 
 	validations: {
 		movie: {
@@ -39454,8 +39461,8 @@ var render = function() {
                                 staticClass:
                                   " rounded-circle img-responsive center-block",
                                 staticStyle: {
-                                  "min-height": "75px",
-                                  height: "75px",
+                                  "min-height": "100px",
+                                  height: "100px",
                                   "min-width": "75px",
                                   "max-width": "75px"
                                 },

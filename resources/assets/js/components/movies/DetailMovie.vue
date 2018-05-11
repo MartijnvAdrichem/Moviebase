@@ -56,7 +56,7 @@
 					<slide  v-for="actor in movie.actors" :key="actor.id">
 					<router-link style="cursor:pointer;" tag="span" :to="'/actor/' + actor.id">
 						<p class=" text-center font-weight-bold">{{actor.pivot.role}}</p>
-						<img style="min-height: 75px; height: 75px; min-width: 75px; max-width: 75px;"  class=" rounded-circle img-responsive center-block" :src="actor.profilephoto ? '/images/' + actor.profilephoto : '/images/placeholder_avatar.png'" alt="">
+						<img style="min-height: 100px; height: 100px; min-width: 75px; max-width: 75px;"  class=" rounded-circle img-responsive center-block" :src="actor.profilephoto ? '/images/' + actor.profilephoto : '/images/placeholder_avatar.png'" alt="">
 						<p class="text-center font-weight-bold" >{{actor.firstname}} {{actor.prefix ? actor.prefix : ""}} {{actor.lastname}}</p>
 					</router-link>
 					</slide>
@@ -161,7 +161,7 @@
 					console.log("Genre data" +  this.movie.genres);
 					this.loading = false;
 				});
-			})
+			});
 
 		},
 		created(){
