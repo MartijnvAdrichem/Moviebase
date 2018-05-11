@@ -38867,101 +38867,103 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-md-12" }, [
-    _c("h2", [_vm._v("New review")]),
-    _vm._v(" "),
-    _vm.response
-      ? _c("p", { staticClass: "text-danger font-weight-bold" }, [
-          _vm._v(_vm._s(_vm.response))
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _c(
-      "form",
-      {
-        attrs: { methods: "post" },
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.createReview($event)
-          }
-        }
-      },
-      [
-        _c("star-rating", {
-          attrs: {
-            increment: 0.5,
-            "max-rating": 5,
-            "inactive-color": "#000",
-            "active-color": "#E4BB24",
-            "star-size": 40
+  return _vm.$auth.check()
+    ? _c("div", { staticClass: "col-md-12" }, [
+        _c("h2", [_vm._v("New review")]),
+        _vm._v(" "),
+        _vm.response
+          ? _c("p", { staticClass: "text-danger font-weight-bold" }, [
+              _vm._v(_vm._s(_vm.response))
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            attrs: { methods: "post" },
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.createReview($event)
+              }
+            }
           },
-          model: {
-            value: _vm.review.rating,
-            callback: function($$v) {
-              _vm.$set(_vm.review, "rating", $$v)
-            },
-            expression: "review.rating"
-          }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "title" } }, [_vm._v("Title")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.review.title,
-                expression: "review.title"
+          [
+            _c("star-rating", {
+              attrs: {
+                increment: 0.5,
+                "max-rating": 5,
+                "inactive-color": "#000",
+                "active-color": "#E4BB24",
+                "star-size": 40
+              },
+              model: {
+                value: _vm.review.rating,
+                callback: function($$v) {
+                  _vm.$set(_vm.review, "rating", $$v)
+                },
+                expression: "review.rating"
               }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", id: "title", required: "" },
-            domProps: { value: _vm.review.title },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "title" } }, [_vm._v("Title")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.review.title,
+                    expression: "review.title"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", id: "title", required: "" },
+                domProps: { value: _vm.review.title },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.review, "title", $event.target.value)
+                  }
                 }
-                _vm.$set(_vm.review, "title", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "content" } }, [_vm._v("Content")]),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.review.content,
-                expression: "review.content"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { rows: "4", type: "text", id: "content", required: "" },
-            domProps: { value: _vm.review.content },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "content" } }, [_vm._v("Content")]),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.review.content,
+                    expression: "review.content"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { rows: "4", type: "text", id: "content", required: "" },
+                domProps: { value: _vm.review.content },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.review, "content", $event.target.value)
+                  }
                 }
-                _vm.$set(_vm.review, "content", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _vm._m(0)
-      ],
-      1
-    )
-  ])
+              })
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ],
+          1
+        )
+      ])
+    : _vm._e()
 }
 var staticRenderFns = [
   function() {

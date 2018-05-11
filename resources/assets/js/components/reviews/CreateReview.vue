@@ -1,5 +1,5 @@
 <template>
-	<div class="col-md-12">
+	<div class="col-md-12" v-if="$auth.check()">
 		<h2>New review</h2>
 		<p class="text-danger font-weight-bold" v-if="response">{{response}}</p>
 		<form @submit.prevent="createReview" methods="post">
