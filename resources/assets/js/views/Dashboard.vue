@@ -1,17 +1,17 @@
 <template>
 	<div>
 		<div class="center-block row">
-			<h1 class="text-center">Movies</h1>
+			<router-link tag="h1" to="/movie" class="text-center nav-link">Movies</router-link>
 			<dashboard-movie-item class="col-md-3 col-lg-3 col-sm-6"v-for="movie in movies" :movie="movie"></dashboard-movie-item>
-			<router-link tag="button" to="/movie" class="pull-right btn btn-link">View all movies</router-link>
 		</div>
 		<div class="row"></div>
 		<hr>
 		<div class="row"></div>
 		<div class="center-block row">
-			<h1 class="text-center">Actors</h1>
-			<dashboard-actor-item class="col-md-3"v-for="actor in actors" :actor="actor"></dashboard-actor-item>
-			<router-link tag="button" to="/actor" class="pull-right btn btn-link">View all actors</router-link>
+			<router-link tag="h1" to="/actor" class="text-center nav-link">Actors</router-link>
+			<div class="row">
+				<dashboard-actor-item class="col-md-3"v-for="actor in actors" :actor="actor"></dashboard-actor-item>
+			</div>
 		</div>
 	</div>
 </template>

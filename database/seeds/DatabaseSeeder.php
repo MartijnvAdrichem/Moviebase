@@ -85,15 +85,73 @@ class DatabaseSeeder extends Seeder
             ]);
         $MichaelStuhlbarg->save();
 
-//        $actor = Actor::create([
-//            'firstname' => '',
-//            'prefix' => null,
-//            'lastname' => '',
-//            'biography' => '',
-//            'birthday' => '',
-//            'profilephoto' => ''
-//            ]);
-//        $actor->save();
+
+        $RobertDowneyJr = Actor::create([
+            'firstname' => 'Robert',
+            'prefix' => null,
+            'lastname' => 'Downey Jr.',
+            'biography' => 'Downey was born April 4, 1965 in Manhattan, New York, the son of writer, director and filmographer Robert Downey Sr. and actress Elsie Downey (née Elsie Ann Ford). Robert\'s father is of half Lithuanian Jewish, one quarter Hungarian Jewish, and one quarter Irish, descent, while Robert\'s mother was of English, Scottish, German, and Swiss-German ancestry. Robert and his sister, Allyson Downey, were immersed in film and the performing arts from a very young age, leading Downey Jr. to study at the Stagedoor Manor Performing Arts Training Center in upstate New York, before moving to California with his father following his parents\' 1978 divorce. In 1982, he dropped out of Santa Monica High School to pursue acting full time. Downey Sr., himself a drug addict, exposed his son to drugs at a very early age, and Downey Jr. would go on to struggle with abuse for decades.',
+            'birthday' => '1965-4-4',
+            'profilephoto' => 'Robert Downey Jr.jpg'
+            ]);
+        $RobertDowneyJr->save();
+
+
+        $ChrisHemsworth = Actor::create([
+            'firstname' => 'Chris',
+            'prefix' => null,
+            'lastname' => 'Hemsworth',
+            'biography' => 'Chris Hemsworth was born in Melbourne, Australia, to Leonie (van Os), a teacher of English, and Craig Hemsworth, a social-services counselor. His brothers are actors Liam Hemsworth and Luke Hemsworth. He is of Dutch (from his immigrant maternal grandfather), Irish, English, Scottish, and German ancestry. His uncle, by marriage, was Rod Ansell, the bushman who inspired the film Crocodile Dundee (1986).
+',
+            'birthday' => '1983-8-11',
+            'profilephoto' => 'Chris Hemsworth.jpg'
+            ]);
+        $ChrisHemsworth->save();
+
+
+        $MarkRuffalo = Actor::create([
+            'firstname' => 'Mark',
+            'prefix' => null,
+            'lastname' => 'Ruffalo',
+            'biography' => 'Mark Ruffalo was born in Kenosha, Wisconsin, to Marie Rose (Hebert), a stylist and hairdresser, and Frank Lawrence Ruffalo, a construction painter. His father\'s ancestry is Italian, and his mother is of half French-Canadian and half Italian descent. Mark moved with his family to Virginia Beach, Virginia, where he lived out most of his teenage years. Following high school, Mark moved with his family to San Diego and soon migrated north, eventually settling in Los Angeles. He took classes at the Stella Adler Conservatory and subsequently co-founded the Orpheus Theatre Company, an Equity-Waiver establishment, where he worked in nearly every capacity. From acting, writing, directing and producing to running the lights and building sets while building his resume. Bartending for nearly nine years to make ends meet and ready to give it all up, a chance meeting and resulting collaboration with playwright/screenwriter Kenneth Lonergan changed everything.',
+            'birthday' => '1967-11-22',
+            'profilephoto' => 'Mark Ruffalo.jpg'
+            ]);
+        $MarkRuffalo->save();
+
+
+        $ChrisEvans = Actor::create([
+            'firstname' => 'Chris',
+            'prefix' => null,
+            'lastname' => 'Evans',
+            'biography' => 'He was born in Boston, Massachusetts, the son of Lisa (Capuano), who worked at the Concord Youth Theatre, and G. Robert Evans III, a dentist. His uncle is congressman Mike Capuano. Chris\'s father is of half German and half Welsh/English/Scottish ancestry, while Chris\'s mother is of half Italian and half Irish descent. He has an older sister, Carly Evans, and two younger siblings, a brother named Scott Evans, who is also an actor, and a sister named Shana Evans. The family moved to suburban Sudbury when he was 11 years-old. Bitten by the acting bug in the first grade because his older sister, Carly, started performing, Evans followed suit and began appearing in school plays. While at Lincoln-Sudbury Regional High School, his drama teacher cited his performance as "Leontes" in "The Winter\'s Tale" as exemplary of his skill. After more plays and regional theatre, he moved to New York and attended the Lee Strasberg Theatre Institute.',
+            'birthday' => '1981-6-13',
+            'profilephoto' => 'Chris Evans.jpg'
+            ]);
+        $ChrisEvans->save();
+
+
+        $ScarlettJohansson = Actor::create([
+            'firstname' => 'Scarlett',
+            'prefix' => null,
+            'lastname' => 'Johansson',
+            'biography' => 'Scarlett Johansson was born in New York City. Her mother, Melanie Sloan, is from a Jewish family from the Bronx, and her father, Karsten Johansson, is a Danish-born architect, from Copenhagen. She has a sister, Vanessa Johansson, who is also an actress, a brother, Adrian, a twin brother, Hunter Johansson, born three minutes after her, and a paternal half-brother, Christian. Her grandfather was writer Ejner Johansson.',
+            'birthday' => '1984-11-22',
+            'profilephoto' => 'Scarlett Johansson.jpg'
+            ]);
+        $ScarlettJohansson->save();
+
+
+        $TomHolland = Actor::create([
+            'firstname' => 'Tom',
+            'prefix' => null,
+            'lastname' => 'Holland',
+            'biography' => 'Thomas Stanley Holland was born in Kingston-upon-Thames, Surrey, to Nicola Elizabeth (Frost), a photographer, and Dominic Holland (Dominic Anthony Holland), who is a comedian and author. His paternal grandparents were from the Isle of Man and Ireland, respectively. He lives with his parents and three younger brothers - Paddy and twins Sam and Harry. Tom attended Donhead Prep School. Then, after a successful eleven plus exam, he became a pupil at Wimbledon College. Having successfully completed his GCSEs, in September 2012 Tom started a two-year course in the BRIT School for Performing Arts & Technology notable for its numerous famous alumni.',
+            'birthday' => '1996-6-1',
+            'profilephoto' => 'Tom Holland.jpg'
+            ]);
+        $TomHolland->save();
+
 
         $movie = Movie::create([
 
@@ -133,6 +191,123 @@ class DatabaseSeeder extends Seeder
 Watching this in theaters with the sometimes too-loud sound, seeing the buildings and streets give way and rotate and otherwise bend themselves completely to a person\'s whim, immediately made me think of Inception. But this was even more hectic. This wasn\'t imaginary, this was real.',
             'rating' => '4'
         ]);
+
+        $movie->reviews()->create([
+            'title' => 'A great movie to watch',
+            'user_id' => 2,
+            'content' => 'Its an amazing movie with great visuals and good acting!',
+            'rating' => '5'
+        ]);
+
+
+        $movie = Movie::create([
+
+            'title' => 'Avengers: Infinity War',
+            'description' => 'The Avengers and their allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation and ruin puts an end to the universe.',
+            'runTime' => 159,
+            'releaseDate'=> '2018-4-25',
+            'storyLine' => 'As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain',
+            'video' => '6ZfuNTqbHE8',
+            'mainphoto'=>'Avengers Infinity War.jpg'
+
+        ]);
+        $movie->save();
+        $movie->genres()->attach([1,2,6]);
+        $movie->actors()->attach([
+            ['actor_id' => $BenedictCumberbatch->id, 'role' => 'Dr. Stephen Strange'],
+            ['actor_id' => $RobertDowneyJr->id, 'role' => 'Iron Man'],
+            ['actor_id' => $ChrisHemsworth->id, 'role' => 'Thor'],
+            ['actor_id' => $MarkRuffalo->id, 'role' => 'Hulk'],
+            ['actor_id' => $ChrisEvans->id, 'role' => 'Captain America'],
+            ['actor_id' => $ScarlettJohansson->id, 'role' => 'Black Widow'],
+            ['actor_id' => $TomHolland->id, 'role' => 'Spider-Man']
+        ]);
+        $movie->photos()->create(['path' => 'Infinity_Wars_1.jpg']);
+        $movie->photos()->create(['path' => 'Infinity_Wars_2.jpg']);
+        $movie->photos()->create(['path' => 'Infinity_Wars_3.jpg']);
+        $movie->photos()->create(['path' => 'Infinity_Wars_4.jpg']);
+        $movie->photos()->create(['path' => 'Infinity_Wars_5.jpg']);
+        $movie->photos()->create(['path' => 'Infinity_Wars_6.jpg']);
+        $movie->photos()->create(['path' => 'Infinity_Wars_7.jpg']);
+        $movie->photos()->create(['path' => 'Infinity_Wars_8.jpg']);
+        $movie->photos()->create(['path' => 'Infinity_Wars_9.jpg']);
+        $movie->photos()->create(['path' => 'Infinity_Wars_10.jpg']);
+        $movie->photos()->create(['path' => 'Infinity_Wars_11.jpg']);
+        $movie->photos()->create(['path' => 'Infinity_Wars_12.jpg']);
+
+
+        $movie->reviews()->create([
+            'title' => 'Infinity War deserved to be the best and grand',
+            'user_id' => 1,
+            'content' => 'The most anticipated movie of 2018 has now been released and my word, I have to say that Infinity War was brilliant on each scale, whether be its story, Visual Effects and the ensemble cast consisting all the Marvel characters. Every Marvel Fan needs to watch the movie as words cannot describe the magnificience of the movie.',
+            'rating' => '4'
+        ]);
+
+        $movie->reviews()->create([
+            'title' => 'This movie was AMAZING',
+            'user_id' => 2,
+            'content' => 'This is the best movie ive ever seen!',
+            'rating' => '5'
+        ]);
+        $movie->reviews()->create([
+            'title' => 'Bad movie',
+            'user_id' => 3,
+            'content' => 'Dont watch this garbage movie...',
+            'rating' => '1'
+        ]);
+
+
+
+        $movie = Movie::create([
+
+            'title' => 'Avengers: Age of Ultron',
+            'description' => 'When Tony Stark and Bruce Banner try to jump-start a dormant peacekeeping program called Ultron, things go horribly wrong and it\'s up to Earth\'s mightiest heroes to stop the villainous Ultron from enacting his terrible plan.',
+            'runTime' => 141,
+            'releaseDate'=> '2015-4-22',
+            'storyLine' => 'Tony Stark creates the Ultron Program to protect the world, but when the peacekeeping program becomes hostile, The Avengers go into action to try and defeat a virtually impossible enemy together. Earth\'s mightiest heroes must come together once again to protect the world from global extinction',
+            'video' => 'tmeOjFno6Do',
+            'mainphoto'=>'Avengers Age of Ultron.jpg'
+
+        ]);
+        $movie->save();
+        $movie->genres()->attach([1,2,13]);
+        $movie->actors()->attach([
+            ['actor_id' => $RobertDowneyJr->id, 'role' => 'Iron Man'],
+            ['actor_id' => $ChrisHemsworth->id, 'role' => 'Thor'],
+            ['actor_id' => $MarkRuffalo->id, 'role' => 'Hulk'],
+            ['actor_id' => $ChrisEvans->id, 'role' => 'Captain America'],
+            ['actor_id' => $ScarlettJohansson->id, 'role' => 'Black Widow'],
+        ]);
+        $movie->photos()->create(['path' => 'Age_of_Ultron_1.jpg']);
+        $movie->photos()->create(['path' => 'Age_of_Ultron_2.jpg']);
+        $movie->photos()->create(['path' => 'Age_of_Ultron_3.jpg']);
+        $movie->photos()->create(['path' => 'Age_of_Ultron_4.jpg']);
+        $movie->photos()->create(['path' => 'Age_of_Ultron_5.jpg']);
+        $movie->photos()->create(['path' => 'Age_of_Ultron_6.jpg']);
+        $movie->photos()->create(['path' => 'Age_of_Ultron_7.jpg']);
+        $movie->photos()->create(['path' => 'Age_of_Ultron_8.jpg']);
+
+
+        $movie->reviews()->create([
+            'title' => 'Avengers: Age of Ultron is a damn good Superhero flick, excellent sequel!',
+            'user_id' => 1,
+            'content' => 'Avengers: Age of Ultron (2015) is a MARVEL damn good superhero flick and an excellent sequel! Yes it is miles way better than Jurassic World and Star Wars: The Force Awakens and Terminator Genisys I have enjoyed this film much better than Jurassic World, Star Wars and Terminator the new movies. ',
+            'rating' => '5'
+        ]);
+
+        $movie->reviews()->create([
+            'title' => 'Better then the first!',
+            'user_id' => 2,
+            'content' => 'Avengers age of Ultron is by far the best Marvel movie to date. It has all the elements of the first movie, but steps it up in the action, character and dialog. I went into this movie with very unrealistically high expectations. So when I saw this movie, I was very worried but excited. ',
+            'rating' => '4'
+        ]);
+        $movie->reviews()->create([
+            'title' => 'Grossly underwhelming (spoiler free)',
+            'user_id' => 3,
+            'content' => 'That being said, my initial thoughts on Age of Ultron (AoU) are quite negative. To me, its essentially a carbon copy of IM3. There are problems which strike you repeatedly as you progress throughout the film. The 2 biggest complaints I have with AoU is 1) the tone (comedy) 2) the script/writing.',
+            'rating' => '3'
+        ]);
+
 
 //        factory(App\Actor::class, 250)->create()->each(function($actor){
 //

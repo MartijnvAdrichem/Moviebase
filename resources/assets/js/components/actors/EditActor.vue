@@ -10,24 +10,26 @@
 				<label for="firstname">Firstname</label>
 				<input @blur="$v.actor.firstname.$touch()" type="text" id="firstname" class="form-control" v-model="actor.firstname" required>
 				<p v-if="!$v.actor.firstname.required">This field must not be empty</p>
+				<p v-if="!$v.actor.firstname.maxLen">This field cant have more than 30 characters</p>
 			</div>
 
 			<div class="form-group" v-bind:class="{invalid: $v.actor.prefix.$error}">
 				<label for="prefix">Prefix</label>
 				<input @blur="$v.actor.prefix.$touch()" type="text" id="prefix" class="form-control" v-model="actor.prefix" required>
-				<p v-if="!$v.actor.prefix.required">This field must not be empty</p>
 			</div>
 
 			<div class="form-group" v-bind:class="{invalid: $v.actor.lastname.$error}">
 				<label for="lastname">Lastname</label>
 				<input @blur="$v.actor.lastname.$touch()" type="text" id="lastname" class="form-control" v-model="actor.lastname" required>
 				<p v-if="!$v.actor.lastname.required">This field must not be empty</p>
+				<p v-if="!$v.actor.lastname.maxLen">This field cant have more than 30 characters</p>
 			</div>
 
 			<div class="form-group" v-bind:class="{invalid: $v.actor.biography.$error}">
 				<label for="biography">Biography</label>
 				<textarea rows="3" @blur="$v.actor.biography.$touch()" type="text" id="biography" class="form-control" v-model="actor.biography" required></textarea>
 				<p v-if="!$v.actor.biography.required">This field must not be empty</p>
+				<p v-if="!$v.actor.biography.maxLen">This field cant have more than 2000 characters</p>
 			</div>
 
 			<div class="form-group" v-bind:class="{invalid: $v.actor.birthday.$error}">
@@ -52,7 +54,7 @@
 
 <script>
 	import axios from 'axios';
-	import {required, email, numeric, minValue, minLength, sameAs, requiredUnless} from 'vuelidate/lib/validators';
+	import {required, email, numeric, minValue, maxLength, minLength, sameAs, requiredUnless} from 'vuelidate/lib/validators';
 
 	export default {
 		data() {
@@ -112,26 +114,27 @@
 		validations: {
 			actor: {
 				firstname: {
-					required
+					required,
+					maxLen: maxLength(30)
 				},
 				prefix: {
 
 				},
 				lastname: {
-
+					required,
+					maxLen: maxLength(30)
 				},
 				biography: {
-
+					required,
+					maxLen: maxLength(2000)
 				},
 				birthday:{
-
+					required
 				},
 				profilePhoto: {
 
-				},
-				photos: {
 
-				}
+				},
 			}
 		}
 	}
