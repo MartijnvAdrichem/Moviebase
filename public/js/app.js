@@ -36203,15 +36203,19 @@ var render = function() {
                   staticStyle: { "min-height": "6em", "max-height": "6em" }
                 },
                 [
-                  _c("h5", [
-                    _vm._v(
-                      _vm._s(_vm.actor.firstname) +
-                        " " +
-                        _vm._s(_vm.actor.prefix) +
-                        " " +
-                        _vm._s(_vm.actor.lastname)
-                    )
-                  ])
+                  _c(
+                    "h5",
+                    { staticClass: "text-center card-title font-weight-bold" },
+                    [
+                      _vm._v(
+                        _vm._s(_vm.actor.firstname) +
+                          " " +
+                          _vm._s(_vm.actor.prefix) +
+                          " " +
+                          _vm._s(_vm.actor.lastname)
+                      )
+                    ]
+                  )
                 ]
               )
             ]
