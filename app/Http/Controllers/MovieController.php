@@ -62,6 +62,8 @@ class MovieController extends Controller {
             $request->mainPhoto = $request->oldmainphoto;
         }
         $movie->update($request->all());
+        $movie->genres()->delete();
+        $movie->actors()->delete();
         $movie->genres()->sync($request->genre);
         $movie->actors()->sync($request->cast);
 
