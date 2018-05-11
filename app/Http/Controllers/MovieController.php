@@ -42,7 +42,7 @@ class MovieController extends Controller {
         $movie = Movie::findOrFail($id);
         $movie->photos()->delete();
 
-        foreach( $request->oldPhotos as $photo1){
+        foreach( $request->oldphotos as $photo1){
             $movie->photos()->create($photo1);
         }
 
