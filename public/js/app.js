@@ -39237,17 +39237,19 @@ var render = function() {
               "div",
               { staticClass: "col-md-4" },
               [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "pull-right btn btn-primary",
-                    attrs: {
-                      tag: "button",
-                      to: { path: "/movie/edit/" + _vm.movie.id }
-                    }
-                  },
-                  [_vm._v("Edit movie")]
-                ),
+                _vm.$auth.check()
+                  ? _c(
+                      "router-link",
+                      {
+                        staticClass: "pull-right btn btn-primary",
+                        attrs: {
+                          tag: "button",
+                          to: { path: "/movie/edit/" + _vm.movie.id }
+                        }
+                      },
+                      [_vm._v("Edit movie")]
+                    )
+                  : _vm._e(),
                 _vm._v(" "),
                 _vm.$auth.check()
                   ? _c("div", [
@@ -39744,17 +39746,19 @@ var render = function() {
               "div",
               { staticClass: "col-md-4" },
               [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "pull-right btn btn-primary",
-                    attrs: {
-                      tag: "button",
-                      to: { path: "/actor/edit/" + _vm.actor.id }
-                    }
-                  },
-                  [_vm._v("Edit actor")]
-                )
+                _vm.$auth.check()
+                  ? _c(
+                      "router-link",
+                      {
+                        staticClass: "pull-right btn btn-primary",
+                        attrs: {
+                          tag: "button",
+                          to: { path: "/actor/edit/" + _vm.actor.id }
+                        }
+                      },
+                      [_vm._v("Edit actor")]
+                    )
+                  : _vm._e()
               ],
               1
             )

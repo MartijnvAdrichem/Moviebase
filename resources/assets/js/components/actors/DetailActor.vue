@@ -7,8 +7,8 @@
 					<h1>{{actor.firstname}} {{actor.prefix}} {{actor.lastname}}</h1>
 				</div>
 				<div class="col-md-4">
-					<router-link tag="button" class="pull-right btn btn-primary" :to="{path: '/actor/edit/' + actor.id}">Edit actor</router-link>
-				</div>
+				<router-link v-if="$auth.check()" tag="button" class="pull-right btn btn-primary" :to="{path: '/actor/edit/' + actor.id}">Edit actor</router-link>
+			</div>
 			</div>
 			<hr>
 			<div class="row">

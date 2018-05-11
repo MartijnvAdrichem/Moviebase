@@ -8,7 +8,7 @@
 						<h1>{{movie.title}} ({{movie.releaseDate | formatDate }})</h1>
 				</div>
 				<div class="col-md-4">
-					<router-link tag="button" class="pull-right btn btn-primary" :to="{path: '/movie/edit/' + movie.id}">Edit movie</router-link>
+					<router-link v-if="$auth.check()" tag="button" class="pull-right btn btn-primary" :to="{path: '/movie/edit/' + movie.id}">Edit movie</router-link>
 					<div v-if="$auth.check()">
 						<button v-if="watchlist === 0" style="margin-right: 4px" @click="addMovieToWatchlist" title="Add to watchlist" class="pull-right btn btn-primary"><i class="fas fa-plus"></i></button>
 						<button v-if="watchlist === 1" style="margin-right: 4px" @click="removeMovieFromWatchlist" title="Remove from watchlist" class="pull-right btn btn-danger"><i class="fas fa-minus"></i></button>
