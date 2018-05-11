@@ -28,6 +28,7 @@
 
 <script>
 	import axios from 'axios';
+	import {eventBus} from '../../app.js'
 
 	export default {
 		props: ['movie_id'],
@@ -54,7 +55,7 @@
 				};
 				console.log(params);
 				axios.post('/review/create', params)
-					.then(res => console.log(res))
+					.then(res => eventBus.$emit('reviewWasMade'))
 					.catch(resp => {
 						this.response = resp.response.data.message;
 					});

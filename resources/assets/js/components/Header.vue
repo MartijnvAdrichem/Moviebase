@@ -2,9 +2,7 @@
 		<div style="padding-top: 20px">
 			<div class="text-center">
 
-				<router-link tag="div" to="/"  a>
-					<img src="images/Moviebaselogo.png" alt="">
-				</router-link>
+					<img style="cursor: pointer;" src="images/Moviebaselogo.png" @click="goHome" alt="">
 			</div>
 			<div>
 				<nav class="navbar navbar-custom navbar-expand-lg navbar-dark bg-dark ml-3 mr-3" >
@@ -55,6 +53,9 @@
 		methods: {
 			logout(){
 				this.$auth.logout()
+			},
+			goHome(){
+				this.$router.push("/")
 			}
 		}
 	}

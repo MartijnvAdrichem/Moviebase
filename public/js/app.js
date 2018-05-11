@@ -33870,7 +33870,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -33962,8 +33962,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: "header",
@@ -33971,6 +33969,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	methods: {
 		logout: function logout() {
 			this.$auth.logout();
+		},
+		goHome: function goHome() {
+			this.$router.push("/");
 		}
 	}
 });
@@ -33984,16 +33985,13 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticStyle: { "padding-top": "20px" } }, [
-    _c(
-      "div",
-      { staticClass: "text-center" },
-      [
-        _c("router-link", { attrs: { tag: "div", to: "/", a: "" } }, [
-          _c("img", { attrs: { src: "images/Moviebaselogo.png", alt: "" } })
-        ])
-      ],
-      1
-    ),
+    _c("div", { staticClass: "text-center" }, [
+      _c("img", {
+        staticStyle: { cursor: "pointer" },
+        attrs: { src: "images/Moviebaselogo.png", alt: "" },
+        on: { click: _vm.goHome }
+      })
+    ]),
     _vm._v(" "),
     _c("div", [
       _c(
@@ -34586,7 +34584,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 		};
 		console.log(params);
 		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/movie/create', params).then(function (res) {
-			return _this3.$router.push('/movie/' + _this3.movie.id);
+			return _this3.$router.push('/movie');
 		}).catch(function (error) {
 			return console.log("error");
 		});
@@ -38497,6 +38495,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reviews_CreateReview_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__reviews_CreateReview_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reviews_DetailReview_vue__ = __webpack_require__(252);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reviews_DetailReview_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__reviews_DetailReview_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_js__ = __webpack_require__(8);
 //
 //
 //
@@ -38590,6 +38589,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 
@@ -38653,6 +38653,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				_this.watchlist = response.data;
 			});
 		}
+		__WEBPACK_IMPORTED_MODULE_3__app_js__["eventBus"].$on('reviewWasMade', function (data) {
+			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/movie/' + id).then(function (response) {
+				console.log(response);
+				var data = response.data;
+				_this.movie = data;
+				console.log("movie data: " + JSON.stringify(_this.movie));
+				console.log("Genre data" + _this.movie.genres);
+				_this.loading = false;
+			});
+		});
 	},
 	created: function created() {
 		$('.carousel').carousel({
@@ -38779,7 +38789,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -38792,6 +38802,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_js__ = __webpack_require__(8);
 //
 //
 //
@@ -38820,6 +38831,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 
@@ -38850,7 +38862,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			};
 			console.log(params);
 			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/review/create', params).then(function (res) {
-				return console.log(res);
+				return __WEBPACK_IMPORTED_MODULE_1__app_js__["eventBus"].$emit('reviewWasMade');
 			}).catch(function (resp) {
 				_this.response = resp.response.data.message;
 			});

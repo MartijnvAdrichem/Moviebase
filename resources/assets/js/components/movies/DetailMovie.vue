@@ -95,6 +95,7 @@
 	import axios from 'axios';
 	import CreateReview from '../reviews/CreateReview.vue';
 	import DetailReview from '../reviews/DetailReview.vue';
+	import {eventBus} from '../../app.js'
 
 	export default {
 		data() {
@@ -151,7 +152,16 @@
 					this.watchlist = response.data;
 				});
 			}
-
+			eventBus.$on('reviewWasMade', (data) => {
+				axios.get('/movie/' + id).then( response => {
+					console.log(response);
+					const data = response.data;
+					this.movie = data;
+					console.log("movie data: " + JSON.stringify(this.movie));
+					console.log("Genre data" +  this.movie.genres);
+					this.loading = false;
+				});
+			})
 
 		},
 		created(){

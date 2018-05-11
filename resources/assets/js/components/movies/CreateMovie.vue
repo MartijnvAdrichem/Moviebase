@@ -220,7 +220,7 @@
 				};
 				console.log(params);
 				axios.post('/movie/create', params)
-					.then(res => this.$router.push('/movie/' + this.movie.id))
+					.then(res => this.$router.push('/movie'))
 					.catch(error => console.log("error"));
 			}
 		},
