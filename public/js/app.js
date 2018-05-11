@@ -36186,7 +36186,12 @@ var render = function() {
             [
               _c("img", {
                 staticClass: "rounded-circle card-img-top img-responsive",
-                staticStyle: { "min-height": "18em", "max-height": "18em" },
+                staticStyle: {
+                  "min-height": "20em",
+                  "max-height": "20em",
+                  "min-width": "13em",
+                  "max-width": "13em"
+                },
                 attrs: {
                   src: _vm.actor.profilephoto
                     ? "/images/" + _vm.actor.profilephoto
@@ -36199,7 +36204,12 @@ var render = function() {
                 "div",
                 {
                   staticClass: "card-body",
-                  staticStyle: { "min-height": "6em", "max-height": "6em" }
+                  staticStyle: {
+                    "min-height": "6em",
+                    "max-height": "6em",
+                    "min-width": "13em",
+                    "max-width": "13em"
+                  }
                 },
                 [
                   _c(
