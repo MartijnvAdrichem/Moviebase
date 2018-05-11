@@ -1,8 +1,8 @@
 <template>
 	<div class="col-md-12">
 		<h2>New review</h2>
+		<p class="text-danger font-weight-bold" v-if="response">{{response}}</p>
 		<form @submit.prevent="createReview" methods="post">
-
 		<star-rating
 				v-bind:increment="0.5"
 				v-bind:max-rating="5"
@@ -34,6 +34,8 @@
 		
 		data(){
 			return{
+				response: null,
+
 				review: {
 					title: "",
 					content: "",
@@ -53,7 +55,9 @@
 				console.log(params);
 				axios.post('/review/create', params)
 					.then(res => console.log(res))
-					.catch(error => console.log(error));
+					.catch(resp => {
+						this.response = resp.response.data.message;
+					});
 			}
 
 	},

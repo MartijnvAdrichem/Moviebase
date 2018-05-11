@@ -1,11 +1,13 @@
 <template>
 	<div>
-		<div class="card" style="min-height: 22em; max-height: 22em;">
-			<img style="min-height: 18em; max-height: 18em;" :src=" movie.mainphoto ? '/images/' + movie.mainphoto : '/images/placeholder.png'" alt="" class="card-img-top image-responsive">
-			<div style="min-height: 6em; max-height: 6em;" class="card-body">
-				<router-link tag="h5" class="text-center card-title font-weight-bold" :to="{path:'/movie/' + movie.id}">{{movie.title}}</router-link>
+		<router-link style="cursor: pointer;" tag="div" :to="{path:'/movie/' + movie.id}">
+		<div class="card">
+			<img  :src=" movie.mainphoto ? '/images/' + movie.mainphoto : '/images/placeholder.png'" alt="" class="card-img-top img-responsive">
+			<div style="min-height: 4em; max-height: 4em;" class="card-body">
+				<h5 class="text-center card-title font-weight-bold" >{{movie.title}}</h5>
 			</div>
 		</div>
+		</router-link>
 	</div>
 </template>
 

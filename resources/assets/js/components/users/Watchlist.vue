@@ -2,10 +2,15 @@
 	<div>
 		<h1>My watchlist</h1>
 		<hr>
+		<div v-if="watchlist">
 		<ul class="list-group">
 			<router-link tag="li" class="list-group-item" v-for="movie in watchlist"  :key="movie.id" active-class="active" :to="{path: '/movie/' + movie.id}"><a style="font-size: 1.2em;">{{movie.title}}</a>
 				<button class="btn btn-danger pull-right" @click="removeMovieFromWatchlist(movie)">Remove</button></router-link>
 		</ul>
+		</div>
+		<div v-else>
+			<h1>No movies added to watchlist yet</h1>
+		</div>
 	</div>
 </template>
 

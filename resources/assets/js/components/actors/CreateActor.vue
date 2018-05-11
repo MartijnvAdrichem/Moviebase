@@ -15,7 +15,7 @@
 
 			<div class="form-group" v-bind:class="{invalid: $v.actor.prefix.$error}">
 				<label for="prefix">Prefix</label>
-				<input @blur="$v.actor.prefix.$touch()" type="text" id="prefix" class="form-control" v-model="actor.prefix" required>
+				<input @blur="$v.actor.prefix.$touch()" type="text" id="prefix" class="form-control" v-model="actor.prefix">
 			</div>
 
 			<div class="form-group" v-bind:class="{invalid: $v.actor.lastname.$error}">
@@ -85,8 +85,8 @@
 				};
 
 				axios.post('/actor/create', params)
-					.then(res => console.log(res))
-					.catch(error => console.log(error));
+					.then(res => this.$router.push('/actor'))
+					.catch(error => console.log("error"));
 			},
 			createMainImage(e){
 				let file = e.target.files || e.dataTransfer.files;

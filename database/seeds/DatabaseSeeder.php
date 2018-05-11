@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Seeder;
 use App\Movie;
 use App\Actor;
@@ -13,7 +14,28 @@ class DatabaseSeeder extends Seeder
      */
     public function run() {
 
-        //$this->genres();
+        $user = User::create([
+            'name' => 'Hans',
+            'email' => 'Hans@Hans.nl',
+            'password' => bcrypt('secret1')
+        ]);
+        $user->save();
+
+        $user = User::create([
+                'name' => 'Martijn',
+            'email' => 'Martijn@Martijn.nl',
+            'password' => bcrypt('secret1')
+        ]);
+        $user->save();
+        $user = User::create([
+            'name' => 'Piet',
+            'email' => 'Piet@Piet.nl',
+            'password' => bcrypt('secret1')
+        ]);
+        $user->save();
+
+
+        $this->genres();
 
         $BenedictCumberbatch = Actor::create([
             'firstname' => 'Benedict',

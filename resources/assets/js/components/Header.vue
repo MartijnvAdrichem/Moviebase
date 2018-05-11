@@ -1,7 +1,10 @@
 <template>
 		<div style="padding-top: 20px">
 			<div class="text-center">
-				<img src="images/Moviebaselogo.png" alt="">
+
+				<router-link tag="div" to="/"  a>
+					<img src="images/Moviebaselogo.png" alt="">
+				</router-link>
 			</div>
 			<div>
 				<nav class="navbar navbar-custom navbar-expand-lg navbar-dark bg-dark ml-3 mr-3" >
@@ -32,7 +35,7 @@
 									Profile
 								</a>
 								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-									<router-link class="dropdown-item" tag="a" to="/user/account">Account </router-link>
+									<!--<router-link class="dropdown-item" tag="a" to="/user/account">Account </router-link>-->
 									<router-link class="dropdown-item" tag="a" to="/user/watchlist">My watchlist</router-link>
 								</div>
 							</li>

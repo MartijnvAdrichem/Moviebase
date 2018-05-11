@@ -24,13 +24,13 @@
 			<h1>Filmography</h1>
 			<div class="row col-md-12">
 				<li class=" col-md-12 list-group">
-					<ul class=" list-group-item" v-for="movie in actor.movies">
+					<router-link style="cursor: pointer;" class="list-group-item" tag="ul" v-for="movie in actor.movies" :to="'/movie/' + movie.id">
 						<div class="col-md-4">
-							<router-link class="font-weight-bold" tag="p" :to="'/movie/' + movie.id">{{movie.title}}</router-link>
+							<p class="font-weight-bold">{{movie.title}}</p>
 							<p> {{movie.pivot.role}}</p>
 						</div>
 						<div class="col-md-4 col-md-offset-4"><p align="right"> {{movie.releaseDate | formatDate }}</p></div>
-					</ul>
+					</router-link>
 				</li>
 			</div>
 

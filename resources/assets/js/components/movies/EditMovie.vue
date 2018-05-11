@@ -268,8 +268,8 @@
 				};
 				console.log(params);
 				axios.put('/movie/edit/'+ this.movie.id, params)
-					.then(res => console.log(res))
-					.catch(error => console.log(error));
+					.then(res => this.$router.push('/movie/' + this.movie.id))
+					.catch(error => console.log("error"));
 			}
 		},
 

@@ -33870,7 +33870,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -33961,6 +33961,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: "header",
@@ -33981,7 +33984,16 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticStyle: { "padding-top": "20px" } }, [
-    _vm._m(0),
+    _c(
+      "div",
+      { staticClass: "text-center" },
+      [
+        _c("router-link", { attrs: { tag: "div", to: "/", a: "" } }, [
+          _c("img", { attrs: { src: "images/Moviebaselogo.png", alt: "" } })
+        ])
+      ],
+      1
+    ),
     _vm._v(" "),
     _c("div", [
       _c(
@@ -34087,15 +34099,6 @@ var render = function() {
                               "router-link",
                               {
                                 staticClass: "dropdown-item",
-                                attrs: { tag: "a", to: "/user/account" }
-                              },
-                              [_vm._v("Account ")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "dropdown-item",
                                 attrs: { tag: "a", to: "/user/watchlist" }
                               },
                               [_vm._v("My watchlist")]
@@ -34117,7 +34120,7 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._m(1)]
+                        [_vm._m(0)]
                       )
                     : _vm._e()
                 ],
@@ -34131,14 +34134,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center" }, [
-      _c("img", { attrs: { src: "images/Moviebaselogo.png", alt: "" } })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -34171,7 +34166,7 @@ var render = function() {
     [
       _c("app-header"),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
+      _c("div", [
         _c("div", { staticClass: "bg col-md-3 col-sm-1 col-xs-1" }),
         _vm._v(" "),
         _c(
@@ -34566,6 +34561,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 		this.movie.cast.push({ id: id, actor_id: actor_id, role: role });
 		console.log(JSON.stringify(this.movie.cast));
 	}), _defineProperty(_methods, 'createMovie', function createMovie() {
+		var _this3 = this;
 
 		var localCast = [];
 		this.movie.cast.forEach(function (castrow) {
@@ -34590,9 +34586,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 		};
 		console.log(params);
 		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/movie/create', params).then(function (res) {
-			return console.log(res);
+			return _this3.$router.push('/movie/' + _this3.movie.id);
 		}).catch(function (error) {
-			return console.log(error);
+			return console.log("error");
 		});
 	}), _methods),
 
@@ -35957,7 +35953,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -35968,6 +35964,8 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -35995,46 +35993,47 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      {
-        staticClass: "card",
-        staticStyle: { "min-height": "22em", "max-height": "22em" }
-      },
-      [
-        _c("img", {
-          staticClass: "card-img-top image-responsive",
-          staticStyle: { "min-height": "18em", "max-height": "18em" },
-          attrs: {
-            src: _vm.movie.mainphoto
-              ? "/images/" + _vm.movie.mainphoto
-              : "/images/placeholder.png",
-            alt: ""
-          }
-        }),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "card-body",
-            staticStyle: { "min-height": "6em", "max-height": "6em" }
-          },
-          [
+  return _c(
+    "div",
+    [
+      _c(
+        "router-link",
+        {
+          staticStyle: { cursor: "pointer" },
+          attrs: { tag: "div", to: { path: "/movie/" + _vm.movie.id } }
+        },
+        [
+          _c("div", { staticClass: "card" }, [
+            _c("img", {
+              staticClass: "card-img-top img-responsive",
+              attrs: {
+                src: _vm.movie.mainphoto
+                  ? "/images/" + _vm.movie.mainphoto
+                  : "/images/placeholder.png",
+                alt: ""
+              }
+            }),
+            _vm._v(" "),
             _c(
-              "router-link",
+              "div",
               {
-                staticClass: "text-center card-title font-weight-bold",
-                attrs: { tag: "h5", to: { path: "/movie/" + _vm.movie.id } }
+                staticClass: "card-body",
+                staticStyle: { "min-height": "4em", "max-height": "4em" }
               },
-              [_vm._v(_vm._s(_vm.movie.title))]
+              [
+                _c(
+                  "h5",
+                  { staticClass: "text-center card-title font-weight-bold" },
+                  [_vm._v(_vm._s(_vm.movie.title))]
+                )
+              ]
             )
-          ],
-          1
-        )
-      ]
-    )
-  ])
+          ])
+        ]
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -36132,7 +36131,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -36143,6 +36142,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -36171,47 +36171,56 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticStyle: { "min-height": "18em", "max-height": "18em" } }, [
-      _c("img", {
-        staticClass: "rounded-circle card-img-top img-responsive",
-        staticStyle: { "min-height": "18em", "max-height": "18em" },
-        attrs: {
-          src: _vm.actor.profilephoto
-            ? "/images/" + _vm.actor.profilephoto
-            : "/images/placeholder_avatar.png",
-          alt: ""
-        }
-      }),
-      _vm._v(" "),
+  return _c(
+    "div",
+    [
       _c(
-        "div",
+        "router-link",
         {
-          staticClass: "card-body",
-          staticStyle: { "min-height": "6em", "max-height": "6em" }
+          staticStyle: { cursor: "pointer" },
+          attrs: { tag: "div", to: { path: "/actor/" + _vm.actor.id } }
         },
         [
           _c(
-            "router-link",
-            {
-              staticClass: "text-center card-title font-weight-bold",
-              attrs: { tag: "h5", to: { path: "/actor/" + _vm.actor.id } }
-            },
+            "div",
+            { staticStyle: { "min-height": "18em", "max-height": "18em" } },
             [
-              _vm._v(
-                _vm._s(_vm.actor.firstname) +
-                  " " +
-                  _vm._s(_vm.actor.prefix) +
-                  " " +
-                  _vm._s(_vm.actor.lastname)
+              _c("img", {
+                staticClass: "rounded-circle card-img-top img-responsive",
+                staticStyle: { "min-height": "18em", "max-height": "18em" },
+                attrs: {
+                  src: _vm.actor.profilephoto
+                    ? "/images/" + _vm.actor.profilephoto
+                    : "/images/placeholder_avatar.png",
+                  alt: ""
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "card-body",
+                  staticStyle: { "min-height": "6em", "max-height": "6em" }
+                },
+                [
+                  _c("h5", [
+                    _vm._v(
+                      _vm._s(_vm.actor.firstname) +
+                        " " +
+                        _vm._s(_vm.actor.prefix) +
+                        " " +
+                        _vm._s(_vm.actor.lastname)
+                    )
+                  ])
+                ]
               )
             ]
           )
-        ],
-        1
+        ]
       )
-    ])
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -36403,15 +36412,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	methods: {
 		register2: function register2() {
+			var _this = this;
+
 			var params = {
 				name: this.name,
 				email: this.email,
 				password: this.password
 			};
 			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/auth/register', params).then(function (res) {
-				return console.log(res);
+				return _this.$router.push('login');
 			}).catch(function (error) {
-				return console.log(error);
+				return console.log("error");
 			});
 		}
 	}
@@ -37013,6 +37024,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	methods: {
 		createActor: function createActor() {
+			var _this = this;
+
 			var params = {
 				firstname: this.actor.firstname,
 				prefix: this.actor.prefix,
@@ -37023,9 +37036,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			};
 
 			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/actor/create', params).then(function (res) {
-				return console.log(res);
+				return _this.$router.push('/actor');
 			}).catch(function (error) {
-				return console.log(error);
+				return console.log("error");
 			});
 		},
 		createMainImage: function createMainImage(e) {
@@ -37155,7 +37168,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "text", id: "prefix", required: "" },
+              attrs: { type: "text", id: "prefix" },
               domProps: { value: _vm.actor.prefix },
               on: {
                 blur: function($event) {
@@ -37704,6 +37717,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 		this.movie.cast.push({ id: id, actor_id: actor_id, role: role });
 		console.log(JSON.stringify(this.movie.cast));
 	}), _defineProperty(_methods, 'createMovie', function createMovie() {
+		var _this3 = this;
 
 		var localCast = [];
 		this.movie.cast.forEach(function (castrow) {
@@ -37729,9 +37743,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 		};
 		console.log(params);
 		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.put('/movie/edit/' + this.movie.id, params).then(function (res) {
-			return console.log(res);
+			return _this3.$router.push('/movie/' + _this3.movie.id);
 		}).catch(function (error) {
-			return console.log(error);
+			return console.log("error");
 		});
 	}), _methods),
 
@@ -38629,7 +38643,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n.VueCarousel-slide[data-v-1fb4c286] {\n\tbackground-image: url(\"/images/background.PNG\");\n\t/*background: #f8f9fa;*/\n\tcolor: #fff;\n\tfont-family: Arial;\n\tfont-size: 12px;\n\ttext-align: center;\n\tmin-height: 100px;\n}\n.photo[data-v-1fb4c286] {\n\tposition: absolute;\n\ttop: 50%;\n\tleft: 50%;\n\t-webkit-transform: translate(-50%, -50%);\n\t        transform: translate(-50%, -50%);\n}\n.textblock[data-v-1fb4c286] {\n\twhite-space: pre-wrap;\n\tword-wrap: break-word;\n\tfont-family: inherit;\n}\n", ""]);
+exports.push([module.i, "\n.VueCarousel-slide[data-v-1fb4c286] {\n\tbackground-image: url(\"/images/background.PNG\");\n\t/*background: #f8f9fa;*/\n\tcolor: #fff;\n\tfont-family: Arial;\n\tfont-size: 12px;\n\ttext-align: center;\n\tmin-height: 100px;\n}\n.photo[data-v-1fb4c286] {\n\tposition: absolute;\n\ttop: 50%;\n\tleft: 50%;\n\t-webkit-transform: translate(-50%, -50%);\n\t        transform: translate(-50%, -50%);\n}\n.textblock[data-v-1fb4c286] {\n}\n", ""]);
 
 // exports
 
@@ -38646,6 +38660,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reviews_CreateReview_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__reviews_CreateReview_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reviews_DetailReview_vue__ = __webpack_require__(252);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reviews_DetailReview_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__reviews_DetailReview_vue__);
+//
+//
 //
 //
 //
@@ -38926,7 +38942,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -38975,6 +38991,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	data: function data() {
 		return {
+			response: null,
+
 			review: {
 				title: "",
 				content: "",
@@ -38985,6 +39003,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	methods: {
 		createReview: function createReview() {
+			var _this = this;
 
 			var params = {
 				title: this.review.title,
@@ -38995,8 +39014,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			console.log(params);
 			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/review/create', params).then(function (res) {
 				return console.log(res);
-			}).catch(function (error) {
-				return console.log(error);
+			}).catch(function (resp) {
+				_this.response = resp.response.data.message;
 			});
 		}
 	},
@@ -39013,6 +39032,12 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-md-12" }, [
     _c("h2", [_vm._v("New review")]),
+    _vm._v(" "),
+    _vm.response
+      ? _c("p", { staticClass: "text-danger font-weight-bold" }, [
+          _vm._v(_vm._s(_vm.response))
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _c(
       "form",
@@ -39558,41 +39583,49 @@ var render = function() {
                         { key: actor.id },
                         [
                           _c(
-                            "p",
-                            { staticClass: " text-center font-weight-bold" },
-                            [_vm._v(_vm._s(actor.pivot.role))]
-                          ),
-                          _vm._v(" "),
-                          _c("img", {
-                            staticClass:
-                              " rounded-circle img-responsive center-block",
-                            staticStyle: {
-                              "min-height": "75px",
-                              height: "75px",
-                              "min-width": "75px",
-                              "max-width": "75px"
-                            },
-                            attrs: {
-                              src: actor.profilephoto
-                                ? "/images/" + actor.profilephoto
-                                : "/images/placeholder_avatar.png",
-                              alt: ""
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
                             "router-link",
                             {
-                              staticClass: "text-center font-weight-bold",
-                              attrs: { tag: "p", to: "/actor/" + actor.id }
+                              staticStyle: { cursor: "pointer" },
+                              attrs: { tag: "span", to: "/actor/" + actor.id }
                             },
                             [
-                              _vm._v(
-                                _vm._s(actor.firstname) +
-                                  " " +
-                                  _vm._s(actor.prefix ? actor.prefix : "") +
-                                  " " +
-                                  _vm._s(actor.lastname)
+                              _c(
+                                "p",
+                                {
+                                  staticClass: " text-center font-weight-bold"
+                                },
+                                [_vm._v(_vm._s(actor.pivot.role))]
+                              ),
+                              _vm._v(" "),
+                              _c("img", {
+                                staticClass:
+                                  " rounded-circle img-responsive center-block",
+                                staticStyle: {
+                                  "min-height": "75px",
+                                  height: "75px",
+                                  "min-width": "75px",
+                                  "max-width": "75px"
+                                },
+                                attrs: {
+                                  src: actor.profilephoto
+                                    ? "/images/" + actor.profilephoto
+                                    : "/images/placeholder_avatar.png",
+                                  alt: ""
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "p",
+                                { staticClass: "text-center font-weight-bold" },
+                                [
+                                  _vm._v(
+                                    _vm._s(actor.firstname) +
+                                      " " +
+                                      _vm._s(actor.prefix ? actor.prefix : "") +
+                                      " " +
+                                      _vm._s(actor.lastname)
+                                  )
+                                ]
                               )
                             ]
                           )
@@ -39923,33 +39956,31 @@ var render = function() {
               "li",
               { staticClass: " col-md-12 list-group" },
               _vm._l(_vm.actor.movies, function(movie) {
-                return _c("ul", { staticClass: " list-group-item" }, [
-                  _c(
-                    "div",
-                    { staticClass: "col-md-4" },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "font-weight-bold",
-                          attrs: { tag: "p", to: "/movie/" + movie.id }
-                        },
-                        [_vm._v(_vm._s(movie.title))]
-                      ),
+                return _c(
+                  "router-link",
+                  {
+                    staticClass: "list-group-item",
+                    staticStyle: { cursor: "pointer" },
+                    attrs: { tag: "ul", to: "/movie/" + movie.id }
+                  },
+                  [
+                    _c("div", { staticClass: "col-md-4" }, [
+                      _c("p", { staticClass: "font-weight-bold" }, [
+                        _vm._v(_vm._s(movie.title))
+                      ]),
                       _vm._v(" "),
                       _c("p", [_vm._v(" " + _vm._s(movie.pivot.role))])
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-4 col-md-offset-4" }, [
-                    _c("p", { attrs: { align: "right" } }, [
-                      _vm._v(
-                        " " + _vm._s(_vm._f("formatDate")(movie.releaseDate))
-                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-4 col-md-offset-4" }, [
+                      _c("p", { attrs: { align: "right" } }, [
+                        _vm._v(
+                          " " + _vm._s(_vm._f("formatDate")(movie.releaseDate))
+                        )
+                      ])
                     ])
-                  ])
-                ])
+                  ]
+                )
               })
             )
           ])
@@ -40410,6 +40441,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	methods: {
 		createActor: function createActor() {
+			var _this2 = this;
+
 			var params = {
 				firstname: this.actor.firstname,
 				prefix: this.actor.prefix,
@@ -40422,9 +40455,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				params['profilephoto'] = this.actor.profilePhoto;
 			}
 			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.put('/actor/edit/' + this.actor.id, params).then(function (res) {
-				return console.log(res);
+				return _this2.$router.push('/actor/' + _this2.actor.id);
 			}).catch(function (error) {
-				return console.log(error);
+				return console.log("error");
 			});
 		},
 		createMainImage: function createMainImage(e) {
@@ -40554,7 +40587,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "text", id: "prefix", required: "" },
+              attrs: { type: "text", id: "prefix" },
               domProps: { value: _vm.actor.prefix },
               on: {
                 blur: function($event) {
@@ -40835,7 +40868,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -40848,6 +40881,11 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -40905,42 +40943,46 @@ var render = function() {
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
-    _c(
-      "ul",
-      { staticClass: "list-group" },
-      _vm._l(_vm.watchlist, function(movie) {
-        return _c(
-          "router-link",
-          {
-            key: movie.id,
-            staticClass: "list-group-item",
-            attrs: {
-              tag: "li",
-              "active-class": "active",
-              to: { path: "/movie/" + movie.id }
-            }
-          },
-          [
-            _c("a", { staticStyle: { "font-size": "1.2em" } }, [
-              _vm._v(_vm._s(movie.title))
-            ]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-danger pull-right",
-                on: {
-                  click: function($event) {
-                    _vm.removeMovieFromWatchlist(movie)
+    _vm.watchlist
+      ? _c("div", [
+          _c(
+            "ul",
+            { staticClass: "list-group" },
+            _vm._l(_vm.watchlist, function(movie) {
+              return _c(
+                "router-link",
+                {
+                  key: movie.id,
+                  staticClass: "list-group-item",
+                  attrs: {
+                    tag: "li",
+                    "active-class": "active",
+                    to: { path: "/movie/" + movie.id }
                   }
-                }
-              },
-              [_vm._v("Remove")]
-            )
-          ]
-        )
-      })
-    )
+                },
+                [
+                  _c("a", { staticStyle: { "font-size": "1.2em" } }, [
+                    _vm._v(_vm._s(movie.title))
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger pull-right",
+                      on: {
+                        click: function($event) {
+                          _vm.removeMovieFromWatchlist(movie)
+                        }
+                      }
+                    },
+                    [_vm._v("Remove")]
+                  )
+                ]
+              )
+            })
+          )
+        ])
+      : _c("div", [_c("h1", [_vm._v("No movies added to watchlist yet")])])
   ])
 }
 var staticRenderFns = []

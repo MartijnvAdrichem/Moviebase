@@ -52,8 +52,8 @@
 						password: this.password
 					};
 				axios.post('/auth/register', params)
-					.then(res => console.log(res))
-					.catch(error => console.log(error));
+					.then(res => this.$router.push('login')  )
+					.catch(error => console.log("error"));
 			}
 		}
 	}

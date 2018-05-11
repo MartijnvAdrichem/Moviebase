@@ -19,7 +19,7 @@ class CreateReviewsTable extends Migration
             $table->integer('movie_id');
             $table->string('title');
             $table->text('content');
-            $table->integer('rating')->unsigned();
+            $table->double('rating');
             $table->timestamps();
         });
     }
