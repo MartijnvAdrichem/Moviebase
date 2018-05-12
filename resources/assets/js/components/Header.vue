@@ -2,7 +2,7 @@
 		<div style="padding-top: 20px">
 			<div class="text-center">
 
-					<img style="cursor: pointer;" src="images/Moviebaselogo.png" @click="goHome" alt="">
+					<img style="cursor: pointer;" src="/images/Moviebaselogo.png" @click="goHome" alt="">
 			</div>
 			<div>
 				<nav class="navbar navbar-custom navbar-expand-lg navbar-dark bg-dark ml-3 mr-3" >
